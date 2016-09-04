@@ -1,0 +1,77 @@
+#editorTool{
+    font-size: 12px;
+    padding-left: 10px;
+}
+#searchPanel{
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 6px;
+    width: 300px;
+    z-index: 100;
+	font-size:16px;
+	font-weight:bolder;
+}
+#searchPanel input{
+    width: 180px;
+}
+#searchPanel form{
+    border-bottom: 1px solid #ddd;
+    padding: 6px;
+}
+#DoSearch {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:normal;
+	padding:1px 10px;
+	margin-left:10px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #ffffff;
+}
+#DoSearch:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+	cursor:pointer;
+}
+#DoSearch:active {
+	position:relative;
+	top:1px;
+}
+#searchPanel .close{
+    position: absolute;
+    top:6px;
+    right: 6px;
+    cursor: pointer;
+    display: block;
+    padding: 6px;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: #E47E00;
+    color: #fff;
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    line-height: 10px;
+}
+#searchPanel #xiami_list a{
+    display: block;
+    padding: 6px;
+    border-bottom: 1px solid #ddd;
+}

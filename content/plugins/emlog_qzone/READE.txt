@@ -1,0 +1,5 @@
+博客自动发布到Qzone
+因为Qzone的AppKey受到域名的保护，就是AppKey只能在自己设定的域名下使用，防止别人盗用，所以首先得申请一个AppKey
+地址：http://connect.qq.com/intro/login
+登陆后点击申请加入后可能需要填写开发者信息，然后点击添加网站/应用，根据相应的提示创建一个AppKey.
+然后下载qzone_emlog.zip。接着修改emlog_qzone/comm/config.php 中$_SESSION["appid"]对应APP ID，$_SESSION["appkey"]对应KEY，修改后保存。ok了现在可以用了

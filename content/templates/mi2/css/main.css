@@ -1,0 +1,186 @@
+@charset "utf-8";
+body{margin:0;background:#faf9f5; font: 12px/1.5 microsoft yahei,tahoma,helvetica,simsun,sans-serif; color: #444;text-align: center;}
+
+h1,h2,h3,blockquote,dl,dt,dd,ul,ol,li,button,input,textarea{ margin:0; padding:0;}
+img {border:none;}
+img a {border:none;}
+img a:hover {border:none}
+table { border-collapse:collapse; border-spacing:0; font-size:inherit; font:100%; }
+hr { border:1px; color:#ee9632;}
+ul { margin: 0; padding: 0; }
+li {list-style: none;}
+.clear{clear:both;}
+.space{height:10px;}
+.wp {margin: 0px auto; width: 960px;overflow: hidden;}
+a {color: #333; text-decoration: none;}
+a:hover {text-decoration: underline}
+h1 {padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px}
+h2 {padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px}
+h3 {padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px}
+h4 {padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px}
+h5 {padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px}
+h6 {padding-bottom: 0px; margin: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px}
+.z {float: left;}
+.y {float: right;}
+.readmore{ display:none;}
+.content{width:700px; float:left;border: 1px solid #CDCDCD;background:#fff;padding:0px; padding-bottom:10px;}
+/*toptb*/
+
+#toptb {line-height: 24px; height:24px;}
+#toptb a {padding-bottom: 0px; padding-left: 4px; padding-right: 4px; float: left; height: 24px; padding-top: 0px}
+#toptb a.hover {background-color: #fff}
+
+
+/*header*/
+.hdc{height:60px;}
+.hdc .logo{float:left;}
+.hdc .logo a{  display:block; height:60px; width:220px;}
+.hdc .logo a.zq_logo{ background:url('../images/logo.gif') no-repeat; }
+.hdc .login{color: #444;
+LINE-HEIGHT: 2.3;
+PADDING-RIGHT: 60px;
+ZOOM: 1;
+PADDING-TOP: 0px;
+float:right;}
+#login_img{width:25px; height:25px; border:2px #CCCCCC solid; margin-bottom:-30px; padding:1px;}
+#login_img:hover{border:2px #999999 solid;}
+.pipe {margin: 0px 5px 0px 0px;color:#ccc}
+
+/*菜单‘首页’样式*/
+#nv .current-cat a, #nv  li a:hover{color:#8A2BD1;text-decoration: underline;}
+#nv {
+padding-left: 60px;
+height: 33px;
+}
+#nv li {
+line-height: 33px;
+padding-right: 1px;
+float: left;
+height: 33px;
+font-size: 14px;
+font-weight: 700;
+}
+#nv li a {
+color: #fff;
+padding-bottom: 0px;
+padding-left: 15px;
+padding-right: 15px;
+float: left;
+height: 33px;
+padding-top: 0px;
+}
+#nv li.a {
+background: #ee6932;
+margin-left: -1px;
+}
+
+.serpage{ width:704px; height:35px; padding-top:5px; float:left}
+.serpage .guestbookimg{display:block; width:126px; height:41px; float:left; background:URL(../images/common/zqcomm.gif) -313px -4px   no-repeat; margin-left:10px;}
+.serpage .guestbookimg:hover{background:URL(../images/common/zqcomm.gif) -307px -216px   no-repeat;}
+.listtopSpan{float:left;width:60px; margin-left:10px; line-height:30px;}
+.navtopnotice{float:left; margin-left:10px; line-height:30px;}
+
+/*碎语轮播*/
+#notice-t {width:620px;height:60px; overflow:hidden;}
+#notice-t a{ font-weight:bolder; color:#6f8606;}
+#notice-t .tip .notice-title {font-size:12px; font-weight:bold; float:left;height:27px; line-height:27px;}
+#notice {float:left; height:27px; line-height:27px; overflow:hidden;}
+#notice li{display:block; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; width:620px;text-align: left;}
+#notice-t .tip {margin-top:16px; margin-left:20px;}
+
+
+/*listtop*/
+.listtop { height:28px;background:#eee;border-bottom: 1px solid #CDCDCD;border-left: 1px solid #fff;border-top: 1px solid #fff;border-right: 1px solid #fff;}
+#pt {
+margin: 2px 0;
+height: 29px;
+border: none;
+background: transparent;
+line-height: 29px;
+}
+
+/*侧边*/
+.side_box{background:#fff;border: 1px solid #E3E3E3;padding-bottom: 2px; float:right; width:248px; clear:both}
+.footer_link{background:#fff;padding-bottom: 2px; margin-top:15px; height:auto;overflow:hidden;clear:both;;}
+.side_box li,.footer_link li{text-align: left;}
+.side_box h3,.footer_link h3{
+text-align: left;
+padding: 0 10px;
+height: 28px;
+font-size: 14px;
+color:#fff;
+line-height: 28px;
+font-weight:bold;
+overflow: hidden;
+background:url(../images/common/s_title.gif) repeat-x;
+}
+.footer_link h3{background:none;color:#000;border:none;border-bottom: 1px solid #E3E3E3;}
+.footer_link li{float:left;margin:7px 5px;}
+
+#record ul li{ display:block; width:100px; float:left; height:25px; overflow:hidden;}
+
+#bloggerinfoimg{ margin:10px; border:2px #CCCCCC solid; padding:1px; width:80px; float:left;}
+#bloggerinfoimg:hover{ border:2px #369 solid;}
+#bloggerinfoimg img{ width:80px; height:80px;}
+#blogger span{ float:none; width:230px; display:block; margin:5px;}
+
+/* 日历 */
+.calendartop{font-size:14px; margin-left:30%}
+.calendar td { padding: 2px 2px; border: 1px solid #f0f0f0; font-size:10px; text-align:center; width:30px;}
+.calendar td a:link{color:#369; text-decoration:none;}
+.calendar td a:hover{color:#369;}
+.day{background-color:#369; color:#FFFFFF; font-weight:700;}
+.calendar .day a,.calendar .day a:link{color:#FFFFFF;}
+.sun{color:#369; font-weight:bold}
+.week{color:#369;font-weight:bold}
+
+#tag span{ display:block; margin:5px;}
+#tag span a{ display:block; margin-left:2px; float:left;line-height: 22px; padding:2px;}
+#tag span a:hover{ color:#FFFFFF;}
+
+#sort ul li{ display:block; width:101px; float:left; height:25px; overflow:hidden;}
+#link ul li{ display:block; width:101px; float:left; height:25px; overflow:hidden;}
+#twitter a{ text-decoration:none;}
+
+.pagenav{padding:10px 5px;width:960px;background:#fff;float:left}
+.bcrumbs {text-align: left;}
+.bcrumbs strong a {background:url(../images/home_icon.png) no-repeat 50% 50%;float:left;width:26px;}
+.bcrumbs span{ line-height:22px;}
+.page h2{ text-align:center; border-bottom:1px #369 dashed; width:80%; margin:0px auto; margin-top:20px; margin-bottom:20px;}
+.page .content{ width:660px; text-align: left;}
+.page .content p,.page .content div{margin:10px 20px;}
+
+.sidebar #comment ul li a{ text-decoration:none}
+#echolog .content{width:660px; padding:10px 20px; border-top:5px #458fce solid; border-left:3px solid #ccc;text-align: left;}
+#loginfo{ margin-left:0px; background:#f5f8fa; border:1px dashed #369; height:80px; padding:5px;text-align:center;}
+#loginfo:hover{ background:#efefef;}
+#loginfo .face_img{ padding:1px; display:block; background:#006699;width:75px; height:75px; float:left;margin-right:10px;}
+#loginfo .face_img img{ width:70px; height:70px; border:2px #CCCCCC solid; }
+#loginfo h2{  height:32px; overflow:hidden;}
+#loginfo .share{ display:block; padding:5px;}
+.post_content{ color:#333333;padding:10px 5px;line-height:18px;}
+.post_content img{ display:block; max-width:600px;float:none; margin:0px auto; border:2px #ccc solid; margin-top:10px; margin-bottom:10px; padding:2px;}
+.post_content img:hover{ border:#369 2px solid;}
+.post_content p{display:block;height:auto;overflow:hidden;clear:both;line-height:18px; white-space:normal;text-indent:2em;word-break:break-all;}
+.post_content p#face_box{clear:both;}
+.post_content p#face_box a{float:left;margin-right:3px;}
+.post_content p#face_box span{clear:both;}
+#neighborLog{ border:1px #369 dashed; padding:10px; background:#f5f8fa; margin:10px 0px;}
+#neighborLog a:hover{ color:#FF0000;}
+
+/*---updown---*/
+*html,*body{ background-image:url(about:blank);  /* 使用空背景 */
+          background-attachment:fixed;  /* 固定背景 */
+}
+#shangxia{position:fixed;top:45%;right:0;display:block; z-index:999;
+_position: absolute;
+/* _top: expression( eval(document.compatMode && document.compatMode==’CSS1Compat’) ? documentElement.scrollTop + (documentElement.clientHeight - this.clientHeight) - 1 : document.body.scrollTop + (document.body.clientHeight - this.clientHeight) - 1);*/
+_top:expression(eval(document.body.scrollTop?document.body.scrollTop+ 230:documentElement.scrollTop+230 ));
+}
+
+#shang,#comt,#xia{background:url(../images/huadong.png) no-repeat;position:relative;cursor:pointer;height:25px;width:29px;margin:10px 0 0;}
+#comt{background-position:left -30px;height:32px;}
+#xia{background-position:left -68px;}
+#comt:hover{background-position:right -30px;}
+#shang:hover{background-position:right 0;}
+#xia:hover{background-position:right -68px ;}

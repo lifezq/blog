@@ -1,0 +1,1 @@
+<?php exit;//a:5:{i:0;a:2:{s:3:"gid";i:213;s:5:"title";s:31:"centos6.5升级内核至3.10.54";}i:1;a:2:{s:3:"gid";i:211;s:5:"title";s:39:"大型网站架构演变和知识体系";}i:2;a:2:{s:3:"gid";i:207;s:5:"title";s:33:"php+fastcgi+apache2+php-fpm配置";}i:3;a:2:{s:3:"gid";i:171;s:5:"title";s:38:"堆、栈的数据概念--与php有关";}i:4;a:2:{s:3:"gid";i:178;s:5:"title";s:74:"MySQL数据库引擎介绍、区别、创建和性能测试的深入分析";}}

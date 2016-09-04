@@ -1,0 +1,36 @@
+#
+# robots.txt for emlog
+#
+
+User-agent: *
+Disallow: /admin/
+Disallow: /include/
+Disallow: /bindAccount/
+Disallow: /comAccount/
+Disallow: /login/
+Disallow: /phpmailer/
+Disallow: /QQLogin/
+Disallow: /register/
+Disallow: /self-talking/
+Disallow: /weiboSina/
+
+Disallow: /config.php
+Disallow: /4c84c6c0c1bf650a7ee89985a49b5fbd.html
+Disallow: /bindAccount.html
+Disallow: /comAccount.html
+Disallow: /getToken.php
+Disallow: /go.php
+Disallow: /google60f66458ceec3f3a.html
+Disallow: /init.php
+Disallow: /login.html
+Disallow: /phpqrcode.php
+Disallow: /register.html
+Disallow: /rss.php
+Disallow: /sinacallback.php
+Disallow: /tb.php
+Disallow: /treaty.html
+
+
+
+
+Disallow: /go.php?url=*
