@@ -46,6 +46,11 @@ function reader_wall(){
 	$DB = Database::getInstance();
 	$userName = $user_cache[1]['name'];
 	$userMail = $user_cache[1]['mail'];
+
+    if(!isset($output)){
+        $output = "";
+    }
+
 	$sql = "SELECT count(1) AS comment_nums,poster,mail,url FROM ".DB_PREFIX."comment where date > $cur_time_span and mail != '' and mail != '$userMail' and poster != '$userName' and hide = 'n' group by mail order by comment_nums DESC limit 0,$imgnums";
 	$result = $DB->query($sql);
 	while($row = $DB->fetch_array($result)){

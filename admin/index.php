@@ -28,6 +28,7 @@ if ($action == '') {
 		$gd_ver = '不支持';
 	}
 
+
 	include View::getView('header');
 	require_once(View::getView('index'));
 	include View::getView('footer');

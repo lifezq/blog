@@ -26,7 +26,7 @@ class Cache {
 	private $logalias_cache;
 
 	private function __construct() {
-        $this->db = Database::getInstance();
+		$this->db = Database::getInstance();
 	}
 
 	/**
@@ -42,7 +42,7 @@ class Cache {
 	}
 	/**
 	 * 更新缓存
-	 * 
+	 *
 	 * @param array/string $cacheMethodName 需要更新的缓存，更新多个采用数组方式：array('options', 'user'),单个采用字符串方式：'options',全部则留空
 	 * @return unknown_type
 	 */
@@ -99,7 +99,7 @@ class Cache {
 		while ($row = $this->db->fetch_array($query)) {
 			$photo = array();
 			$avatar = '';
-			if(!empty($row['photo'])){
+			if (!empty($row['photo'])) {
 				$photosrc = str_replace("../", '', $row['photo']);
 				$imgsize = chImageSize($row['photo'], Option::ICON_MAX_W, Option::ICON_MAX_H);
 				$photo['src'] = htmlspecialchars($photosrc);
@@ -116,14 +116,14 @@ class Cache {
 				'name_orig' => $row['nickname'],
 				'name' => htmlspecialchars($row['nickname']),
 				'mail' => htmlspecialchars($row['email']),
-				'des' => htmlClean($row['description'])
-				);
-                        
+				'des' => htmlClean($row['description']),
+			);
+
 		}
-                
+
 		$cacheData = serialize($user_cache);
 		$this->cacheWrite($cacheData, 'user');
-               
+
 	}
 	/**
 	 * 站点统计缓存
@@ -144,8 +144,8 @@ class Cache {
 			'comnum_all' => $comnum + $hidecom,
 			'twnum' => $twnum,
 			'hidecomnum' => $hidecom,
-			'tbnum' => $tbnum
-			);
+			'tbnum' => $tbnum,
+		);
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "user");
 		while ($row = $this->db->fetch_array($query)) {
@@ -162,8 +162,8 @@ class Cache {
 				'commentnum' => $commentNum,
 				'hidecommentnum' => $hidecommentNum,
 				'tbnum' => $tbNum,
-				'twnum' => $twnum
-				);
+				'twnum' => $twnum,
+			);
 		}
 
 		$cacheData = serialize($sta_cache);
@@ -174,29 +174,29 @@ class Cache {
 	 */
 	private function mc_comment() {
 		$query = $this->db->query("SELECT option_value,option_name FROM " . DB_PREFIX . "options WHERE option_name IN('index_comnum','comment_subnum','comment_paging','comment_pnum','comment_order')");
-	
-		while($row = $this->db->fetch_array($query)) {
+
+		while ($row = $this->db->fetch_array($query)) {
 			${$row['option_name']} = $row['option_value'];
 		}
 
-		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "comment WHERE hide='n' ORDER BY date DESC LIMIT 0, 10");
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "comment WHERE hide='n' ORDER BY date DESC LIMIT 0, $index_comnum");
 		$com_cache = array();
 		$com_cids = array();
 		while ($show_com = $this->db->fetch_array($query)) {
 			$com_page = '';
-			if($comment_paging == 'y') {
+			if ($comment_paging == 'y') {
 				$pid = $show_com['pid'];
 				$cid = $show_com['cid'];
 				$order = $comment_order == 'newer' ? 'DESC' : '';
-				while($pid != 0) {
+				while ($pid != 0) {
 					$show_pid = $this->db->once_fetch_array("SELECT cid,pid FROM " . DB_PREFIX . "comment WHERE cid=$pid");
 					$pid = $show_pid['pid'];
 					$cid = $show_pid['cid'];
 				}
-				if(!isset($com_cids[$show_com['gid']])) {
+				if (!isset($com_cids[$show_com['gid']])) {
 					$com_cids[$show_com['gid']] = array();
 					$query2 = $this->db->query("SELECT cid FROM " . DB_PREFIX . "comment WHERE gid=" . $show_com['gid'] . " AND pid=0 AND hide='n' ORDER BY date $order");
-					while($show_cid = $this->db->fetch_array($query2)) {
+					while ($show_cid = $this->db->fetch_array($query2)) {
 						$com_cids[$show_com['gid']][] = $show_cid['cid'];
 					}
 				}
@@ -210,7 +210,7 @@ class Cache {
 				'page' => $com_page,
 				'mail' => $show_com['mail'],
 				'content' => htmlClean(subString($show_com['comment'], 0, $comment_subnum), false),
-				);
+			);
 		}
 		$cacheData = serialize($com_cache);
 		$this->cacheWrite($cacheData, 'comment');
@@ -237,9 +237,9 @@ class Cache {
 			}
 			$tagnum++;
 		}
-		$spread = ($tagnum > 12?12:$tagnum);
+		$spread = ($tagnum > 12 ? 12 : $tagnum);
 		$rank = $maxuse - $minuse;
-		$rank = ($rank == 0?1:$rank);
+		$rank = ($rank == 0 ? 1 : $rank);
 		$rank = $spread / $rank;
 		// 获取草稿id
 		$hideGids = array();
@@ -259,11 +259,11 @@ class Cache {
 			$usenum = substr_count($show_tag['gid'], ',') - 1;
 			$fontsize = 10 + round(($usenum - $minuse) * $rank); //maxfont:22pt,minfont:10pt
 			$tag_cache[] = array(
-					'tagurl' => urlencode($show_tag['tagname']),
-					'tagname' => htmlspecialchars($show_tag['tagname']),
-					'fontsize' => $fontsize,
-					'usenum' => $usenum
-					);
+				'tagurl' => urlencode($show_tag['tagname']),
+				'tagname' => htmlspecialchars($show_tag['tagname']),
+				'fontsize' => $fontsize,
+				'usenum' => $usenum,
+			);
 		}
 		$cacheData = serialize($tag_cache);
 		$this->cacheWrite($cacheData, 'tags');
@@ -280,11 +280,11 @@ class Cache {
 				'lognum' => $logNum,
 				'sortname' => htmlspecialchars($row['sortname']),
 				'description' => htmlspecialchars($row['description']),
-				'alias' =>$row['alias'],
+				'alias' => $row['alias'],
 				'sid' => intval($row['sid']),
 				'taxis' => intval($row['taxis']),
 				'pid' => intval($row['pid']),
-				);
+			);
 			if ($sortData['pid'] == 0) {
 				$sortData['children'] = array();
 			} elseif (isset($sort_cache[$row['pid']])) {
@@ -305,8 +305,8 @@ class Cache {
 			$link_cache[] = array(
 				'link' => htmlspecialchars($show_link['sitename']),
 				'url' => htmlspecialchars($show_link['siteurl']),
-				'des' => htmlspecialchars($show_link['description'])
-				);
+				'des' => htmlspecialchars($show_link['description']),
+			);
 		}
 		$cacheData = serialize($link_cache);
 		$this->cacheWrite($cacheData, 'link');
@@ -327,13 +327,13 @@ class Cache {
 				}
 			}
 			$navi_cache[] = array(
-					'naviname' => htmlspecialchars(trim($row['naviname'])),
-					'url' => htmlspecialchars(trim($url)),
-					'newtab' => $row['newtab'],
-					'type' => intval($row['type']),
-					'typeId' => intval($row['type_id']),
-					'children' => $children,
-				);
+				'naviname' => htmlspecialchars(trim($row['naviname'])),
+				'url' => htmlspecialchars(trim($url)),
+				'newtab' => $row['newtab'],
+				'type' => intval($row['type']),
+				'typeId' => intval($row['type_id']),
+				'children' => $children,
+			);
 		}
 		$cacheData = serialize($navi_cache);
 		$this->cacheWrite($cacheData, 'navi');
@@ -388,23 +388,23 @@ class Cache {
 			$show_record['date'] = $show_record['date'] + $timezone * 3600;
 			$f_record = gmdate('Y_n', $show_record['date']);
 			if ($record != $f_record) {
-				$h = $p-1;
+				$h = $p - 1;
 				if ($h != -1) {
 					$record_cache[$h]['lognum'] = $lognum;
 				}
 				$record_cache[$p] = array(
 					'record' => gmdate('Y年n月', $show_record['date']),
-					'date' => gmdate('Ym', $show_record['date'])
-					);
+					'date' => gmdate('Ym', $show_record['date']),
+				);
 				$p++;
 				$lognum = 1;
-			}else {
+			} else {
 				$lognum++;
 				continue;
 			}
 			$record = $f_record;
 		}
-		$j = $p-1;
+		$j = $p - 1;
 		if ($j >= 0) {
 			$record_cache[$j]['lognum'] = $lognum;
 		}
@@ -421,7 +421,7 @@ class Cache {
 		while ($row = $this->db->fetch_array($query)) {
 			$logid = $row['gid'];
 			$tags = array();
-			$tquery = "SELECT tagname,tid FROM " . DB_PREFIX . "tag WHERE gid LIKE '%,$logid,%' " ;
+			$tquery = "SELECT tagname,tid FROM " . DB_PREFIX . "tag WHERE gid LIKE '%,$logid,%' ";
 			$result = $this->db->query($tquery);
 			while ($trow = $this->db->fetch_array($result)) {
 				$trow['tagurl'] = urlencode($trow['tagname']);
@@ -473,12 +473,12 @@ class Cache {
 	/**
 	 * 写入缓存
 	 */
-	function cacheWrite ($cacheData, $cacheName) {
+	function cacheWrite($cacheData, $cacheName) {
 		$cachefile = EMLOG_ROOT . '/content/cache/' . $cacheName . '.php';
 		$cacheData = "<?php exit;//" . $cacheData;
-		@ $fp = fopen($cachefile, 'wb') OR emMsg('读取缓存失败。如果您使用的是Unix/Linux主机，请修改缓存目录 (content/cache) 下所有文件的权限为777。如果您使用的是Windows主机，请联系管理员，将该目录下所有文件设为可写');
-		@ $fw = fwrite($fp, $cacheData) OR emMsg('写入缓存失败，缓存目录 (content/cache) 不可写');
-		$this->{$cacheName.'_cache'} = null;
+		@$fp = fopen($cachefile, 'wb') OR emMsg('读取缓存失败。如果您使用的是Unix/Linux主机，请修改缓存目录 (content/cache) 下所有文件的权限为777。如果您使用的是Windows主机，请联系管理员，将该目录下所有文件设为可写');
+		@$fw = fwrite($fp, $cacheData) OR emMsg('写入缓存失败，缓存目录 (content/cache) 不可写');
+		$this->{$cacheName . '_cache'} = null;
 		fclose($fp);
 	}
 
@@ -486,8 +486,8 @@ class Cache {
 	 * 读取缓存文件
 	 */
 	function readCache($cacheName) {
-		if ($this->{$cacheName.'_cache'} != null) {
-			return $this->{$cacheName.'_cache'};
+		if ($this->{$cacheName . '_cache'} != null) {
+			return $this->{$cacheName . '_cache'};
 		} else {
 			$cachefile = EMLOG_ROOT . '/content/cache/' . $cacheName . '.php';
 			// 如果缓存文件不存在则自动生成缓存文件
@@ -499,9 +499,9 @@ class Cache {
 			if ($fp = fopen($cachefile, 'r')) {
 				$data = fread($fp, filesize($cachefile));
 				fclose($fp);
-                //$this->{$cacheName.'_cache'} = unserialize(preg_replace('!s:(\d+):"(.*?)";!se', '"s:".strlen("$2").":\"$2\";"', str_replace("<?php exit;//",'', $data)));
-				 $this->{$cacheName.'_cache'} = unserialize(str_replace("<?php exit;//", '', $data));
-				return $this->{$cacheName.'_cache'};
+				//$this->{$cacheName.'_cache'} = unserialize(preg_replace('!s:(\d+):"(.*?)";!se', '"s:".strlen("$2").":\"$2\";"', str_replace("<?php exit;//",'', $data)));
+				$this->{$cacheName . '_cache'} = unserialize(str_replace("<?php exit;//", '', $data));
+				return $this->{$cacheName . '_cache'};
 			}
 		}
 	}

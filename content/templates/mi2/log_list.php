@@ -59,7 +59,7 @@ if(isset($value['sortname'])){
 <?php endforeach; ?>
        
 <div class="serpage">
-	<a  href="http://localhost/messages.html" class='guestbookimg'></a>
+	<a  href="<?php echo WEB_ROOT; ?>/messages.html" class='guestbookimg'></a>
 	<div class="pagelist">  
 			<?php echo $page_url;?> 
 			<?php if($page_url): ?>

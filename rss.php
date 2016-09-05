@@ -4,7 +4,7 @@
  * @copyright (c) Emlog All Rights Reserved
  */
 
-require_once './init_rss.php';
+require_once './init.php';
 
 header('Content-type: application/xml');
 

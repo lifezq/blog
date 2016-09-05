@@ -16,15 +16,15 @@ Disallow: /weiboSina/
 
 Disallow: /config.php
 Disallow: /4c84c6c0c1bf650a7ee89985a49b5fbd.html
-Disallow: /bindAccount.html
-Disallow: /comAccount.html
+Disallow: /bindAccount.php
+Disallow: /comaccount.php
 Disallow: /getToken.php
 Disallow: /go.php
 Disallow: /google60f66458ceec3f3a.html
 Disallow: /init.php
-Disallow: /login.html
+Disallow: /login.php
 Disallow: /phpqrcode.php
-Disallow: /register.html
+Disallow: /register.php
 Disallow: /rss.php
 Disallow: /sinacallback.php
 Disallow: /tb.php

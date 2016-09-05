@@ -20,7 +20,7 @@ $("a.thickbox").click(function(){
       url=_root+"/register.html?height=370;width=400";
   }else if(comAccount.test(this.href)){
       //300
-      url=_root+"/comAccount.html?height=370;width=400";
+      url=_root+"/comaccount.html?height=370;width=400";
   }else if(bindAccount.test(this.href)){
       //120
       url=_root+"/bindAccount.html?height=240;width=400";

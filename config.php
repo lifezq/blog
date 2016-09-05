@@ -3,12 +3,12 @@
 define('WEB_ROOT', 'http://localhost/');
 define('WEB_COOKIE_DOMAIN', false);
 //mysql database address
-define('DB_HOST','192.168.0.102');
+define('DB_HOST','127.0.0.1');
 define('DB_PORT',3306);
 //mysql database user
 define('DB_USER','root');
 //database password
-define('DB_PASSWD','root');
+define('DB_PASSWD','123456');
 //database name
 define('DB_NAME','qdm174093136_db');
 

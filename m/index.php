@@ -5,15 +5,14 @@
  * @copyright (c) Emlog All Rights Reserved
  */
 
-
 require_once '../init.php';
 
-define ('TEMPLATE_PATH', EMLOG_ROOT . '/m/view/');
+define('TEMPLATE_PATH', EMLOG_ROOT . '/m/view/');
 
 $isgzipenable = 'n'; //手机浏览关闭gzip压缩
 $index_lognum = 5;
 
-$logid = isset ($_GET['post']) ? intval ($_GET['post']) : '';
+$logid = isset($_GET['post']) ? intval($_GET['post']) : '';
 $action = isset($_GET['action']) ? addslashes($_GET['action']) : '';
 
 if (Option::get('ismobile') == 'n') {
@@ -21,14 +20,14 @@ if (Option::get('ismobile') == 'n') {
 }
 
 // 首页
-if (empty ($action) && empty ($logid)) {
+if (empty($action) && empty($logid)) {
 	$Log_Model = new Log_Model();
-	$page = isset($_GET['page']) ? abs(intval ($_GET['page'])) : 1;
+	$page = isset($_GET['page']) ? abs(intval($_GET['page'])) : 1;
 	$sqlSegment = "ORDER BY top DESC ,date DESC";
 	$sta_cache = $CACHE->readCache('sta');
 	$lognum = $sta_cache['lognum'];
 	$pageurl = './?page=';
-	$logs = $Log_Model->getLogsForHome ($sqlSegment, $page, $index_lognum);
+	$logs = $Log_Model->getLogsForHome($sqlSegment, $page, $index_lognum);
 	$page_url = pagination($lognum, $index_lognum, $page, $pageurl);
 
 	include View::getView('header');
@@ -37,19 +36,19 @@ if (empty ($action) && empty ($logid)) {
 	View::output();
 }
 // 文章
-if (!empty ($logid)) {
+if (!empty($logid)) {
 	$Log_Model = new Log_Model();
 	$Comment_Model = new Comment_Model();
 
 	$logData = $Log_Model->getOneLogForHome($logid);
 	if ($logData === false) {
-		mMsg ('不存在该条目', './');
+		mMsg('不存在该条目', './');
 	}
 	extract($logData);
 	if (!empty($password)) {
-		$postpwd = isset($_POST['logpwd']) ? addslashes(trim ($_POST['logpwd'])) : '';
-		$cookiepwd = isset($_COOKIE ['em_logpwd_' . $logid]) ? addslashes(trim($_COOKIE ['em_logpwd_' . $logid])) : '';
-		authPassword ($postpwd, $cookiepwd, $password, $logid);
+		$postpwd = isset($_POST['logpwd']) ? addslashes(trim($_POST['logpwd'])) : '';
+		$cookiepwd = isset($_COOKIE['em_logpwd_' . $logid]) ? addslashes(trim($_COOKIE['em_logpwd_' . $logid])) : '';
+		authPassword($postpwd, $cookiepwd, $password, $logid);
 	}
 	// comments
 	$commentPage = isset($_GET['comment-page']) ? intval($_GET['comment-page']) : 1;
@@ -57,10 +56,10 @@ if (!empty ($logid)) {
 	$comments = $Comment_Model->getComments(2, $logid, 'n', $commentPage);
 	extract($comments);
 	$user_cache = $CACHE->readCache('user');
-          
+
 	$Log_Model->updateViewCount($logid);
-        //用户是否评论该条博文
-        $is_user_com=$Log_Model->is_user_com($logid);
+	//用户是否评论该条博文
+	$is_user_com = $Log_Model->is_user_com($logid);
 	include View::getView('header');
 	include View::getView('single');
 	include View::getView('footer');
@@ -81,7 +80,7 @@ if (ISLOGIN === true && $action == 'write') {
 			$tags[] = $val['tagname'];
 		}
 		$tagStr = implode(',', $tags);
-	}else {
+	} else {
 		$title = '';
 		$sortid = -1;
 		$content = '';
@@ -108,7 +107,7 @@ if (ISLOGIN === true && $action == 'savelog') {
 	$blogid = isset($_POST['gid']) ? intval(trim($_POST['gid'])) : -1;
 	$date = isset($_POST['date']) ? addslashes($_POST['date']) : '';
 	$author = isset($_POST['author']) ? intval(trim($_POST['author'])) : UID;
-	$postTime = $Log_Model->postDate(Option::get('timezone'), $date);	
+	$postTime = $Log_Model->postDate(Option::get('timezone'), $date);
 
 	$logData = array('title' => $title,
 		'content' => $content,
@@ -119,13 +118,13 @@ if (ISLOGIN === true && $action == 'savelog') {
 		'allow_remark' => 'y',
 		'allow_tb' => 'y',
 		'hide' => 'n',
-		'password' => ''
-		);
+		'password' => '',
+	);
 
 	if ($blogid > 0) {
 		$Log_Model->updateLog($logData, $blogid);
 		$Tag_Model->updateTag($tagstring, $blogid);
-	}else {
+	} else {
 		$blogid = $Log_Model->addlog($logData);
 		$Tag_Model->addTag($tagstring, $blogid);
 	}
@@ -144,49 +143,49 @@ if ($action == 'addcom') {
 	$Comment_Model = new Comment_Model();
 
 	$name = isset($_POST['comname']) ? addslashes(trim($_POST['comname'])) : '';
-    $content = isset($_POST['comment']) ? addslashes(trim($_POST['comment'])) : '';
-    $mail = isset($_POST['commail']) ? addslashes(trim($_POST['commail'])) : '';
-    $url = isset($_POST['comurl']) ? addslashes(trim($_POST['comurl'])) : '';
-    $imgcode = isset($_POST['imgcode']) ? strtoupper(trim($_POST['imgcode'])) : '';
-    $blogId = isset($_GET['gid']) ? intval($_GET['gid']) : - 1;
-    $pid = isset($_GET['pid']) ? intval($_GET['pid']) : 0;
+	$content = isset($_POST['comment']) ? addslashes(trim($_POST['comment'])) : '';
+	$mail = isset($_POST['commail']) ? addslashes(trim($_POST['commail'])) : '';
+	$url = isset($_POST['comurl']) ? addslashes(trim($_POST['comurl'])) : '';
+	$imgcode = isset($_POST['imgcode']) ? strtoupper(trim($_POST['imgcode'])) : '';
+	$blogId = isset($_GET['gid']) ? intval($_GET['gid']) : -1;
+	$pid = isset($_GET['pid']) ? intval($_GET['pid']) : 0;
 
-    $targetBlogUrl = './?post=' . $blogId;
+	$targetBlogUrl = './?post=' . $blogId;
 
-    if (ISLOGIN === true) {
-        $CACHE = Cache::getInstance();
-        $user_cache = $CACHE->readCache('user');
+	if (ISLOGIN === true) {
+		$CACHE = Cache::getInstance();
+		$user_cache = $CACHE->readCache('user');
 		$name = addslashes($user_cache[UID]['name_orig']);
-       	$mail = addslashes($user_cache[UID]['mail']);
-        $url = addslashes(BLOG_URL);
-    }
+		$mail = addslashes($user_cache[UID]['mail']);
+		$url = addslashes(BLOG_URL);
+	}
 
-    doAction('comment_post');
+	doAction('comment_post');
 
-	if($Comment_Model->isLogCanComment($blogId) === false){
-        mMsg('评论失败：该文章已关闭评论', $targetBlogUrl);
-    } elseif ($Comment_Model->isCommentExist($blogId, $name, $content) === true){
-        mMsg('评论失败：已存在相同内容评论', $targetBlogUrl);
-    } elseif ($Comment_Model->isCommentTooFast() === true) {
+	if ($Comment_Model->isLogCanComment($blogId) === false) {
+		mMsg('评论失败：该文章已关闭评论', $targetBlogUrl);
+	} elseif ($Comment_Model->isCommentExist($blogId, $name, $content) === true) {
+		mMsg('评论失败：已存在相同内容评论', $targetBlogUrl);
+	} elseif ($Comment_Model->isCommentTooFast() === true) {
 		mMsg('评论失败：您提交评论的速度太快了，请稍后再发表评论', $targetBlogUrl);
-	} elseif (strlen($name) > 20 || strlen($name) == 0){
-        mMsg('评论失败：姓名不符合规范', $targetBlogUrl);
-    } elseif ($mail != '' && !checkMail($mail)) {
-        mMsg('评论失败：邮件地址不符合规范', $targetBlogUrl);
-    } elseif (ISLOGIN == false && $Comment_Model->isNameAndMailValid($name, $mail) === false){
-        mMsg('评论失败：禁止使用管理员昵称或邮箱评论', $targetBlogUrl);
-    } elseif (strlen($content) == '' || strlen($content) > 2000) {
-        mMsg('评论失败：内容不符合规范', $targetBlogUrl);
-    } elseif (ROLE == 'visitor' && Option::get('comment_needchinese') == 'y' && !preg_match('/[\x{4e00}-\x{9fa5}]/iu', $content)) {
+	} elseif (strlen($name) > 20 || strlen($name) == 0) {
+		mMsg('评论失败：姓名不符合规范', $targetBlogUrl);
+	} elseif ($mail != '' && !checkMail($mail)) {
+		mMsg('评论失败：邮件地址不符合规范', $targetBlogUrl);
+	} elseif (ISLOGIN == false && $Comment_Model->isNameAndMailValid($name, $mail) === false) {
+		mMsg('评论失败：禁止使用管理员昵称或邮箱评论', $targetBlogUrl);
+	} elseif (strlen($content) == '' || strlen($content) > 2000) {
+		mMsg('评论失败：内容不符合规范', $targetBlogUrl);
+	} elseif (ROLE == 'visitor' && Option::get('comment_needchinese') == 'y' && !preg_match('/[\x{4e00}-\x{9fa5}]/iu', $content)) {
 		mMsg('评论失败：评论内容需包含中文', $targetBlogUrl);
-	}elseif (ISLOGIN == false && Option::get('comment_code') == 'y' && session_start() && $imgcode != $_SESSION['code']) {
-        mMsg('评论失败：验证码错误', $targetBlogUrl);
-    } else {
+	} elseif (ISLOGIN == false && Option::get('comment_code') == 'y' && session_start() && $imgcode != $_SESSION['code']) {
+		mMsg('评论失败：验证码错误', $targetBlogUrl);
+	} else {
 		$DB = Database::getInstance();
-        $ipaddr = getIp();
+		$ipaddr = getIp();
 		$utctimestamp = time();
 
-		if($pid != 0) {
+		if ($pid != 0) {
 			$comment = $Comment_Model->getOneComment($pid);
 			$content = '@' . addslashes($comment['poster']) . '：' . $content;
 		}
@@ -194,23 +193,23 @@ if ($action == 'addcom') {
 		$ischkcomment = Option::get('ischkcomment');
 		$hide = ROLE == 'visitor' ? $ischkcomment : 'n';
 
-		$sql = 'INSERT INTO '.DB_PREFIX."comment (date,poster,gid,comment,mail,url,hide,ip,pid)
+		$sql = 'INSERT INTO ' . DB_PREFIX . "comment (date,poster,gid,comment,mail,url,hide,ip,pid)
 				VALUES ('$utctimestamp','$name','$blogId','$content','$mail','$url','$hide','$ipaddr','$pid')";
 		$ret = $DB->query($sql);
 		$cid = $DB->insert_id();
 		$CACHE = Cache::getInstance();
 
 		if ($hide == 'n') {
-			$DB->query('UPDATE '.DB_PREFIX."blog SET comnum = comnum + 1 WHERE gid='$blogId'");
+			$DB->query('UPDATE ' . DB_PREFIX . "blog SET comnum = comnum + 1 WHERE gid='$blogId'");
 			$CACHE->updateCache(array('sta', 'comment'));
-            doAction('comment_saved', $cid);
-            emDirect($targetBlogUrl);
+			doAction('comment_saved', $cid);
+			emDirect($targetBlogUrl);
 		} else {
-		    $CACHE->updateCache('sta');
-		    doAction('comment_saved', $cid);
-		    mMsg('评论发表成功，请等待管理员审核', $targetBlogUrl);
+			$CACHE->updateCache('sta');
+			doAction('comment_saved', $cid);
+			mMsg('评论发表成功，请等待管理员审核', $targetBlogUrl);
 		}
-    }
+	}
 }
 if ($action == 'com') {
 	if (ISLOGIN === true) {
@@ -222,7 +221,7 @@ if ($action == 'com') {
 		$comment = $Comment_Model->getComments(1, null, $hide, $page);
 		$cmnum = $Comment_Model->getCommentNum(null, $hide);
 		$pageurl = pagination($cmnum, Option::get('admin_perpage_num'), $page, "./?action=com&page=");
-	}else {
+	} else {
 		$comment = $CACHE->readCache('comment');
 		$pageurl = '';
 	}
@@ -235,28 +234,28 @@ if (ISLOGIN === true && $action == 'delcom') {
 	$Comment_Model = new Comment_Model();
 	$id = isset($_GET['id']) ? intval($_GET['id']) : '';
 	$Comment_Model->delComment($id);
-	$CACHE->updateCache(array('sta','comment'));
+	$CACHE->updateCache(array('sta', 'comment'));
 	emDirect("./?action=com");
 }
 if (ISLOGIN === true && $action == 'showcom') {
 	$Comment_Model = new Comment_Model();
 	$id = isset($_GET['id']) ? intval($_GET['id']) : '';
 	$Comment_Model->showComment($id);
-	$CACHE->updateCache(array('sta','comment'));
+	$CACHE->updateCache(array('sta', 'comment'));
 	emDirect("./?action=com");
 }
 if (ISLOGIN === true && $action == 'hidecom') {
 	$Comment_Model = new Comment_Model();
 	$id = isset($_GET['id']) ? intval($_GET['id']) : '';
 	$Comment_Model->hideComment($id);
-	$CACHE->updateCache(array('sta','comment'));
+	$CACHE->updateCache(array('sta', 'comment'));
 	emDirect("./?action=com");
 }
 if ($action == 'reply') {
 	$Comment_Model = new Comment_Model();
 	$cid = isset($_GET['cid']) ? intval($_GET['cid']) : 0;
 	$commentArray = $Comment_Model->getOneComment($cid);
-	if(!$commentArray) {
+	if (!$commentArray) {
 		mMsg('参数错误', './');
 	}
 	extract($commentArray);
@@ -268,12 +267,12 @@ if ($action == 'reply') {
 }
 // 微语
 if ($action == 'tw' && Option::get('istwitter') == 'y') {
-    $Twitter_Model = new Twitter_Model();
-    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-    $user_cache = $CACHE->readCache('user');
-    $tws = $Twitter_Model->getTwitters($page);
-    $twnum = $Twitter_Model->getTwitterNum();
-    $pageurl =  pagination($twnum, Option::get('index_twnum'), $page, './?action=tw&page=');
+	$Twitter_Model = new Twitter_Model();
+	$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+	$user_cache = $CACHE->readCache('user');
+	$tws = $Twitter_Model->getTwitters($page);
+	$twnum = $Twitter_Model->getTwitterNum();
+	$pageurl = pagination($twnum, Option::get('index_twnum'), $page, './?action=tw&page=');
 
 	include View::getView('header');
 	include View::getView('twitter');
@@ -281,32 +280,32 @@ if ($action == 'tw' && Option::get('istwitter') == 'y') {
 	View::output();
 }
 if (ISLOGIN === true && $action == 't') {
-    $Twitter_Model = new Twitter_Model();
+	$Twitter_Model = new Twitter_Model();
 
-    $t = isset($_POST['t']) ? addslashes(trim($_POST['t'])) : '';
-    $attach = isset($_FILES['img']) ? $_FILES['img'] : '';
+	$t = isset($_POST['t']) ? addslashes(trim($_POST['t'])) : '';
+	$attach = isset($_FILES['img']) ? $_FILES['img'] : '';
 
-    if ($attach['tmp_name'] && !$t) {
-    	$t = '分享图片';
-    }
+	if ($attach['tmp_name'] && !$t) {
+		$t = '分享图片';
+	}
 
-    if (!$t){
-        emDirect("./?action=tw");
-    }
-    $tdata = array('content' => $Twitter_Model->formatTwitter($t),
-            'author' => UID,
-            'date' => time(),
-    );
+	if (!$t) {
+		emDirect("./?action=tw");
+	}
+	$tdata = array('content' => $Twitter_Model->formatTwitter($t),
+		'author' => UID,
+		'date' => time(),
+	);
 
 	if ($attach['tmp_name']) {
-		$fileinfo = uploadFile($attach['name'], $attach['error'], $attach['tmp_name'], $attach['size'], array('jpg', 'jpeg','png'), false, false);
+		$fileinfo = uploadFile($attach['name'], $attach['error'], $attach['tmp_name'], $attach['size'], array('jpg', 'jpeg', 'png'), false, false);
 		$upfname = $fileinfo['file_path'];
-        $size = @getimagesize($upfname);
+		$size = @getimagesize($upfname);
 		$w = $size[0];
 		$h = $size[1];
-		if ($w>150 || $h>120) {
+		if ($w > 150 || $h > 120) {
 			$uppath = Option::UPLOADFILE_PATH . gmdate('Ym') . '/';
-			$thum = str_replace($uppath,$uppath.'thum-',$upfname);
+			$thum = str_replace($uppath, $uppath . 'thum-', $upfname);
 			resizeImage($upfname, $thum, 120, 150);
 			$upfname = $thum;
 		}
@@ -314,16 +313,16 @@ if (ISLOGIN === true && $action == 't') {
 		$tdata['img'] = str_replace('../', '', $upfname);
 	}
 
-    $Twitter_Model->addTwitter($tdata);
-    $CACHE->updateCache(array('sta','newtw'));
-    doAction('post_twitter', $t);
-    emDirect("./?action=tw");
+	$Twitter_Model->addTwitter($tdata);
+	$CACHE->updateCache(array('sta', 'newtw'));
+	doAction('post_twitter', $t);
+	emDirect("./?action=tw");
 }
 if (ISLOGIN === true && $action == 'delt') {
-    $Twitter_Model = new Twitter_Model();
-    $id = isset($_GET['id']) ? intval($_GET['id']) : '';
+	$Twitter_Model = new Twitter_Model();
+	$id = isset($_GET['id']) ? intval($_GET['id']) : '';
 	$Twitter_Model->delTwitter($id);
-	$CACHE->updateCache(array('sta','newtw'));
+	$CACHE->updateCache(array('sta', 'newtw'));
 	emDirect("./?action=tw");
 }
 if ($action == 'login') {
@@ -340,18 +339,18 @@ if ($action == 'auth') {
 	session_start();
 	$username = addslashes(trim($_POST['user']));
 	$password = addslashes(trim($_POST['pw']));
-	$img_code = (Option::get('login_code') == 'y' && isset ($_POST['imgcode'])) ? addslashes (trim (strtoupper ($_POST['imgcode']))) : '';
+	$img_code = (Option::get('login_code') == 'y' && isset($_POST['imgcode'])) ? addslashes(trim(strtoupper($_POST['imgcode']))) : '';
 	$ispersis = true;
-        $checkUser=LoginAuth::checkUser($username, $password, $img_code);
+	$checkUser = LoginAuth::checkUser($username, $password, $img_code);
 	if ($checkUser === true) {
 		loginAuth::setAuthCookie($username, $ispersis);
 		emDirect('?tem=' . time());
-	}else {
-		emDirect("?action=login&error=".$checkUser);
+	} else {
+		emDirect("?action=login&error=" . $checkUser);
 	}
 }
 if ($action == 'logout') {
-	setcookie(AUTH_COOKIE_NAME, ' ', time () - 31536000, '/');
+	setcookie(AUTH_COOKIE_NAME, ' ', time() - 31536000, '/');
 	emDirect('?tem=' . time());
 }
 function mMsg($msg, $url) {
@@ -370,7 +369,7 @@ function authPassword($postPwd, $cookiePwd, $logPwd, $logid) {
 			setcookie('em_logpwd_' . $logid, ' ', time() - 31536000);
 		}
 		View::output();
-	}else {
+	} else {
 		setcookie('em_logpwd_' . $logid, $logPwd);
 	}
 }

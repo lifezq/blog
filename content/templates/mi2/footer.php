@@ -14,8 +14,8 @@ if (!defined('EMLOG_ROOT')) {
 <!--footer-->
 <div class="footer">
 <div class="copyright">
-    陕ICP备16000429号 Copyright ©  <a href="http://localhost" title="之晴博客" target="_blank">之晴</a>
-    2012-<?php echo date('Y'); ?>  .  Powered by Emlog. Theme by <a href="http://localhost" title="之晴博客" target="_blank">之晴</a>.
+    陕ICP备16000429号 Copyright ©  <a href="<?php echo WEB_ROOT; ?>" title="之晴博客" target="_blank">之晴</a>
+    2012-<?php echo date('Y'); ?>  .  Powered by Emlog. Theme by <a href="<?php echo WEB_ROOT; ?>" title="之晴博客" target="_blank">之晴</a>.
 </div>
 <div class="right">
     <span class="navr">
@@ -23,7 +23,7 @@ if (!defined('EMLOG_ROOT')) {
         <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=365755151&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:365755151:49" width="82" height="34" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>  |
         <a href="<?php echo BLOG_URL; ?>m" target="_blank">手机版</a> |
         <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a>  |
-        <!-- localhost Baidu tongji analytics -->
+        <!-- <?php echo WEB_ROOT; ?> Baidu tongji analytics -->
         <script type="text/javascript">
         var _hmt = _hmt || [];
         (function() {
@@ -37,9 +37,10 @@ if (!defined('EMLOG_ROOT')) {
     <span><?php echo date("Y年m月d日"); ?>| <?php echo $footer_info; ?></span>
     </div><!--right-->
     <div class="clear"></div>
-    <div class="footerRelief"><p>声明：之晴博客为个人站，此站主要为技术分享，资料共享，下载等，如果站内资源有侵犯您的利益，请及时联系我们会尽快处理。</p> 
-    <p>&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;&nsbp;</p>
-   </div>
+    <div class="footerRelief">
+        <p>声明：之晴博客为个人站，此站主要为技术分享，资料共享，下载等，如果站内资源有侵犯您的利益，请及时联系我们会尽快处理。</p>
+        <!-- <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> -->
+    </div>
     <div class="clear"></div>
     <?php doAction('index_footer');?>
     </div><!--end #footer-->

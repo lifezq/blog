@@ -4,7 +4,7 @@
  * @copyright (c) Emlog All Rights Reserved
  */
 
- error_reporting(E_ALL);
+error_reporting(E_ALL);
 //error_reporting(E_ALL);
 
 // ob_gzip 压缩页面用，压缩机函数
@@ -22,15 +22,15 @@ function ob_gzip($content) // $content 就是要压缩的页面内容，或者�
 }
 
 //启用GIP
-if (function_exists('ob_gzip') && extension_loaded("zlib") && strstr($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) {
-	ob_start('ob_gzip');
-} elseif (function_exists('ob_gzhandler')) {
+// if (function_exists('ob_gzip') && extension_loaded("zlib") && strstr($_SERVER["HTTP_ACCEPT_ENCODING"], "gzip")) {
+// 	ob_start('ob_gzip');
+// 	printf("gzip#01\n");
+// } else
+if (function_exists('ob_gzhandler')) {
 	ob_start('ob_gzhandler');
 } else {
 	ob_start();
 }
-
-
 
 header('Content-Type: text/html; charset=UTF-8');
 

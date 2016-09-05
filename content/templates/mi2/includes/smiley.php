@@ -33,14 +33,17 @@
     }
 /* ]]> */
 </script>
-<?php $max_face=41;
- if(!isset($_GET['face']))  $max_face=16;
-for($i=1;$i<$max_face;$i++){
- echo "<a href=\"javascript:grin('[".$i."]')\"><img src=\"http://localhost/content/templates/mi2/images/face/".$i.".gif\" width='40' height='40' alt='faces'/></a>";
+<?php $max_face = 41;
+if (!isset($_GET['face'])) {
+	$max_face = 16;
+}
+
+for ($i = 1; $i < $max_face; $i++) {
+	echo "<a href=\"javascript:grin('[" . $i . "]')\"><img src=\"" . WEB_ROOT . "/content/templates/mi2/images/face/" . $i . ".gif\" width='40' height='40' alt='faces'/></a>";
 }
 ?>
 <br />
-<?php if(!isset($_GET['face'])): ?>
+<?php if (!isset($_GET['face'])): ?>
 <span style="float:right;"><a href="javascript:;" onClick="$('#face_box').load('<?php echo TEMPLATE_URL; ?>includes/smiley.php?face=m')">更多&gt;&gt;</a>&nbsp;&nbsp;</span>
-<?php endif; ?>
+<?php endif;?>
 
