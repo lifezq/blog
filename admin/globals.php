@@ -33,15 +33,17 @@ if ($action == 'login') {
 }elseif($action == 'register'){
         LoginAuth::registerPage();
 }
+
 //退出
 if ($action == 'logout') {
-	setcookie(AUTH_COOKIE_NAME, ' ', time() - 31536000, '/');
+
+		setcookie(AUTH_COOKIE_NAME, ' ', time() - 31536000, '/', WEB_COOKIE_DOMAIN);
         session_start();
         $_SESSION['zq_qqlogin']=false;
         setcookie('qq-username',0, time() - 31536000,'/', WEB_COOKIE_DOMAIN);
         setcookie('sina-username',0, time() - 31536000,'/', WEB_COOKIE_DOMAIN);
         setcookie('ZQ_BIND_OPENID',0, time() - 31536000,'/', WEB_COOKIE_DOMAIN);
-	emDirect("../");
+		emDirect("../");
 }
 
 if (ISLOGIN === false) {
