@@ -4,7 +4,7 @@
  * @copyright (c) Emlog All Rights Reserved
  */
 
-error_reporting(E_ALL);
+error_reporting(0);
 //error_reporting(E_ALL);
 
 // ob_gzip 压缩页面用，压缩机函数

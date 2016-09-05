@@ -152,7 +152,7 @@ class Session
  * ini_set("session.cookie_domain", ".domain.com");
  * .domain.com是站点的主域名,请注意前面个有一个'.'
  */
-define("MAIN_DOMAIN", WEB_COOKIE_DOMAIN);   //设置主域名
+define("MAIN_DOMAIN", ".lifezq.com");   //设置主域名
 
 /**
  * 不同子域名下共享session信息
