@@ -1,3 +1,5 @@
 .DS_Store
 config.php
 content/cache/*
+content/backup/*
+content/plugins/*
