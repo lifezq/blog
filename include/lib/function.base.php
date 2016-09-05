@@ -16,8 +16,8 @@ return $is_mobile;
 function sendmail($toemail, $subject, $message, $from='',$webTitle='',$webUrl='') {
 
         $date=date('Y-m-d H:i',time());
-        $webTitle = $webTitle?$webTitle:'之晴博客 - php建站知识分享';
-        $webUrl = $webUrl?$webUrl:'http://localhost';
+        $webTitle = $webTitle?$webTitle:'之晴博客';
+        $webUrl = $webUrl?$webUrl: WEB_ROOT;
 $message=<<<str
         <table cellspacing="0" cellpadding="20">
 	<tr><td>

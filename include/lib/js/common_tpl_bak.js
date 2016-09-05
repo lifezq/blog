@@ -155,7 +155,7 @@ function commentSubmit(){
     var comgid = $('#comgid').val();
     $.ajax({
         type:'post',
-        url:'http://localhost/index.php?action=addcom',
+        url:'http://blog.lifezq.com/index.php?action=addcom',
         data:{'comname':comname,'commail':commail,'comurl':comurl,'comment':comment,'gid':comgid},
         success:function (msg){
             var preg=/<a\s+href=.*<\/a>/;

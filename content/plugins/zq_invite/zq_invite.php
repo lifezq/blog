@@ -5,7 +5,7 @@ Version: 1.0
 Description: 激活邮件发送，可以测试邮件是否能及时并正确的发送的用户
 Author: 之晴
 Author Email: yangqianleizq@gmail.com
-Author URL: http://localhost
+Author URL: http://blog.lifezq.com
 */
 !defined('EMLOG_ROOT') && exit('access deined!');
 

@@ -133,13 +133,13 @@ if($newUser){
 
 */
 
-//echo "<script>window.top.location.href='http://localhost';</script>";
+//echo "<script>window.top.location.href='http://blog.lifezq.com';</script>";
 /*
  *
 allow_url_fopen: 1
 appid : 100465609
 4636c7104c62959c01996dd298dace6a----4636c7104c62959c01996dd298dace6a
-token_url :https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id=100465609&redirect_uri=http%3A%2F%2Flocalhost%2Fget_access_token.php&client_secret=bfaa74cc1d1e5a80fe8f03a178278a11&code=EFBDE90B4C9138207054948DFCB97C03
+token_url :https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id=100465609&redirect_uri=http%3A%2F%2Fblog.lifezq.com%2Fget_access_token.php&client_secret=bfaa74cc1d1e5a80fe8f03a178278a11&code=EFBDE90B4C9138207054948DFCB97C03
 access_token=1B2ECD8793A23921FF6DB2D7C44B51F4&expires_in=7776000&refresh_token=67E42E9B4FA35C489361618483416404
 string(111) "access_token=1B2ECD8793A23921FF6DB2D7C44B51F4&expires_in=7776000&refresh_token=67E42E9B4FA35C489361618483416404"
 bool(false)

@@ -52,12 +52,12 @@
     overflow: hidden;
     }
     </style>
-    <script type="text/javascript" src="http://localhost/content/templates/mi2/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://blog.lifezq.com/content/templates/mi2/js/jquery.min.js"></script>
     <body>
         <div id="login">
-            <div id="title"><a href="http://localhost">之晴博客</a> - 用户注册  <span class="registered">已经注册,现在就去<a href="javascript:void(0)" onClick="login()"><strong>登录</strong></a>吧。</span></div>
+            <div id="title"><a href="http://blog.lifezq.com">之晴博客</a> - 用户注册  <span class="registered">已经注册,现在就去<a href="javascript:void(0)" onClick="login()"><strong>登录</strong></a>吧。</span></div>
             <div style="width:400px;height:auto;overflow: hidden;margin:0px auto;text-align: center;" id="register_box">
-                <form action="http://localhost/admin/user_register.php?action=register" method="post" target="registeriframe">
+                <form action="http://blog.lifezq.com/admin/user_register.php?action=register" method="post" target="registeriframe">
                     <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
                         <tr style="height:30px">
                             <td class="bfont" align="right">用户名：</td>
@@ -81,11 +81,11 @@
                         </tr>
                         <tr style="height:30px">
                             <td class="bfont" align="right">验证码：</td>
-                            <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="http://localhost/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
+                            <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="http://blog.lifezq.com/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
                             <td><span id="verify_notice" class="notice">&nbsp;</span></td>
                         </tr>
                         <tr style="height:30px">
-                            <td align="left" colspan="3"><input type="hidden" value="writer" name="role"/> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="checkbox" name="agree" value="1"/> 我已同意《<a href="javascript:void(0);" onClick="window.open('http://localhost/treaty.html', 'treaty', 'width=470,height=550')">之晴使用协议</a>》 <span id="agree_notice" class="notice">&nbsp;</span></td>
+                            <td align="left" colspan="3"><input type="hidden" value="writer" name="role"/> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="checkbox" name="agree" value="1"/> 我已同意《<a href="javascript:void(0);" onClick="window.open('http://blog.lifezq.com/treaty.html', 'treaty', 'width=470,height=550')">之晴使用协议</a>》 <span id="agree_notice" class="notice">&nbsp;</span></td>
                         </tr>
                         <tr style="height:30px">
                             <td align="center" colspan="3"><input type="hidden" id="isSubmitOk" name="isSubmitOk" value="1"/> <input  type="submit" value="注 册" class="submit" id="submit" onClick="if(document.getElementById('isSubmitOk').value=='-1'){ return false; }"/> </td>
@@ -192,13 +192,13 @@
 
     function checkReg(types,val){
     type=types;
-    var url='http://localhost/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
+    var url='http://blog.lifezq.com/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
     startRequest(url)
     }
     function login(){
     $("#TB_window").css({'height':'370px'})
     $("#TB_ajaxContent").css({'height':'370px'})
-    $("#TB_ajaxContent").load('http://localhost/login.php?height=370;width=400')
+    $("#TB_ajaxContent").load('http://blog.lifezq.com/login.php?height=370;width=400')
     }
     </script>
     <script>

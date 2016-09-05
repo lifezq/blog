@@ -7,7 +7,7 @@ $("a.thickbox").click(function(){
     try{
   var t = this.title;
   var url='';
-  var _root='http://localhost';
+  var _root='http://blog.lifezq.com';
   var pregLogin=/login/;
   var pregReg=/register/;
   var comAccount=/comAccount/;

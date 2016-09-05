@@ -1,6 +1,6 @@
 <?php
 
-define('WEB_ROOT', 'http://localhost/');
+define('WEB_ROOT', 'http://blog.lifezq.com/');
 define('WEB_COOKIE_DOMAIN', false);
 //mysql database address
 define('DB_HOST','127.0.0.1');

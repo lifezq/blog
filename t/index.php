@@ -1,3 +1,3 @@
 <?php
-header('location:http://localhost');
+header('location:http://blog.lifezq.com');
 ?>

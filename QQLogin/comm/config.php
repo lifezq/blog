@@ -40,7 +40,7 @@ $_SESSION["appid"] = 100465609;
 $_SESSION["appkey"] = "bfaa74cc1d1e5a80fe8f03a178278a11";
 
 //QQ登录成功后跳转的地址,请确保地址真实可用，否则会导致登录失败。
-$_SESSION["callback"] = "http://localhost/getToken.php";
+$_SESSION["callback"] = "http://blog.lifezq.com/getToken.php";
 
 //QQ授权api接口.按需调用
 $_SESSION["scope"] = "get_user_info,add_share,list_album,add_album,upload_pic,add_topic,add_one_blog,add_weibo";

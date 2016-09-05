@@ -52,12 +52,12 @@
     }
     .autoDiv div{cursor: default;}
     </style>
-    <script type="text/javascript" src="http://localhost/content/templates/mi2/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://blog.lifezq.com/content/templates/mi2/js/jquery.min.js"></script>
     <body>
         <div id="login">
-            <div id="title"><a href="http://localhost">之晴博客</a> - 绑定已有帐号  </div>
+            <div id="title"><a href="http://blog.lifezq.com">之晴博客</a> - 绑定已有帐号  </div>
             <div style="width:400px;height:210px;overflow: hidden;margin:0px auto;text-align: center;" id="register_box">
-                <form action="http://localhost/admin/user_register.php?action=register&op=bindAccount" method="post" target="registeriframe">
+                <form action="http://blog.lifezq.com/admin/user_register.php?action=register&op=bindAccount" method="post" target="registeriframe">
                     <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
                         <tr style="height:30px">
                             <td class="bfont" align="right"><select name="bindType" onchange="showBind(this.value);" class="bind_select">
@@ -218,13 +218,13 @@
 
     function checkReg(types,val){
     type=types;
-    var url='http://localhost/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
+    var url='http://blog.lifezq.com/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
     startRequest(url)
     }
     function login(){
     $("#TB_window").css({'height':'280px'})
     $("#TB_ajaxContent").css({'height':'280px'})
-    $("#TB_ajaxContent").load('http://localhost/login.php?height=160;width=400')
+    $("#TB_ajaxContent").load('http://blog.lifezq.com/login.php?height=160;width=400')
     }
     </script>
     <script>

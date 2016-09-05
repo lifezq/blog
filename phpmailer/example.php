@@ -96,7 +96,4 @@ str;
        
     
 }
-error_reporting(1);
-phpinfo();
-//sendmail('lifezq@qq.com','恩恩，在呢，','很高兴认识你很高兴认识你，谢谢喔！','','之晴博客 - php建站知识分享','localhost')
 ?>

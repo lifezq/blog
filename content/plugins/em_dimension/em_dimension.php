@@ -5,7 +5,7 @@ Version: 1.0
 Description: 二维码生成，可以随意设置您自己想生成的二维码文字
 Author: 之晴
 Author Email: yangqianleizq@gmail.com
-Author URL: http://localhost
+Author URL: http://blog.lifezq.com
 */
 !defined('EMLOG_ROOT') && exit('access deined!');
 

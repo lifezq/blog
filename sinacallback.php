@@ -38,12 +38,12 @@ require_once EMLOG_ROOT.'/include/lib/function.base.php';
         $CACHE->updateCache(array('sta', 'user'));
     }
 
-    emMsg('登录成功，正在为您跳转...', 'http://localhost', 1);
+    emMsg('登录成功，正在为您跳转...', WEB_ROOT, 1);
     ?>
     授权完成,<a href="weibolist.php">进入你的微博列表页面</a><br />
     <?php
 } else {
-    emMsg('登录失败，系统返回...', 'http://localhost', 1);
+    emMsg('登录失败，系统返回...', WEB_ROOT, 1);
     ?>
     授权失败。
     <?php

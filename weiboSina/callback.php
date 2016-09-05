@@ -44,12 +44,12 @@ if ($token) {
     setcookie('sina-username',addslashes(trim($user_message['screen_name'])),time()+3600*24*30,'/', WEB_COOKIE_DOMAIN);
     }
 
-    emMsg('登录成功，正在为您跳转...', 'http://localhost', 1,1);
+    emMsg('登录成功，正在为您跳转...', WEB_ROOT, 1,1);
     ?>
     授权完成,<a href="weibolist.php">进入你的微博列表页面</a><br />
     <?php
 } else {
-    emMsg('登录失败，系统返回...', 'http://localhost', 1);
+    emMsg('登录失败，系统返回...', WEB_ROOT, 1);
     ?>
     授权失败。
     <?php
