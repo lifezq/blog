@@ -19,7 +19,7 @@ if (strlen($site_title) < 42 && strlen($site_title) >= 39) {
 	echo $site_title;
 }
 ?></title>
-        <meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0;maximum-scale=1.0; user-scalable=no;"/>
+        <!-- <meta id="viewport" name="viewport" content="width=device-width; initial-scale=1.0;maximum-scale=1.0; user-scalable=no;"/> -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="keywords" content="<?php echo $site_key; ?>" />
         <meta name="description" content="<?php echo $site_description; ?>" />

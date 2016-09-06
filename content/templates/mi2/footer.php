@@ -20,7 +20,7 @@ if (!defined('EMLOG_ROOT')) {
 <div class="right">
     <span class="navr">
         <a href="<?php echo $guestBook; ?>" target="_blank">联系我们</a> |
-        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=365755151&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:365755151:49" width="82" height="34" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>  |
+       <!--  <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=365755151&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:365755151:49" width="82" height="34" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>  | -->
         <a href="<?php echo BLOG_URL; ?>m" target="_blank">手机版</a> |
         <a href="<?php echo BLOG_URL; ?>"><?php echo $blogname; ?></a>  |
         <!-- <?php echo WEB_ROOT; ?> Baidu tongji analytics -->
