@@ -159,7 +159,7 @@ function commentSubmit(){
     var compid = $('#comment-pid').val();
     $.ajax({
         type:'post',
-        url:'http://blog.lifezq.com/index.php?action=addcom',
+        url:'https://blog.lifezq.com/index.php?action=addcom',
         data:{'comname':comname,'commail':commail,'comurl':comurl,'comment':comment,'gid':comgid,'pid':compid},
         success:function (msg){
             var preg=/<a\s+href=.*<\/a>/;

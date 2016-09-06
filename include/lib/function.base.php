@@ -230,7 +230,7 @@ function getIp() {
 function getBlogUrl() {
 	$phpself = isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '';
 	if (preg_match("/^.*\//", $phpself, $matches)) {
-		return 'http://' . $_SERVER['HTTP_HOST'] . $matches[0];
+		return 'https://' . $_SERVER['HTTP_HOST'] . $matches[0];
 	} else {
 		return BLOG_URL;
 	}

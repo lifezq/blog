@@ -40,8 +40,8 @@ if ($action== 'addlink') {
 	if ($sitename =='' || $siteurl =='') {
 		emDirect("./link.php?error_a=1");
 	}
-	if (!preg_match("/^http|ftp.+$/i", $siteurl)) {
-		$siteurl = 'http://'.$siteurl;
+	if (!preg_match("/^https|ftp.+$/i", $siteurl)) {
+		$siteurl = 'https://'.$siteurl;
 	}
 	$Link_Model->addLink($sitename, $siteurl, $description, $taxis);
 	$CACHE->updateCache('link');
@@ -65,8 +65,8 @@ if ($action=='update_link') {
 	$description = isset($_POST['description']) ? addslashes(trim($_POST['description'])) : '';
 	$linkId = isset($_POST['linkid']) ? intval($_POST['linkid']) : '';
 
-	if (!preg_match("/^http|ftp.+$/i", $siteurl)) {
-		$siteurl = 'http://'.$siteurl;
+	if (!preg_match("/^https|ftp.+$/i", $siteurl)) {
+		$siteurl = 'https://'.$siteurl;
 	}
 
 	$Link_Model->updateLink(array('sitename'=>$sitename, 'siteurl'=>$siteurl, 'description'=>$description), $linkId);

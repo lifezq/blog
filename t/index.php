@@ -1,3 +1,3 @@
 <?php
-header('location:http://blog.lifezq.com');
+header('location:https://blog.lifezq.com');
 ?>

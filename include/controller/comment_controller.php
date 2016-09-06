@@ -23,8 +23,8 @@ class Comment_Controller {
 			$url = addslashes(BLOG_URL);
 		}
 
-		if ($url && strncasecmp($url,'http://',7)) {
-			$url = 'http://'.$url;
+		if ($url && strncasecmp($url,'https://',8)) {
+			$url = 'https://'.$url;
 		}
 
 		doAction('comment_post');

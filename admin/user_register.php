@@ -50,7 +50,7 @@ msg;
         $message = <<<msg
 <div style='margin:25px;line-height:30px;text-indent:2em;'>亲爱的用户，激活邮件已经成功发送了三封到您的邮箱，如果您还没有收到邮件，请联系管理员。系统将在10秒后，自动为您跳转...</div>
 msg;
-        echo "<script>setTimeout(\"window.top.location.href='http://" . $webRoot . "';\",10000);</script>";
+        echo "<script>setTimeout(\"window.top.location.href='https://" . $webRoot . "';\",10000);</script>";
     }
     echo "<script>var register_box=window.top.document.getElementById('register_box'); _jswrite(register_box,\"&nbsp;&nbsp;" . $message . "\");</script>";
     exit;
