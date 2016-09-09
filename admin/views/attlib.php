@@ -31,7 +31,7 @@ foreach($attach as $key=>$value):
 	$extension  = strtolower(substr(strrchr($value['filepath'], "."),1));
 	$atturl = BLOG_URL.substr($value['filepath'], 3);
 	if ($extension == 'zip' || $extension == 'rar'){
-		$imgpath = "./views/images/tar.gif";
+		$imgpath = "./views/images/tar.webp";
 		$embedlink = "<a href=\"javascript: parent.addattach_file('$atturl', '{$value['filename']}', {$value['aid']});\">插入 </a>";
 	} elseif (in_array($extension, array('gif', 'jpg', 'jpeg', 'png', 'bmp'))) {
 		$imgpath = $value['filepath'];
@@ -42,7 +42,7 @@ foreach($attach as $key=>$value):
 			$embedlink .= " <a href=\"javascript: parent.addattach_img('$atturl', '$thum_url',{$value['aid']}, '{$value['thum_width']}', '{$value['thum_height']}', '{$value['filename']}');\" title=\"插入缩略图\">缩略图</a>";
 		}
 	} else {
-		$imgpath = "./views/images/fnone.gif";
+		$imgpath = "./views/images/fnone.webp";
 		$embedlink = "<a href=\"javascript: parent.addattach_file('$atturl', '{$value['filename']}', {$value['aid']});\">插入 </a>";
 	}
 ?>

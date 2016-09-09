@@ -8,7 +8,7 @@
     #emshare_main p input{padding:2px;}
     #emshare_main p span{margin-left:30px;}
 </style>
-<div class=containertitle><img src="../content/plugins/emer_share/y.png" align="absbottom"><b>云平台分享插件</b></div>
+<div class=containertitle><img src="../content/plugins/emer_share/y.webp" align="absbottom"><b>云平台分享插件</b></div>
 <?php if (isset($_GET['setting']) && $_GET['setting']): ?><span class="actived">保存成功！</span><?php endif; ?>
 <?php if (isset($_GET['info']) && $_GET['info'] == 1): ?><span class="actived">请查收邮件！</span><?php endif; ?>
 <?php if (isset($_GET['info']) && $_GET['info'] == 2): ?><span class="actived">同步成功！</span><?php endif; ?>

@@ -28,7 +28,7 @@ KindEditor.plugin('emoticons', function(K) {
 		var previewDiv, previewImg;
 		if (allowPreview) {
 			previewDiv = K('<div class="ke-preview"></div>').css('right', 0);
-			previewImg = K('<img class="ke-preview-img" src="' + path + startNum + '.gif" />');
+			previewImg = K('<img class="ke-preview-img" src="' + path + startNum + '.webp" />');
 			wrapperDiv.append(previewDiv);
 			previewDiv.append(previewImg);
 		}
@@ -42,7 +42,7 @@ KindEditor.plugin('emoticons', function(K) {
 						previewDiv.css('left', '');
 						previewDiv.css('right', 0);
 					}
-					previewImg.attr('src', path + num + '.gif');
+					previewImg.attr('src', path + num + '.webp');
 					K(this).addClass('ke-on');
 				});
 			} else {
@@ -54,7 +54,7 @@ KindEditor.plugin('emoticons', function(K) {
 				K(this).removeClass('ke-on');
 			});
 			cell.click(function(e) {
-				self.insertHtml('<img src="' + path + num + '.gif" border="0" alt="" />').hideMenu().focus();
+				self.insertHtml('<img src="' + path + num + '.webp" border="0" alt="" />').hideMenu().focus();
 				e.stop();
 			});
 		}
@@ -85,7 +85,7 @@ KindEditor.plugin('emoticons', function(K) {
 					}
 					var span = K('<span class="ke-img"></span>')
 						.css('background-position', '-' + (24 * num) + 'px 0px')
-						.css('background-image', 'url(' + path + 'static.gif)');
+						.css('background-image', 'url(' + path + 'static.webp)');
 					cell.append(span);
 					elements.push(cell);
 					num++;

@@ -46,7 +46,7 @@ addAction('adm_main_top', 'tips');
 function tips_css() {
 	echo "<style type='text/css'>
 	#tip{
-		background:url(../content/plugins/tips/icon_tips.gif) no-repeat left 3px;
+		background:url(../content/plugins/tips/icon_tips.webp) no-repeat left 3px;
 		padding:3px 18px;
 		margin:5px 0px;
 		font-size:12px;

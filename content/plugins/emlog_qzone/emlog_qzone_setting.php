@@ -103,7 +103,7 @@ $("#emlog_qzone").addClass('sidebarsubmenu1');
     #sinat_form p input{padding:2px; width:80px; height:30px;}
     #sinat_form p span{margin-left:30px;}
 </style>
-<div class=containertitle><img src="../content/plugins/emlog_qzone/t.png"> <b>Qzone</b>
+<div class=containertitle><img src="../content/plugins/emlog_qzone/t.webp"> <b>Qzone</b>
 <?php if(isset($_GET['setting'])):?><span class="actived">插件设置完成</span><?php endif;?>
 <?php if(isset($_GET['error'])):?><span class="error">保存失败，配置文件不可写</span><?php endif;?>
 </div>
@@ -114,7 +114,7 @@ $("#emlog_qzone").addClass('sidebarsubmenu1');
 
 <?php
 if (!isset($_GET['oauth_token']) && !defined('QZONE_ACCESS_TOKEN') && !defined('QZONE_OPEN_ID')): ?>
-	<li><a href="<?php echo $aurl ?>"><img src="../content/plugins/emlog_qzone/t-login.png"></a></li>
+	<li><a href="<?php echo $aurl ?>"><img src="../content/plugins/emlog_qzone/t-login.webp"></a></li>
 <?php else:?>
 <?php
 function get_user_info() {

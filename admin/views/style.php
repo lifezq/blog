@@ -15,11 +15,11 @@
 	?>
 	<div>
 	<a href="./style.php?action=usestyle&style=<?php echo $style; ?>" title="点击使用该风格" >
-	<img src="<?php echo $style_path.$style; ?>/preview.jpg" width="230px" height="48px" class="styleTH" />
+	<img src="<?php echo $style_path.$style; ?>/preview.webp" width="230px" height="48px" class="styleTH" />
 	</a>
 	<li class="admin_style_info" >
 	<?php if($style == Option::get('admin_style')): ?>
-	<img src="./views/images/onsel.gif" align="absmiddle" />
+	<img src="./views/images/onsel.webp" align="absmiddle" />
 	<?php endif;?>
 	<a href="./style.php?action=usestyle&style=<?php echo $style; ?>" title="点击使用该风格" ><?php echo $value['style_name']; ?></a> <br /><span><?php echo $value['style_author'];?></span></li>
 	</div>

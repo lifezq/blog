@@ -29,14 +29,14 @@
 </ul>
 <p id="m"><a title="用手机访问你的站点"><?php echo BLOG_URL.'m'; ?></a></p>
 </div>
-<div id="admindex_msg">
+<!--<div id="admindex_msg">
 <h3>官方消息</h3>
 <ul></ul>
-</div>
+</div>-->
 <div class="clear"></div>
 </div>
 </div>
-<script>
+<!-- <script>
 $(document).ready(function(){
 	$("#admindex_msg ul").html("<span class=\"ajax_remind_1\">正在读取...</span>");
 	$.getJSON("http://www.emlog.net/services/messenger.php?v=<?php echo Option::EMLOG_VERSION; ?>&callback=?",
@@ -51,7 +51,7 @@ $(document).ready(function(){
 		});
 	});
 });
-</script>
+</script> -->
 <?php endif;?>
 <script>
 $(document).ready(function(){

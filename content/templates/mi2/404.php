@@ -13,7 +13,7 @@ if (!defined('EMLOG_ROOT')) {
         <title>错误提示-页面未找到</title>
         <style type="text/css">
             .main {
-                background:url(<?php echo TEMPLATE_URL; ?>images/404.png) no-repeat;
+                background:url(<?php echo TEMPLATE_URL; ?>images/404.webp) no-repeat;
                 font-size: 12px;
                 color: #666666;
                 width:304px;

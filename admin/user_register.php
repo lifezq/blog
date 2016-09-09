@@ -308,10 +308,10 @@ msg;
     
     if (isset($_GET['op']) && $_GET['op'] == 'comAccount') {//如果是完善帐户信息
         if (isset($_COOKIE['qq-username'])) {
-            $photo = "../content/uploadfile/com/connect_qq.gif";
+            $photo = "../content/uploadfile/com/connect_qq.webp";
             $DB->query("update " . DB_PREFIX . "user set nickname='{$_COOKIE['qq-username']}',photo='$photo',qq_bind_id='" . $_COOKIE['ZQ_BIND_OPENID'] . "' where username='" . $login . "'");
         } elseif (isset($_COOKIE['sina-username'])) {
-            $photo = "../content/uploadfile/com/connect_sina.png";
+            $photo = "../content/uploadfile/com/connect_sina.webp";
             $DB->query("update " . DB_PREFIX . "user set nickname='{$_COOKIE['sina-username']}',photo='$photo',sina_bind_id='" . $_COOKIE['ZQ_BIND_OPENID'] . "' where  username='" . $login . "'");
         }
         

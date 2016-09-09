@@ -45,10 +45,10 @@ function TB_show(caption, url) { //function called when the user clicks on a thi
       $(window).resize(TB_position);
       $("body").append("<div id='TB_load'><div id='TB_loadContent'>&nbsp;</div></div>");
       $("#TB_overlay").show();
-      var urlString = /.jpg|.jpeg|.png|.gif|.html|.htm/g;
+      var urlString = /.webp|.webp|.webp|.webp|.html|.htm/g;
       var urlType = url.match(urlString);
       
-      if(urlType == '.jpg' || urlType == '.jpeg' || urlType == '.png' || urlType == '.gif'){//code to show images
+      if(urlType == '.webp' || urlType == '.webp' || urlType == '.webp' || urlType == '.webp'){//code to show images
 
          var imgPreloader = new Image();
          imgPreloader.onload = function(){

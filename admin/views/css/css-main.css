@@ -29,13 +29,13 @@ body {
 	padding:18px 0px 12px;
 	text-align:center;
 }
-#menu_wt a {background:url(../images/addblog.gif) no-repeat 18px 1px;}
-#menu_tw a {background:url(../images/t.gif) no-repeat 20px 1px;}
-#menu_plug a {background:url(../images/plugin.gif) no-repeat 20px 1px;}
-#menu_store a {background:url(../images/store.gif) no-repeat 10px 2px;}
+#menu_wt a {background:url(../images/addblog.webp) no-repeat 18px 1px;}
+#menu_tw a {background:url(../images/t.webp) no-repeat 20px 1px;}
+#menu_plug a {background:url(../images/plugin.webp) no-repeat 20px 1px;}
+#menu_store a {background:url(../images/store.webp) no-repeat 10px 2px;}
 #menu_ext { cursor:pointer;}
-.menu_ext_minus {background:url(../images/minus.gif) no-repeat 15px 5px;}
-.menu_ext_plus {background:url(../images/plus.gif) no-repeat 15px 5px;}
+.menu_ext_minus {background:url(../images/minus.webp) no-repeat 15px 5px;}
+.menu_ext_plus {background:url(../images/plus.webp) no-repeat 15px 5px;}
 .containertitle {
 	background-position:left 3px;
 	font-size:14px;
@@ -46,7 +46,7 @@ body {
 	background-position:left 3px;
 	font-size:18px;
 	height:30px;
-	background:url(../images/yeka.gif) 10px -82px no-repeat;
+	background:url(../images/yeka.webp) 10px -82px no-repeat;
 	padding:0 0 0 20px;
 	margin:20px 0px 10px;
 }
@@ -60,31 +60,31 @@ body {
 	line-height:24px;
 }
 .containertitle2 .navi1 {
-	background:url(../images/yeka.gif) no-repeat;
+	background:url(../images/yeka.webp) no-repeat;
 	color:#999;
 }
 .containertitle2 .navi2 {
-	background:url(../images/yeka.gif) no-repeat -1px -29px;
+	background:url(../images/yeka.webp) no-repeat -1px -29px;
 	line-height:24px;
 }
 .containertitle2 .navi3 {
-	background:url(../images/yeka.gif) no-repeat 0px -29px;
+	background:url(../images/yeka.webp) no-repeat 0px -29px;
 	line-height:24px;
 }
 .containertitle2 .navi4 {
-	background:url(../images/yeka.gif) no-repeat -1px 0px;
+	background:url(../images/yeka.webp) no-repeat -1px 0px;
 	color:#999;
 }
 .containertitle2 .actived {
 	margin:0px 60px;
-	background:url(../images/icon_succ.gif) no-repeat 10px #FDFFCE;
+	background:url(../images/icon_succ.webp) no-repeat 10px #FDFFCE;
 	font-size:12px;
 	padding:3px 12px 4px 30px;
 	border:1px #FFBA43 solid
 }
 .containertitle2 .error {
 	margin:0px 20px;
-	background:url(../images/icon_error.gif) no-repeat 10px #FDFFCE;
+	background:url(../images/icon_error.webp) no-repeat 10px #FDFFCE;
 	font-size:12px;
 	padding:3px 12px 4px 30px;
 	border:1px #FFBA43 solid
@@ -118,7 +118,7 @@ body {
 .item_list th {
 	height:23px;
 	line-height:23px;
-	background:url(../images/admindex_itembg.gif) repeat-x bottom;
+	background:url(../images/admindex_itembg.webp) repeat-x bottom;
 	border:1px solid #dfdfdf;
 	padding-left:5px;
 	color:#666;
@@ -224,7 +224,7 @@ textarea {
 	border-bottom:1px solid #F3F3F3;
 }
 .widget-act-del {
-	background:url(../images/icon_del.gif) no-repeat center;
+	background:url(../images/icon_del.webp) no-repeat center;
 	margin:5px;
 	display:none;
 	width:10px;
@@ -232,7 +232,7 @@ textarea {
 	cursor:pointer
 }
 .widget-act-add {
-	background:url(../images/icon_add.gif) no-repeat center;
+	background:url(../images/icon_add.webp) no-repeat center;
 	margin:5px;
 	width:10px;
 	cursor:pointer;
@@ -289,7 +289,7 @@ textarea {
 }
 .actived {
 	margin:0px 200px;
-	background:url(../images/icon_succ.gif) no-repeat 10px #FDFFCE;
+	background:url(../images/icon_succ.webp) no-repeat 10px #FDFFCE;
 	font-size:12px;
 	padding:4px 12px 4px 30px;
 	border:1px #FFBA43 solid;
@@ -297,7 +297,7 @@ textarea {
 }
 .error {
 	margin:0px 200px;
-	background:url(../images/icon_error.gif) no-repeat 10px #FDFFCE;
+	background:url(../images/icon_error.webp) no-repeat 10px #FDFFCE;
 	font-size:12px;
 	padding:4px 12px 4px 30px;
 	border:1px #FFBA43 solid;
@@ -305,7 +305,7 @@ textarea {
 }
 .error_msg {
 	margin:0px 200px;
-	background:url(../images/icon_error.gif) no-repeat 10px #FDFFCE;
+	background:url(../images/icon_error.webp) no-repeat 10px #FDFFCE;
 	font-size:12px;
 	padding:5px 30px;
 	border:1px #FFBA43 solid
@@ -400,7 +400,7 @@ textarea {
 .show_advset {
 	margin:3px 10px 0px 0px;
     padding:0px 20px 0px 0px;
-	background:url(../images/advset.gif) no-repeat 54px 4px;
+	background:url(../images/advset.webp) no-repeat 54px 4px;
 	cursor:pointer;
     width:76px;
     font-weight:bold;
@@ -442,7 +442,7 @@ textarea {
 	margin-left:0px;
 	padding:1px 3px 1px 18px;
 	font-weight:bold;
-	background:url(../images/no.png) no-repeat scroll left center transparent;
+	background:url(../images/no.webp) no-repeat scroll left center transparent;
 	white-space:nowrap;
 }
 #log_pass {
@@ -479,7 +479,7 @@ textarea {
 	font-size:12px;
 	padding:5px 5px;
 	margin:0;
-	background:url(../images/admindex_itembg.gif) repeat-x
+	background:url(../images/admindex_itembg.webp) repeat-x
 }
 #admindex div li {
 	list-style:none;
@@ -544,7 +544,7 @@ textarea {
 }
 #m a {
 	color:#999999;
-	background:url(../images/m.gif) no-repeat 2px 1px;
+	background:url(../images/m.webp) no-repeat 2px 1px;
 	font-weight:bold;
 	letter-spacing:1px;
 	padding:8px 0px 8px 23px;
@@ -561,7 +561,7 @@ textarea {
 	border:1px #fff solid
 }
 #tw .box_1 {
-	background:url(../images/weibe_bl.gif) no-repeat;
+	background:url(../images/weibe_bl.webp) no-repeat;
 	padding-left:7px;
 }
 #tw .box {
@@ -606,7 +606,7 @@ textarea {
 	position: relative;
 }
 .t_img{
-	background:url(../images/img.gif) no-repeat;
+	background:url(../images/img.webp) no-repeat;
 	padding: 0 7px;
 	margin: 0 0 0 10px;
 }
@@ -622,7 +622,7 @@ textarea {
 	z-index: 120;
 }
 #tw .tbutton input {
-	background:url(../images/weibe_button.gif) no-repeat;
+	background:url(../images/weibe_button.webp) no-repeat;
 	border:0;
 	cursor:pointer;
 	_cursor:hand;
@@ -630,7 +630,7 @@ textarea {
 	height:25px;
 }
 #tw .tbutton input:active,#tw ul .button_p:active,#tw .sz_box .tbutton:active {
-	background:url(../images/weibe_button.gif) no-repeat 1px 1px;
+	background:url(../images/weibe_button.webp) no-repeat 1px 1px;
 }
 #tw ul {
 	margin:5px 0px 3px 65px;
@@ -740,7 +740,7 @@ textarea {
 	width:60px;
 }
 #tw ul .button_p {
-	background:url(../images/weibe_button.gif) no-repeat;
+	background:url(../images/weibe_button.webp) no-repeat;
 	border:0;
 	cursor:pointer;
 	_cursor:hand;
@@ -748,7 +748,7 @@ textarea {
 	height:25px;
 }
 #tw .loading {
-	background:url(../images/loading.gif) no-repeat 200px 2px;
+	background:url(../images/loading.webp) no-repeat 200px 2px;
 	height:20px;
 }
 /*后台风格*/
@@ -820,7 +820,7 @@ textarea {
 	margin-top:10px;
 }
 .custom_top_button a {
-	background:url(../images/custom_top.gif) no-repeat;
+	background:url(../images/custom_top.webp) no-repeat;
 	width:90px;
 	height:24px;
 	display:block;
@@ -835,7 +835,7 @@ textarea {
 	margin:16px 0px;
 }
 .add_plugin a {
-	background:url(../images/add_bg.gif) no-repeat;
+	background:url(../images/add_bg.webp) no-repeat;
 	width:90px;
 	height:24px;
 	display:block;
@@ -875,7 +875,7 @@ textarea {
 	cursor:text;
 }
 #input_s {
-	background:url("../images/search.png") no-repeat scroll 5px 3px transparent;
+	background:url("../images/search.webp") no-repeat scroll 5px 3px transparent;
 	border-radius:3px;
 	border:1px solid #CCC;
 	font-size:12px;
@@ -897,7 +897,7 @@ textarea {
 	background-color:#F1F1F1;
 	padding:2px 5px;
 	margin:0px;
-	background: url("../images/admindex_itembg.gif") repeat-x scroll center bottom transparent;
+	background: url("../images/admindex_itembg.webp") repeat-x scroll center bottom transparent;
 	cursor:pointer;
 }
 #navi_add div{
@@ -970,17 +970,17 @@ textarea {
     text-align: center;
 }
 #addon_ins #addonload {
-	background:url(../images/loading.gif) no-repeat 10px;
+	background:url(../images/loading.webp) no-repeat 10px;
 	height:20px;
     padding:0px 40px 0px 30px;
 }
 #addon_ins #addonsucc {
-	background:url(../images/icon_succ.gif) no-repeat 10px;
+	background:url(../images/icon_succ.webp) no-repeat 10px;
 	height:20px;
     padding:0px 40px 0px 30px;
 }
 #addon_ins #addonerror {
-	background:url(../images/icon_error.gif) no-repeat 10px;
+	background:url(../images/icon_error.webp) no-repeat 10px;
 	height:20px;
     padding:0px 40px 0px 30px;
 }

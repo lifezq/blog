@@ -111,7 +111,7 @@ foreach ($com_cache as $value):
 		$url = Url::comment($value['gid'], $value['page'], $value['cid']);
 		?>
 		                <li><?php echo $value['name']; ?>
-		                    : <a href="<?php echo $url; ?>"><?php echo $value['content'] = preg_replace("/\[(([1-4]?[0-9])|50)\]/", '<img src="' . TEMPLATE_URL . 'images/' . 'face/$1.gif" width="30" height="30" style="vertical-align:middle;">', $value['content']); ?></a></li>
+		                    : <a href="<?php echo $url; ?>"><?php echo $value['content'] = preg_replace("/\[(([1-4]?[0-9])|50)\]/", '<img src="' . TEMPLATE_URL . 'images/' . 'face/$1.webp" width="30" height="30" style="vertical-align:middle;">', $value['content']); ?></a></li>
 		            <?php endforeach;?>
         </ul>
     </div>
@@ -248,7 +248,7 @@ foreach ($navi_cache as $value):
 
 //blog：置顶
 function topflg($istop) {
-	$topflg = $istop == 'y' ? "<img src=" . TEMPLATE_URL . "images/pin_3.gif>" . "<font color=#ff0000 style=" . "font-weight:550" . ">" : '';
+	$topflg = $istop == 'y' ? "<img src=" . TEMPLATE_URL . "images/pin_3.webp>" . "<font color=#ff0000 style=" . "font-weight:550" . ">" : '';
 	echo $topflg;
 }
 ?>
@@ -392,7 +392,7 @@ $isGravatar = Option::get('isgravatar');
 	}?>
                         </div>
                         <strong><?php echo $comment['poster']; ?></strong>:</div>
-                    <p><?php echo $comment['content'] = preg_replace("/\[(([1-4]?[0-9])|50)\]/", '<img src="' . TEMPLATE_URL . 'images/' . 'face/$1.gif"  width="40" height="40" alt="faces">', $comment['content']); ?></p>
+                    <p><?php echo $comment['content'] = preg_replace("/\[(([1-4]?[0-9])|50)\]/", '<img src="' . TEMPLATE_URL . 'images/' . 'face/$1.webp"  width="40" height="40" alt="faces">', $comment['content']); ?></p>
                     <div class="clear"></div>
                     <span class="datetime"><?php echo $comment['date']; ?></span>
                     <span class="reply"><a class="comment-reply-link" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)">[回复]</a></span>
@@ -425,7 +425,7 @@ function blog_comments_children($comments, $children) {
 		        <?php if ($isGravatar == 'y'): ?><img src="<?php echo $comment['photo'] ? BLOG_URL . str_replace('../', '', $comment['photo']) : getGravatar($comment['mail']); ?>" class='avatar' height='40' width='40'  rel="nofollow"/><?php endif;?>
                         <div class="floor"></div>
                         <strong><?php echo $comment['poster']; ?></strong>:</div>
-                    <p><?php echo $comment['content'] = preg_replace("/\[(([1-4]?[0-9])|50)\]/", '<img src="' . TEMPLATE_URL . 'images/' . 'face/$1.gif" width="40" height="40" alt="faces">', $comment['content']); ?></p>
+                    <p><?php echo $comment['content'] = preg_replace("/\[(([1-4]?[0-9])|50)\]/", '<img src="' . TEMPLATE_URL . 'images/' . 'face/$1.webp" width="40" height="40" alt="faces">', $comment['content']); ?></p>
                     <div class="clear"></div><span class="datetime"><?php echo $comment['date']; ?></span>
         <?php if ($comment['level'] < 4): ?><span class="reply"><a class="comment-reply-link" href="#comment-<?php echo $comment['cid']; ?>" onclick="commentReply(<?php echo $comment['cid']; ?>,this)">[回复]</a></span><?php endif;?>
                 </div>

@@ -32,7 +32,7 @@
     <div id="header_right"></div>
     <div id="header_menu">
     <a href="./blogger.php" title="<?php echo subString($user_cache[UID]['name'], 0, 12) ?>">
-        <img src="<?php echo empty($user_cache[UID]['avatar']) ? './views/images/avatar.jpg' : '../' . $user_cache[UID]['avatar'] ?>" align="top" width="20" height="20" />
+        <img src="<?php echo empty($user_cache[UID]['avatar']) ? './views/images/avatar.webp' : '../' . $user_cache[UID]['avatar'] ?>" align="top" width="20" height="20" />
     </a><span>|</span>
     <?php if (ROLE == 'admin'):?>
     <a href="configure.php"> 设置</a><span>|</span>

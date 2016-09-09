@@ -38,7 +38,7 @@ $("#emlog_tx").addClass('sidebarsubmenu1');
     #sinat_form p input{padding:2px; width:80px; height:30px;}
     #sinat_form p span{margin-left:30px;}
 </style>
-<div class=containertitle><img src="../content/plugins/emlog_tx/t.png"> <b>腾讯微博插件</b>
+<div class=containertitle><img src="../content/plugins/emlog_tx/t.webp"> <b>腾讯微博插件</b>
 <?php if(isset($_GET['setting'])):?><span class="actived">插件设置完成</span><?php endif;?>
 <?php if(isset($_GET['error'])):?><span class="error">保存失败，配置文件不可写</span><?php endif;?>
 </div>
@@ -49,7 +49,7 @@ $("#emlog_tx").addClass('sidebarsubmenu1');
 
 <?php
 if (!isset($_GET['oauth_token']) && !defined('TX_ACCESS_TOKEN')): ?>
-	<li><a href="<?php echo $aurl ?>"><img src="../content/plugins/emlog_tx/t-login.png"></a></li>
+	<li><a href="<?php echo $aurl ?>"><img src="../content/plugins/emlog_tx/t-login.webp"></a></li>
 <?php else:?>
 <?php
 	$api_name = 'user/info';

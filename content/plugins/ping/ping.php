@@ -15,7 +15,7 @@ function ping_menu()
 {
 	echo '<div class="sidebarsubmenu" id="ping"><a href="./plugin.php?plugin=ping" ';
 	if (ping_update() !== false)
-		echo 'style="background: url(../content/plugins/ping/update.png) no-repeat 4px 1px;"';
+		echo 'style="background: url(../content/plugins/ping/update.webp) no-repeat 4px 1px;"';
 	echo '>索引通知</a></div>';
 }
 addAction('adm_sidebar_ext', 'ping_menu');

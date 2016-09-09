@@ -42,7 +42,7 @@ foreach($sorts as $key=>$value):
 		<td><?php echo $value['description']; ?></td>
         <td class="alias"><?php echo $value['alias']; ?></td>
 		<td class="tdcenter">
-			<a href="<?php echo Url::sort($value['sid']); ?>" target="_blank"><img src="./views/images/vlog.gif" align="absbottom" border="0" /></a>
+			<a href="<?php echo Url::sort($value['sid']); ?>" target="_blank"><img src="./views/images/vlog.webp" align="absbottom" border="0" /></a>
 		</td>
 		<td class="tdcenter"><a href="./admin_log.php?sid=<?php echo $value['sid']; ?>"><?php echo $value['lognum']; ?></a></td>
 		<td>
@@ -64,7 +64,7 @@ foreach($sorts as $key=>$value):
 		<td><?php echo $value['description']; ?></td>
         <td class="alias"><?php echo $value['alias']; ?></td>
 		<td class="tdcenter">
-			<a href="<?php echo Url::sort($value['sid']); ?>" target="_blank"><img src="./views/images/vlog.gif" align="absbottom" border="0" /></a>
+			<a href="<?php echo Url::sort($value['sid']); ?>" target="_blank"><img src="./views/images/vlog.webp" align="absbottom" border="0" /></a>
 		</td>
 		<td class="tdcenter"><a href="./admin_log.php?sid=<?php echo $value['sid']; ?>"><?php echo $value['lognum']; ?></a></td>
 		<td>

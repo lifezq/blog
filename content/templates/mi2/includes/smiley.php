@@ -39,7 +39,7 @@ if (!isset($_GET['face'])) {
 }
 
 for ($i = 1; $i < $max_face; $i++) {
-	echo "<a href=\"javascript:grin('[" . $i . "]')\"><img src=\"" . WEB_ROOT . "/content/templates/mi2/images/face/" . $i . ".gif\" width='40' height='40' alt='faces'/></a>";
+	echo "<a href=\"javascript:grin('[" . $i . "]')\"><img src=\"" . WEB_ROOT . "/content/templates/mi2/images/face/" . $i . ".webp\" width='40' height='40' alt='faces'/></a>";
 }
 ?>
 <br />

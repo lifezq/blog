@@ -294,7 +294,7 @@ CREATE TABLE `emlog_user` (
   `password` varchar(64) NOT NULL DEFAULT '',
   `nickname` varchar(20) NOT NULL DEFAULT '',
   `role` varchar(60) NOT NULL DEFAULT '',
-  `photo` varchar(255) NOT NULL DEFAULT '../content/uploadfile/com/default_user.jpeg',
+  `photo` varchar(255) NOT NULL DEFAULT '../content/uploadfile/com/default_user.webp',
   `email` varchar(60) NOT NULL DEFAULT '',
   `description` varchar(255) NOT NULL DEFAULT '',
   `emailcheck` tinyint(1) NOT NULL DEFAULT '0' COMMENT '邮箱激活帐号认证',

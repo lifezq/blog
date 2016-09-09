@@ -24,7 +24,7 @@
 	<?php
 	if($users):
 	foreach($users as $key => $val):
-		$avatar = empty($user_cache[$val['uid']]['avatar']) ? './views/images/avatar.jpg' : '../' . $user_cache[$val['uid']]['avatar'];
+		$avatar = empty($user_cache[$val['uid']]['avatar']) ? './views/images/avatar.webp' : '../' . $user_cache[$val['uid']]['avatar'];
 	?>
      <tr>
         <td style="padding:3px; text-align:center;"><img src="<?php echo $avatar; ?>" height="40" width="40" /></td>

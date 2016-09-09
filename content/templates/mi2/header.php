@@ -127,7 +127,7 @@ $user_cache = $CACHE->readCache('user');
                         <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo WEB_ROOT; ?>admin" title="<?php echo $user_cache[UID]['name']; ?>"><?php echo $user_cache[UID]['name']; ?></a>
                         <?php elseif (isset($_COOKIE['qq-username'])): ?>
                         <a href="<?php echo WEB_ROOT; ?>admin">
-                            <img style="width:15px;height:16px;vertical-align: top;" src="<?php echo WEB_ROOT . 'content/uploadfile/com/connect_qq.gif'; ?>" id="login_img" title="<?php echo $_COOKIE['qq-username']; ?>" alt="<?php echo $_COOKIE['qq-username']; ?>">
+                            <img style="width:15px;height:16px;vertical-align: top;" src="<?php echo WEB_ROOT . 'content/uploadfile/com/connect_qq.webp'; ?>" id="login_img" title="<?php echo $_COOKIE['qq-username']; ?>" alt="<?php echo $_COOKIE['qq-username']; ?>">
                         </a>
                         <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo WEB_ROOT; ?>admin" title="<?php echo $_COOKIE['qq-username']; ?>"><?php echo $_COOKIE['qq-username']; ?></a>
                         <a href="javascript:;" title="完善帐户信息"  onClick="this.href='comAccount'" class="thickbox" >完善帐户信息</a>
@@ -135,7 +135,7 @@ $user_cache = $CACHE->readCache('user');
                         <a href="<?php echo WEB_ROOT; ?>admin/?action=logout">退出</a>
                         <?php elseif (isset($_COOKIE['sina-username'])): ?>
                         <a href="<?php echo WEB_ROOT; ?>admin">
-                            <img style="width:22px;height:21px;vertical-align: top;" src="<?php echo WEB_ROOT . 'content/uploadfile/com/connect_sina.png'; ?>" id="login_img" title="<?php echo $_COOKIE['sina-username']; ?>" alt="<?php echo $_COOKIE['sina-username']; ?>">
+                            <img style="width:22px;height:21px;vertical-align: top;" src="<?php echo WEB_ROOT . 'content/uploadfile/com/connect_sina.webp'; ?>" id="login_img" title="<?php echo $_COOKIE['sina-username']; ?>" alt="<?php echo $_COOKIE['sina-username']; ?>">
                         </a>
                         <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo WEB_ROOT; ?>admin" title="<?php echo $_COOKIE['sina-username']; ?>"><?php echo $_COOKIE['sina-username']; ?></a>
                         <a href="javascript:;" title="完善帐号信息"  onClick="this.href='comAccount'" class="thickbox" >完善帐号信息</a>
@@ -147,8 +147,8 @@ $user_cache = $CACHE->readCache('user');
                         <a href="<?php echo WEB_ROOT; ?>admin/">管理中心</a>
                         <a href="<?php echo WEB_ROOT; ?>admin/?action=logout">退出</a>
                         <?php elseif (!isset($_COOKIE['qq-username']) && !isset($_COOKIE['sina-username'])): ?>
-                        <a href="javascript:;"  onClick="this.href='<?php echo WEB_ROOT; ?>/QQLogin/oauth/qq_login.php';" title="使用腾讯QQ登录"><img src="<?php echo WEB_ROOT; ?>/QQLogin/img/qq_login.png" alt="使用腾讯QQ登录" width="120" height="24"/></a>
-                        <!--                                        <a href="javascript:void(0);" onClick="this.href='<?php echo WEB_ROOT; ?>weiboSina/';"><img src="<?php echo WEB_ROOT; ?>weiboSina/loginButton_24.png" width="102" height="24" alt="用新浪微博登录" title="用新浪微博登录"/></a>-->
+                        <a href="javascript:;"  onClick="this.href='<?php echo WEB_ROOT; ?>/QQLogin/oauth/qq_login.php';" title="使用腾讯QQ登录"><img src="<?php echo WEB_ROOT; ?>/QQLogin/img/qq_login.webp" alt="使用腾讯QQ登录" width="120" height="24"/></a>
+                        <!--                                        <a href="javascript:void(0);" onClick="this.href='<?php echo WEB_ROOT; ?>weiboSina/';"><img src="<?php echo WEB_ROOT; ?>weiboSina/loginButton_24.webp" width="102" height="24" alt="用新浪微博登录" title="用新浪微博登录"/></a>-->
                         <a href="javascript:void(0);" onClick="this.href='login'" class="thickbox">登录</a>
                         <a href="javascript:void(0);" onClick="this.href='register'" class="thickbox" id="register_button">注册</a>
                         <?php endif;?>

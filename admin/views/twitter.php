@@ -14,7 +14,7 @@
     <div class="msg">你还可以输入140字</div>
     <div class="box_1"><textarea class="box" name="t"></textarea></div>
     <div class="tbutton"><input type="submit" value="发布" onclick="return checkt();"/> </div>
-	<img class="twImg" id="face" style="margin-right: 10px;cursor: pointer;" src="./views/images/face.png">
+	<img class="twImg" id="face" style="margin-right: 10px;cursor: pointer;" src="./views/images/face.webp">
     <div class="twImg" id="img_select"><input width="120" type="file" height="30" name="Filedata" id="custom_file_upload" style="display: none;"></div>
     <div id="img_name" class="twImg" style="display:none;">
         <a id="img_name_a" class="imgicon" href="javascript:;" onmouseover="$('#img_pop').show();" onmouseout="$('#img_pop').hide();">{图片名称}</a>
@@ -30,7 +30,7 @@
     <?php
     foreach($tws as $val):
     $author = $user_cache[$val['author']]['name'];
-    $avatar = empty($user_cache[$val['author']]['avatar']) ? './views/images/avatar.jpg' : '../' . $user_cache[$val['author']]['avatar'];
+    $avatar = empty($user_cache[$val['author']]['avatar']) ? './views/images/avatar.webp' : '../' . $user_cache[$val['author']]['avatar'];
     $tid = (int)$val['id'];
     $replynum = $Reply_Model->getReplyNum($tid);
     $hidenum = $replynum - $val['replynum'];
@@ -91,13 +91,13 @@ $(document).ready(function(){
 		id              : jQuery(this).attr('id'),
 		swf             : '../include/lib/js/uploadify/uploadify.swf',
 		uploader        : 'attachment.php?action=upload_tw_img',
-		cancelImage     : './views/images/cancel.png',
+		cancelImage     : './views/images/cancel.webp',
 		buttonText      : '选择图片',
 		checkExisting   : "/",
 		auto            : true,
 		multi           : false,
 		buttonCursor    : 'pointer',
-		fileTypeExts    : '*.jpg;*.png;*.gif;*.jpeg',
+		fileTypeExts    : '*.webp;*.webp;*.webp;*.webp',
 		queueID         : 'custom-queue',
 		queueSizeLimit	: 100,
 		removeCompleted : false,

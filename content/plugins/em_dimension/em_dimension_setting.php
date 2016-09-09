@@ -20,7 +20,7 @@ function plugin_setting_view() {
         }
         $del_ok=true;
     }
-    $avatar = empty($user_cache[UID]['avatar']) ? './views/images/avatar.jpg' : '../' . $user_cache[UID]['avatar'];
+    $avatar = empty($user_cache[UID]['avatar']) ? './views/images/avatar.webp' : '../' . $user_cache[UID]['avatar'];
     ?>
     <script>
         $("#em_dimension").addClass('sidebarsubmenu1');
@@ -123,7 +123,7 @@ function plugin_setting() {
     $dir = '../content/plugins/em_dimension/dimension/';
     if (!is_dir($dir))
         mkdir($dir, 0777, true);
-    $dimen_img = $dir . date('Ymd-H-i-s') . '-' . rand(0, 1000) . '.png';
+    $dimen_img = $dir . date('Ymd-H-i-s') . '-' . rand(0, 1000) . '.webp';
 
     QRcode::png($dimension, $dimen_img);
     if (is_file($dimen_img)) {

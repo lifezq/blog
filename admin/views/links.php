@@ -38,7 +38,7 @@
 		</td>
 		<td class="tdcenter">
 	  	<a href="<?php echo $value['siteurl']; ?>" target="_blank" title="查看链接">
-	  	<img src="./views/images/vlog.gif" align="absbottom" border="0" /></a>
+	  	<img src="./views/images/vlog.webp" align="absbottom" border="0" /></a>
 	  	</td>
         <td><?php echo $value['description']; ?></td>
         <td>

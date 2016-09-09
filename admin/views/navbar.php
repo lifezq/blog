@@ -42,7 +42,7 @@
 		</td>
 		<td class="tdcenter">
 	  	<a href="<?php echo $value['url']; ?>" target="_blank">
-	  	<img src="./views/images/<?php echo $value['newtab'] == 'y' ? 'vlog.gif' : 'vlog2.gif';?>" align="absbottom" border="0" /></a>
+	  	<img src="./views/images/<?php echo $value['newtab'] == 'y' ? 'vlog.webp' : 'vlog2.webp';?>" align="absbottom" border="0" /></a>
 	  	</td>
         <td><?php echo $value['url']; ?></td>
         <td>

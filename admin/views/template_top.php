@@ -20,7 +20,7 @@
 		$imgpath = $val['path'];
 	}
 	$imgpath_url = urlencode($imgpath);
-	$mini_imgpath = str_replace('.jpg', '_mini.jpg', $imgpath);
+	$mini_imgpath = str_replace('.webp', '_mini.webp', $imgpath);
 	if (!file_exists('../' . $mini_imgpath)) {
 		continue;
 	}

@@ -11,7 +11,7 @@
 3. 在页面添加QQ登录按钮。详见文档说明（http://wiki.opensns.qq.com/wiki/%E3%80%90QQ%E7%99%BB%E5%BD%95%E3%80%91%E5%BC%80%E5%8F%91%E6%94%BB%E7%95%A5_Server-side#Step1.EF.BC.9A.E6.94.BE.E7.BD.AEQQ.E7.99.BB.E5.BD.95.E6.8C.89.E9.92.AE）
    
    示例代码：	
-   <a href="#" onclick='toQzoneLogin()'><img src="img/qq_login.png"></a>
+   <a href="#" onclick='toQzoneLogin()'><img src="img/qq_login.webp"></a>
 
 4. 页面需要的js代码
 	<script>

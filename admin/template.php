@@ -85,7 +85,7 @@ if ($action == 'custom-top')
 	$default_topimgs = array();
 	while ($file = @readdir($handle)) 
 	{
-		if (getFileSuffix($file) == 'jpg' && !strstr($file, '_mini.jpg')) {
+		if (getFileSuffix($file) == 'jpg' && !strstr($file, '_mini.webp')) {
 			$default_topimgs[] = array('path'=>'content/templates/default/images/top/'.$file);
 		}
 	}
@@ -120,7 +120,7 @@ if ($action == 'del_top')
 		unset($custom_topimgs[$key]);
 	}
 
-	$top_mini = str_replace('.jpg', '_mini.jpg', $top);
+	$top_mini = str_replace('.webp', '_mini.webp', $top);
 	@unlink('../' . $top);
 	@unlink('../' . $top_mini);
 
@@ -161,14 +161,14 @@ if ($action == 'crop') {
 	$time = time();
 
 	//create topimg
-	$topimg_path = Option::UPLOADFILE_PATH . gmdate('Ym') . '/top-' . $time . '.jpg';
+	$topimg_path = Option::UPLOADFILE_PATH . gmdate('Ym') . '/top-' . $time . '.webp';
 	$ret = imageCropAndResize($top_img, $topimg_path, 0, 0, $x1, $y1, $width, $height, $width, $height);
 	if (false === $ret) {
 		emDirect("./template.php?action=custom-top&error_a=1");
 	}
 
 	//create mini topimg
-	$topimg_mini_path = Option::UPLOADFILE_PATH . gmdate('Ym') . '/top-' . $time . '_mini.jpg';
+	$topimg_mini_path = Option::UPLOADFILE_PATH . gmdate('Ym') . '/top-' . $time . '_mini.webp';
 	$ret = imageCropAndResize($topimg_path, $topimg_mini_path, 0, 0, 0, 0, 230, 48, $width, $height);
 	if (false === $ret) {
 		emDirect("./template.php?action=custom-top&error_a=1");

@@ -62,7 +62,7 @@ function widget_sort($title){
 	?>
 	<li>
 	<a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>(<?php echo $value['lognum'] ?>)</a>
-	<a href="<?php echo BLOG_URL; ?>rss.php?sort=<?php echo $value['sid']; ?>"><img src="<?php echo TEMPLATE_URL; ?>images/rss.png" alt="订阅该分类"/></a>
+	<a href="<?php echo BLOG_URL; ?>rss.php?sort=<?php echo $value['sid']; ?>"><img src="<?php echo TEMPLATE_URL; ?>images/rss.webp" alt="订阅该分类"/></a>
 	<?php if (!empty($value['children'])): ?>
 		<ul>
 		<?php
@@ -72,7 +72,7 @@ function widget_sort($title){
 		?>
 		<li>
 			<a href="<?php echo Url::sort($value['sid']); ?>"><?php echo $value['sortname']; ?>(<?php echo $value['lognum'] ?>)</a>
-			<a href="<?php echo BLOG_URL; ?>rss.php?sort=<?php echo $value['sid']; ?>"><img src="<?php echo TEMPLATE_URL; ?>images/rss.png" alt="订阅该分类"/></a>
+			<a href="<?php echo BLOG_URL; ?>rss.php?sort=<?php echo $value['sid']; ?>"><img src="<?php echo TEMPLATE_URL; ?>images/rss.webp" alt="订阅该分类"/></a>
 		</li>
 		<?php endforeach; ?>
 		</ul>
@@ -245,7 +245,7 @@ function blog_navi(){
 <?php
 //blog：置顶
 function topflg($istop){
-	$topflg = $istop == 'y' ? "<img src=\"".TEMPLATE_URL."/images/import.gif\" title=\"置顶文章\" /> " : '';
+	$topflg = $istop == 'y' ? "<img src=\"".TEMPLATE_URL."/images/import.webp\" title=\"置顶文章\" /> " : '';
 	echo $topflg;
 }
 ?>

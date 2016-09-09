@@ -66,7 +66,7 @@ KindEditor.plugin('flash', function(K) {
 							heightBox[0].focus();
 							return;
 						}
-						var html = K.mediaImg(self.themesPath + 'common/blank.gif', {
+						var html = K.mediaImg(self.themesPath + 'common/blank.webp', {
 								src : url,
 								type : K.mediaType('.swf'),
 								width : width,

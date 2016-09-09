@@ -100,43 +100,43 @@ setTimeout(hideActived,2600);
             <td>
               <input name="style" type="radio" value="default" <?php if(style == 'default') echo 'checked'; ?>/></td>
             <td>
-              <img alt="default" title="default" src="../content/plugins/xhc_weather/images/default/thumb.png"></td>
+              <img alt="default" title="default" src="../content/plugins/xhc_weather/images/default/thumb.webp"></td>
           </tr>
           <tr>
             <td>
               <input name="style" type="radio" value="medialoot" <?php if(style == 'medialoot') echo 'checked'; ?>/></td>
             <td>
-              <img alt="medialoot" title="medialoot" src="../content/plugins/xhc_weather/images/medialoot/thumb.png"></td>
+              <img alt="medialoot" title="medialoot" src="../content/plugins/xhc_weather/images/medialoot/thumb.webp"></td>
           </tr>
           <tr>
             <td>
               <input name="style" type="radio" value="meteocons" <?php if(style == 'meteocons') echo 'checked'; ?>/></td>
             <td>
-              <img alt="meteocons" title="meteocons" src="../content/plugins/xhc_weather/images/meteocons/thumb.png"></td>
+              <img alt="meteocons" title="meteocons" src="../content/plugins/xhc_weather/images/meteocons/thumb.webp"></td>
           </tr>
           <tr>
             <td>
               <input name="style" type="radio" value="blue" <?php if(style == 'blue') echo 'checked'; ?>/></td>
             <td>
-              <img alt="blue" title="blue" src="../content/plugins/xhc_weather/images/blue/thumb.png"></td>
+              <img alt="blue" title="blue" src="../content/plugins/xhc_weather/images/blue/thumb.webp"></td>
           </tr>
           <tr>
             <td>
               <input name="style" type="radio" value="cartoon-1" <?php if(style == 'cartoon-1') echo 'checked'; ?>/></td>
             <td>
-              <img alt="cartoon-1" title="cartoon-1" src="../content/plugins/xhc_weather/images/cartoon-1/thumb.png"></td>
+              <img alt="cartoon-1" title="cartoon-1" src="../content/plugins/xhc_weather/images/cartoon-1/thumb.webp"></td>
           </tr>
           <tr>
             <td>
               <input name="style" type="radio" value="cartoon-2" <?php if(style == 'cartoon-2') echo 'checked'; ?>/></td>
             <td>
-              <img alt="cartoon-2" title="cartoon-2" src="../content/plugins/xhc_weather/images/cartoon-2/thumb.png"></td>
+              <img alt="cartoon-2" title="cartoon-2" src="../content/plugins/xhc_weather/images/cartoon-2/thumb.webp"></td>
           </tr>
           <tr>
             <td>
               <input name="style" type="radio" value="cartoon-3" <?php if(style == 'cartoon-3') echo 'checked'; ?>/></td>
             <td>
-              <img alt="cartoon-3" title="cartoon-3" src="../content/plugins/xhc_weather/images/cartoon-3/thumb.png"></td>
+              <img alt="cartoon-3" title="cartoon-3" src="../content/plugins/xhc_weather/images/cartoon-3/thumb.webp"></td>
           </tr>
           <tr>
             <td>

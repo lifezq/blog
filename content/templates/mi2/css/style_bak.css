@@ -62,20 +62,20 @@ border:1px #ccc solid;}
 height: 32px;
 font-size: 14px;
 line-height: 32px;font-weight:bold;
-overflow: hidden;background:url(../images/title.png) repeat-x;}
+overflow: hidden;background:url(../images/title.webp) repeat-x;}
 .sidebar ul{list-style:none;padding:5px 10px 0 10px;white-space: nowrap;}
 .sidebar ul li{width:225px; height:28px; line-height:28px; border-bottom:0px dashed #ddd; text-indent:5px; overflow:hidden;padding-left: 5px;
-background: url(../images/dot.gif) no-repeat 0 50%;
+background: url(../images/dot.webp) no-repeat 0 50%;
 }
-.sidebar ul li:hover{background: url(../images/dot2.gif) no-repeat 0 50%;}
-.t_img{ display:block; height:13px; width:14px; float:left; background:URL(../images/img.gif) no-repeat; margin-top:8px;}
+.sidebar ul li:hover{background: url(../images/dot2.webp) no-repeat 0 50%;}
+.t_img{ display:block; height:13px; width:14px; float:left; background:URL(../images/img.webp) no-repeat; margin-top:8px;}
 .t_img:hover{ text-decoration:none}
 
 /*右侧搜索框*/
 .serch{ float:right;}
-.serch .text{float:left;;height:39px;line-height:39px;border:none;background:URL(../images/common/zqcomm.gif) -4px -287px   no-repeat;outline: none;font-size: 12px;  margin:0 auto; color:#999999; width:260px; padding:2px 10px; margin-bottom:5px; margin-top:5px;}
-.serch .submit{float:left;border:0px; width: 130px;text-align: center; height:48px; color: #fff; background:URL(../images/common/zqcomm.gif) -157px 0px   no-repeat; font-weight:700; margin-left:-12px;cursor: pointer;}
-.serch .submit:hover{background:URL(../images/common/zqcomm.gif) -7px -224px   no-repeat;}
+.serch .text{float:left;;height:39px;line-height:39px;border:none;background:URL(../images/common/zqcomm.webp) -4px -287px   no-repeat;outline: none;font-size: 12px;  margin:0 auto; color:#999999; width:260px; padding:2px 10px; margin-bottom:5px; margin-top:5px;}
+.serch .submit{float:left;border:0px; width: 130px;text-align: center; height:48px; color: #fff; background:URL(../images/common/zqcomm.webp) -157px 0px   no-repeat; font-weight:700; margin-left:-12px;cursor: pointer;}
+.serch .submit:hover{background:URL(../images/common/zqcomm.webp) -7px -224px   no-repeat;}
 
 /*footer*/
 .footer{margin:0 auto;padding: 5px 0 50px;
@@ -127,7 +127,7 @@ ol.commentlist li div.floor{ float:right;color:#bbb}
 #tw .main_img img{ border:1px #fff solid}
 #tw .op{ float:left; height:18px;margin:6px 5px 3px;}
 #tw .top{ font-size:12px; text-align:right; border-bottom:1px #eee solid; line-height:2;width:560px;}
-#tw .top a{ padding:0px 5px 0px 17px; background: url(../images/t.gif) no-repeat}
+#tw .top a{ padding:0px 5px 0px 17px; background: url(../images/t.webp) no-repeat}
 #tw ul{ margin:5px 0px 3px 25px; width:520px; line-height:1.8;padding:0px;}
 #tw ul .li{ margin:10px 0px;padding:5px 0px;border-bottom: #F7F7F7 1px solid;text-align: left;}
 #tw ul li{margin:0px 0px; padding:0;}
@@ -152,7 +152,7 @@ ol.commentlist li div.floor{ float:right;color:#bbb}
 #tw ul .huifu .text{ width:60px;}
 #tw ul .button_p{background:#369; border:0;cursor:pointer; _cursor:hand; width:63px; height:25px;}
 #tw .tbutton{ font-size:12px;float:none; margin-bottom:3px;}
-#tw .loading{background:url(../images/loading.gif) no-repeat 200px 2px; height:20px;}
+#tw .loading{background:url(../images/loading.webp) no-repeat 200px 2px; height:20px;}
 #tw .tbutton input{ width:90px; border:#CCCCCC solid 1px; }
 #tw .tbutton .button_p{ background:#369; border:0;cursor:pointer; _cursor:hand; width:60px; height:25px; color:#FFFFFF;}
 #tw .tbutton .tinfo{ float:left; }
@@ -170,11 +170,11 @@ ol.commentlist li div.floor{ float:right;color:#bbb}
 #tw ul li .bttome .post{ font-size:12px;line-height:14px;margin:0; text-align:right; float:none;clear:both; width:610px; background:0; border:0; padding-bottom:10px;}
 #tw ul li .bttome .time{ float:none; margin-top:-25px;}
 /* 最后加的样式  */
-body{background: url("../images/common/bg.gif") repeat fixed 0 0 transparent;}
+body{background: url("../images/common/bg.webp") repeat fixed 0 0 transparent;}
 .zq_top{width:960px;border:5px solid #26dede;margin:15px auto;background:#fff;}
 #wp{border:5px solid #26dede;background:#fff;}
 .pagenav .bcrumbs span{color:#333;}
-#nv{background:url("../images/common/nv.png") repeat;}
+#nv{background:url("../images/common/nv.webp") repeat;}
 
 #weather{position:absolute;margin-left:250px;+margin-left:50px;top:15px;width:190px;height:100px;overflow:hidden;}
 #weather .julying-weather{font-size:12px;line-height:18px;}

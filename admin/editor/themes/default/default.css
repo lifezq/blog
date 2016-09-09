@@ -425,7 +425,7 @@
 /* toolbar */
 .ke-toolbar {
 	border-bottom: 1px solid #CCC;
-	background:url(./toolbar.space.gif) repeat-x #F0F0EE;
+	background:url(./toolbar.space.webp) repeat-x #F0F0EE;
 	padding: 2px 5px;
 	text-align: left;
 	overflow: hidden;
@@ -439,7 +439,7 @@
 	display: block;
 }
 .ke-toolbar-icon-url {
-	background-image: url(default.png);
+	background-image: url(default.webp);
 }
 .ke-toolbar .ke-outline {
 	margin: 1px;
@@ -515,7 +515,7 @@
 	background-position: -0px -754px;
 	width: 15px;
 	height: 11px;
-	background-image: url(default.png);
+	background-image: url(default.webp);
 }
 .ke-statusbar-right-icon {
 	position: absolute;
@@ -525,7 +525,7 @@
 	background-position: -5px -741px;
 	width: 11px;
 	height: 11px;
-	background-image: url(default.png);
+	background-image: url(default.webp);
 }
 /* menu */
 .ke-menu {
@@ -674,7 +674,7 @@
 	border:0;
 	margin:0;
 	padding: 0 10px;
-	background: url(background.png) repeat scroll 0 0 #F0F0EE;
+	background: url(background.webp) repeat scroll 0 0 #F0F0EE;
 	border-bottom: 1px solid #CFCFCF;
 	height: 24px;
 	font: 12px/24px "sans serif",tahoma,verdana,helvetica;
@@ -684,7 +684,7 @@
 }
 .ke-dialog-icon-close {
 	display: block;
-	background: url(default.png) no-repeat scroll 0px -688px;
+	background: url(default.webp) no-repeat scroll 0px -688px;
 	width: 16px;
 	height: 16px;
 	position: absolute;
@@ -755,7 +755,7 @@
 	text-align: center;
 }
 .ke-dialog-loading-content {
-	background: url("../common/loading.gif") no-repeat;
+	background: url("../common/loading.webp") no-repeat;
     color: #666;
     font-size: 14px;
     font-weight: bold;
@@ -786,7 +786,7 @@
 	opacity:0.5;
 }
 .ke-button-common {
-	background: url(background.png) no-repeat scroll 0 -25px transparent;
+	background: url(background.webp) no-repeat scroll 0 -25px transparent;
 	cursor: pointer;
 	height: 23px;
 	line-height: 23px;
@@ -978,7 +978,7 @@
 }
 .ke-swfupload-body .ke-delete {
 	display: block;
-	background: url(default.png) no-repeat scroll 0px -688px;
+	background: url(default.webp) no-repeat scroll 0px -688px;
 	width: 16px;
 	height: 16px;
 	position: absolute;

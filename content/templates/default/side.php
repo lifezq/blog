@@ -31,6 +31,6 @@ foreach ($widgets as $val)
 }
 ?>
 <div class="rss">
-<a href="<?php echo BLOG_URL; ?>rss.php" title="RSS订阅"><img src="<?php echo TEMPLATE_URL; ?>images/rss.gif" alt="订阅Rss"/></a>
+<a href="<?php echo BLOG_URL; ?>rss.php" title="RSS订阅"><img src="<?php echo TEMPLATE_URL; ?>images/rss.webp" alt="订阅Rss"/></a>
 </div>
 </ul><!--end #siderbar-->

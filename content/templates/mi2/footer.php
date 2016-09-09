@@ -56,7 +56,7 @@ if (!defined('EMLOG_ROOT')) {
     <link href="<?php echo TEMPLATE_URL; ?>ie6.css" rel="stylesheet" type="text/css" />
     <script src="http://letskillie6.googlecode.com/svn/trunk/letskillie6.zh_CN.pack.js"></script>
     <script src="<?php echo TEMPLATE_URL; ?>js/PNG.js"></script>
-    <script>DD_belatedPNG.fix('.png_bg');</script>
+    <script>DD_belatedPNG.fix('.webp_bg');</script>
     <![endif]-->
     <script src="<?php echo BLOG_URL; ?>include/lib/js/common_tpl.js" type="text/javascript"></script>
     <script type="text/javascript" src="<?php echo TEMPLATE_URL; ?>js/thickbox_plus.js"></script>

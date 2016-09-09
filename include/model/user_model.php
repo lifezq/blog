@@ -25,7 +25,7 @@ class User_Model {
               $dir="content/uploadfile/".date('Ym').'/';
               if($is_sina)  $dir='../'.$dir;
               if(!is_dir($dir))   mkdir($dir,0777,true);
-              $savephoto=$dir.$name_pre.rand(0,1000).time().'.png';
+              $savephoto=$dir.$name_pre.rand(0,1000).time().'.webp';
               
               GrabImage($photo, $savephoto);
               $savephoto='../'.$savephoto;

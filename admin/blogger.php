@@ -16,7 +16,7 @@ if ($action == '') {
 		$icon = "<img src=\"{$photo}\" width=\"{$imgsize['w']}\" height=\"{$imgsize['h']}\" style=\"border:1px solid #CCCCCC;padding:1px;\" />
 		<br /><a href=\"javascript: em_confirm(0, 'avatar');\">删除头像</a>";
 	} else {
-		$icon = '<img src="./views/images/avatar.jpg" />';
+		$icon = '<img src="./views/images/avatar.webp" />';
 	}
 	include View::getView('header');
 	require_once(View::getView('blogger'));

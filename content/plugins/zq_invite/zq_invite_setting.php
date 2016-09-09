@@ -16,7 +16,7 @@ if (!defined('EMLOG_ROOT')) {
 }
 function plugin_setting_view() {
     global $user_cache;
-    $avatar = empty($user_cache[UID]['avatar']) ? './views/images/avatar.jpg' : '../' . $user_cache[UID]['avatar'];
+    $avatar = empty($user_cache[UID]['avatar']) ? './views/images/avatar.webp' : '../' . $user_cache[UID]['avatar'];
     $User_Model=new User_Model();
     $email=$User_Model->getUserEmail();
     ?>

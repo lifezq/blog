@@ -11,7 +11,7 @@
 .julying-weather .weather{ margin:0 10px 0 0; font-size:14px;}
 .julying-weather .temp{ font-size:14px;}
 .julying-weather .julying-weather-copy{ position:absolute; right:3px; bottom:3px; width:15px; height:15px;}
-.julying-weather .julying-weather-copy a{ display:block; visibility:visible; height:100%; font-size:0; text-indent:-9999px; background:url(http://julying.com/statics/images/mo.png) no-repeat; opacity:0.8; }
+.julying-weather .julying-weather-copy a{ display:block; visibility:visible; height:100%; font-size:0; text-indent:-9999px; background:url(http://julying.com/statics/images/mo.webp) no-repeat; opacity:0.8; }
 .julying-weather .weather-is-move{ cursor: move !important;}
 
 .julying-weather{ position:absolute; top:0; left:0; width:100%; z-index:0;}
