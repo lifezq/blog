@@ -22,9 +22,9 @@ Disallow: /getToken.php
 Disallow: /go.php
 Disallow: /google60f66458ceec3f3a.html
 Disallow: /init.php
-Disallow: /login.php
+Disallow: /login.html
 Disallow: /phpqrcode.php
-Disallow: /register.php
+Disallow: /register.html
 Disallow: /rss.php
 Disallow: /sinacallback.php
 Disallow: /tb.php
