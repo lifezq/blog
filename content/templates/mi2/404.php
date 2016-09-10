@@ -38,7 +38,7 @@ if (!defined('EMLOG_ROOT')) {
         <p id="returnpage"><a href="javascript:history.back(-1);">&laquo;点击返回</a></p>
 <?php include 'footer.php';?>
 
-        <!-- <?php echo WEB_ROOT; ?> Baidu tongji analytics -->
+        <!-- <?php echo BLOG_URL; ?> Baidu tongji analytics -->
         <script type="text/javascript">
             var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
             document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcbd656b3f0593714fc390aba8f59c3e1' type='text/javascript'%3E%3C/script%3E"));

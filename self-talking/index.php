@@ -19,6 +19,7 @@ if ($action == 'cal') {
 }
 
 if ($action == '') {
+
 	$user_cache = $CACHE->readCache('user');
     $options_cache = Option::getAll();
     extract($options_cache);
@@ -41,6 +42,7 @@ if ($action == '') {
     
     include View::getView('header');
     require_once View::getView('t');
+
     View::output();
 }
 

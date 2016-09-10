@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<?php require_once './init.php';?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -52,12 +53,12 @@
     }
     .autoDiv div{cursor: default;}
     </style>
-    <script type="text/javascript" src="https://blog.lifezq.com/content/templates/mi2/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo BLOG_URL; ?>/content/templates/mi2/js/jquery.min.js"></script>
     <body>
         <div id="login">
-            <div id="title"><a href="https://blog.lifezq.com">之晴博客</a> - 绑定已有帐号  </div>
+            <div id="title"><a href="<?php echo BLOG_URL; ?>">之晴博客</a> - 绑定已有帐号  </div>
             <div style="width:400px;height:210px;overflow: hidden;margin:0px auto;text-align: center;" id="register_box">
-                <form action="https://blog.lifezq.com/admin/user_register.php?action=register&op=bindAccount" method="post" target="registeriframe">
+                <form action="<?php echo BLOG_URL; ?>/admin/user_register.php?action=register&op=bindAccount" method="post" target="registeriframe">
                     <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
                         <tr style="height:30px">
                             <td class="bfont" align="right"><select name="bindType" onchange="showBind(this.value);" class="bind_select">
@@ -68,7 +69,6 @@
                             <td><div class="clear_box"><input class="txtbox login_bind bind" type="text" name="login" onblur="checkReg(7,this.value)"/> <input class="txtbox email_bind bind" type="text" name="email"  onblur="checkReg(2,this.value)" style="display:none;" id="email"/><a class="clear_email" href="javascript:;" node-type="clear" id="clear_email" title="email">×</a><div id="auto-show"></div> <input class="txtbox uid_bind bind" type="text" name="uid"  onblur="checkReg(6,this.value)" style="display:none;"/></div></td>
                             <td width="190"><span id="login_notice" class="notice login_bind bind">&nbsp;请输入您要绑定的用户名</span><span id="email_notice" class="notice email_bind bind" style="display:none;">&nbsp;请认真填写一个常用的邮箱</span><span id="uid_bind_notice" class="notice uid_bind bind" style="display:none;">&nbsp;如果您知道用户ID，可以填写UID</span></td>
                         </tr>
-
                         <tr style="height:30px">
                             <td align="center" colspan="3"><input type="hidden" id="isSubmitOk" name="isSubmitOk" value="1"/> <input  type="submit" value="绑 定" class="submit" onClick="if(document.getElementById('isSubmitOk').value=='-1'){ return false; }"/> </td>
                         </tr>
@@ -93,7 +93,6 @@
     return elementsToReturn;
     }
     function showBind(val){
-
     var name=getClassName('bind');
     for(var i=0;i<name.length;i++){
     name[i].style.display='none';
@@ -106,16 +105,12 @@
     }else if(val == '3'){
     _class='email_bind';
     }
-
     name=getClassName(_class);
-
     for(var i=0;i<name.length;i++){
-
     name[i].style.display='block';
     }
     }
     function _jswrite(obj,str){ if(obj.innerHTML){ obj.innerHTML=str;}else{obj.innerTEXT=str;}}
-
     var xmlHttp;
     var type=0;
     function createXMLHttpRequest () {
@@ -132,8 +127,12 @@
     } catch (e) {
     try {
     xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-    } catch (e) { }
-    }}}
+    } catch (e) {
+    }
+    }
+    }
+    }
+
     function startRequest (url) {
     createXMLHttpRequest ();
     //触发 onreadystatechange 时调用“handleStateChange();”
@@ -146,19 +145,15 @@
     // alert("xmlHttp.status="+xmlHttp.status);
     if ( xmlHttp.status == 200 ) {
     var msg=xmlHttp.responseText;
-
     document.getElementById("isSubmitOk").value='1';
     if(msg<0){
     document.getElementById("isSubmitOk").value='-1';
     if(msg=='-1'){
     _jswrite(document.getElementById("login_notice"),'用户名已经注册');
-
     }else if(msg=='-2'){
     _jswrite(document.getElementById("email_notice"),'邮箱格式不正确');
-
     }else if(msg=='-3'){
     _jswrite(document.getElementById("verify_notice"),'验证码不正确');
-
     }else if(msg=='-4'){
     _jswrite(document.getElementById("login_notice"),'用户名至少为两个字符');
     }else if(msg=='-5'){
@@ -208,23 +203,21 @@
     case 7:
     _jswrite(document.getElementById("login_notice"),'&nbsp;');
     break;
-
     }
     }
     } else {
     //alert("获取资料出错!");
     }
     }}
-
     function checkReg(types,val){
     type=types;
-    var url='https://blog.lifezq.com/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
+    var url='<?php echo BLOG_URL; ?>/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
     startRequest(url)
     }
     function login(){
     $("#TB_window").css({'height':'280px'})
     $("#TB_ajaxContent").css({'height':'280px'})
-    $("#TB_ajaxContent").load('https://blog.lifezq.com/login.html?height=160;width=400')
+    $("#TB_ajaxContent").load('<?php echo BLOG_URL; ?>/login.php?height=160;width=400')
     }
     </script>
     <script>
@@ -286,7 +279,6 @@
     }else{
     $('#auto-show').css('width','120px');
     }
-
     }
     //define args
     //常用邮件列表数组
@@ -304,7 +296,6 @@
     })
     $(document).ready(function () {
     var emailInput = $("#email");
-
     var emailListDiv = $("#auto-show");
     //bind focus event(获得焦点)
     emailInput.focus(autoShow);
@@ -380,6 +371,6 @@
     }
     });
     });
-
     </script>
 </html>
+<?php echo ob_get_clean();?>

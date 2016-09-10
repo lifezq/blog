@@ -19,7 +19,7 @@
 <div id="mainpage">
 <div id="header">
     <div id="header_left"></div>
-    <div id="header_logo"><a href="<?php echo WEB_ROOT; ?>" title="返回首页" target="_blank">之晴博客</div>
+    <div id="header_logo"><a href="<?php echo BLOG_URL; ?>" title="返回首页" target="_blank">之晴博客</div>
     <div id="header_vesion">&nbsp;&nbsp;</div>
     <div id="header_title">
     <a href="../" target="_blank" title="在新窗口浏站点">

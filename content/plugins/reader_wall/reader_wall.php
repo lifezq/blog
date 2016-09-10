@@ -70,11 +70,14 @@ function reader_wall(){
 		$log_content = preg_replace("'\[READERWALL-MONTH\]'i", $output, $log_content, 1);
 	else
 		$log_content = preg_replace("'\[READERWALL\]'i", $output, $log_content, 1);
+	
 	echo $content[0].'<body'.$log_content;
 	unset($content);
 	unset($log_content);
 }
+
 addAction('index_footer', 'reader_wall');
+
 function reader_wall_side(){
 	global $imgsize_side,$imgnum_side,$type_wall,$tip,$open;
 	$CACHE = Cache::getInstance();

@@ -17,7 +17,7 @@ function sendmail($toemail, $subject, $message, $from='',$webTitle='',$webUrl=''
 
         $date=date('Y-m-d H:i',time());
         $webTitle = $webTitle?$webTitle:'之晴博客';
-        $webUrl = $webUrl?$webUrl: WEB_ROOT;
+        $webUrl = $webUrl?$webUrl: BLOG_URL;
 $message=<<<str
         <table cellspacing="0" cellpadding="20">
 	<tr><td>
@@ -230,7 +230,7 @@ function getIp() {
 function getBlogUrl() {
 	$phpself = isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '';
 	if (preg_match("/^.*\//", $phpself, $matches)) {
-		return 'https://' . $_SERVER['HTTP_HOST'] . $matches[0];
+		return substr(BLOG_URL,0, stripos(BLOG_URL, '//')+2) . $_SERVER['HTTP_HOST'] . $matches[0];
 	} else {
 		return BLOG_URL;
 	}
@@ -433,8 +433,10 @@ function addAction($hook, $actionFunc) {
  */
 function doAction($hook) {
 	global $emHooks;
+
 	$args = array_slice(func_get_args(), 1);
 	if (isset($emHooks[$hook])) {
+
 		foreach ($emHooks[$hook] as $function) {
 			$string = call_user_func_array($function, $args);
 		}

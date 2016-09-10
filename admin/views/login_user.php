@@ -47,15 +47,15 @@ $scriptUrl=  getBlogUrl();
 
 $preg="/views/";
 if(preg_match($preg,$scriptUrl))
-   echo "<script>window.location.href='".WEB_ROOT."/admin/index.php?action=login';</script>";
+   echo "<script>window.location.href='".BLOG_URL."/admin/index.php?action=login';</script>";
 ?>
-<script type="text/javascript" src="<?php echo WEB_ROOT;?>/admin/views/js/common.js"></script>
+<script type="text/javascript" src="<?php echo BLOG_URL;?>/admin/views/js/common.js"></script>
 <body>
 
 <div id="login">
-	<div id="title"><a href="<?php echo WEB_ROOT; ?>">之晴博客</a> - 用户登录</div>
+	<div id="title"><a href="<?php echo BLOG_URL; ?>">之晴博客</a> - 用户登录</div>
     <div style="width:320px;height:auto;margin:0px auto;">
-        <form action="<?php echo WEB_ROOT;?>/admin/index.php?action=login" method="post">
+        <form action="<?php echo BLOG_URL;?>/admin/index.php?action=login" method="post">
         <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
             <tr style="height:30px">
                 <td class="bfont">用户名：</td>
@@ -67,7 +67,7 @@ if(preg_match($preg,$scriptUrl))
             </tr>
             <tr style="height:30px">
                 <td class="bfont">验证码：</td>
-                <td><input class="verbox" type="text" name="imgcode"  size="5" maxlength="5"/> <img align="left" src="<?php echo WEB_ROOT;?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()" class="toright"></td>
+                <td><input class="verbox" type="text" name="imgcode"  size="5" maxlength="5"/> <img align="left" src="<?php echo BLOG_URL;?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()" class="toright"></td>
             </tr>
             <tr style="height:30px">
                 <td  colspan="2" align="center"><input id="ispersis" type="checkbox" value="1" name="ispersis"/> <label for="ispersis">记住密码</label></td>
@@ -84,9 +84,9 @@ if(preg_match($preg,$scriptUrl))
 <?php endif;?>
     <div id="forget">
     	<span style="float:left;"><a href="#">忘记密码？</a></span>
-        <span style="float:right;"><a  href="javascript:void(0)" onclick="this.href='<?php echo WEB_ROOT;?>/admin/index.php?action=register';">没有注册？</a></span>
+        <span style="float:right;"><a  href="javascript:void(0)" onclick="this.href='<?php echo BLOG_URL;?>/admin/index.php?action=register';">没有注册？</a></span>
     </div>
-        <div class="box_3">注册会员后,评论留言更方便喔。<a class="a_1" href="javascript:void(0)" onclick="this.href='<?php echo WEB_ROOT;?>/admin/index.php?action=register';">点击注册</a></div>
+        <div class="box_3">注册会员后,评论留言更方便喔。<a class="a_1" href="javascript:void(0)" onclick="this.href='<?php echo BLOG_URL;?>/admin/index.php?action=register';">点击注册</a></div>
 </div>
 </body>
 <script>

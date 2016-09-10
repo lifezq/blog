@@ -4,10 +4,10 @@
  * @copyright (c) Emlog All Rights Reserved
  */
 
-error_reporting(0);
+error_reporting(E_ALL);
 
 //error_reporting(E_ALL);
-/*
+
 // ob_gzip 压缩页面用，压缩机函数
 function ob_gzip($content) // $content 就是要压缩的页面内容，或者说饼干原料
 {
@@ -32,7 +32,7 @@ if (function_exists('ob_gzhandler')) {
 } else {
 	ob_start();
 }
-*/
+
 
 header('Content-Type: text/html; charset=UTF-8');
 

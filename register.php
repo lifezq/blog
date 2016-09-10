@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<?php require_once './init.php';?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -34,7 +35,6 @@
     .autoDiv
     {
     visibility: hidden;
-
     position: absolute;
     +left:1px;
     +top:20px;
@@ -52,12 +52,12 @@
     overflow: hidden;
     }
     </style>
-    <script type="text/javascript" src="https://blog.lifezq.com/content/templates/mi2/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo BLOG_URL; ?>/content/templates/mi2/js/jquery.min.js"></script>
     <body>
         <div id="login">
-            <div id="title"><a href="https://blog.lifezq.com">之晴博客</a> - 用户注册  <span class="registered">已经注册,现在就去<a href="javascript:void(0)" onClick="login()"><strong>登录</strong></a>吧。</span></div>
+            <div id="title"><a href="<?php echo BLOG_URL; ?>">之晴博客</a> - 用户注册  <span class="registered">已经注册,现在就去<a href="javascript:void(0)" onClick="login()"><strong>登录</strong></a>吧。</span></div>
             <div style="width:400px;height:auto;overflow: hidden;margin:0px auto;text-align: center;" id="register_box">
-                <form action="https://blog.lifezq.com/admin/user_register.php?action=register" method="post" target="registeriframe">
+                <form action="<?php echo BLOG_URL; ?>/admin/user_register.php?action=register" method="post" target="registeriframe">
                     <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
                         <tr style="height:30px">
                             <td class="bfont" align="right">用户名：</td>
@@ -81,11 +81,11 @@
                         </tr>
                         <tr style="height:30px">
                             <td class="bfont" align="right">验证码：</td>
-                            <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="https://blog.lifezq.com/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
+                            <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="<?php echo BLOG_URL; ?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
                             <td><span id="verify_notice" class="notice">&nbsp;</span></td>
                         </tr>
                         <tr style="height:30px">
-                            <td align="left" colspan="3"><input type="hidden" value="writer" name="role"/> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="checkbox" name="agree" value="1"/> 我已同意《<a href="javascript:void(0);" onClick="window.open('https://blog.lifezq.com/treaty.html', 'treaty', 'width=470,height=550')">之晴使用协议</a>》 <span id="agree_notice" class="notice">&nbsp;</span></td>
+                            <td align="left" colspan="3"><input type="hidden" value="writer" name="role"/> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="checkbox" name="agree" value="1"/> 我已同意《<a href="javascript:void(0);" onClick="window.open('<?php echo BLOG_URL; ?>/treaty.html', 'treaty', 'width=470,height=550')">之晴使用协议</a>》 <span id="agree_notice" class="notice">&nbsp;</span></td>
                         </tr>
                         <tr style="height:30px">
                             <td align="center" colspan="3"><input type="hidden" id="isSubmitOk" name="isSubmitOk" value="1"/> <input  type="submit" value="注 册" class="submit" id="submit" onClick="if(document.getElementById('isSubmitOk').value=='-1'){ return false; }"/> </td>
@@ -99,6 +99,7 @@
         </div>
     </body>
     <script>
+
     var _submit=document.getElementById('submit');
     _submit.onmouseover=function(){
     this.style.color='#CC0000';
@@ -108,8 +109,8 @@
     this.style.color='#FF0000';
     this.style.background='#FDEBD9';
     }
-    function _jswrite(obj,str){ if(obj.innerHTML){ obj.innerHTML=str;}else{obj.innerTEXT=str;}}
 
+    function _jswrite(obj,str){ if(obj.innerHTML){ obj.innerHTML=str;}else{obj.innerTEXT=str;}}
     var xmlHttp;
     var type=0;
     function createXMLHttpRequest () {
@@ -128,6 +129,8 @@
     xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
     } catch (e) { }
     }}}
+
+
     function startRequest (url) {
     createXMLHttpRequest ();
     //触发 onreadystatechange 时调用“handleStateChange();”
@@ -140,19 +143,15 @@
     // alert("xmlHttp.status="+xmlHttp.status);
     if ( xmlHttp.status == 200 ) {
     var msg=xmlHttp.responseText;
-
     document.getElementById("isSubmitOk").value='1';
     if(msg<0){
     document.getElementById("isSubmitOk").value='-1';
     if(msg=='-1'){
     _jswrite(document.getElementById("login_notice"),'用户名已经注册');
-
     }else if(msg=='-2'){
     _jswrite(document.getElementById("email_notice"),'邮箱格式不正确');
-
     }else if(msg=='-3'){
     _jswrite(document.getElementById("verify_notice"),'验证码不正确');
-
     }else if(msg=='-4'){
     _jswrite(document.getElementById("login_notice"),'用户名至少为两个字符');
     }else if(msg=='-5'){
@@ -182,23 +181,21 @@
     case 5:
     _jswrite(document.getElementById("password2_notice"),'&nbsp;');
     break;
-
     }
     }
     } else {
     //alert("获取资料出错!");
     }
     }}
-
     function checkReg(types,val){
     type=types;
-    var url='https://blog.lifezq.com/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
+    var url='<?php echo BLOG_URL; ?>/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
     startRequest(url)
     }
     function login(){
     $("#TB_window").css({'height':'370px'})
     $("#TB_ajaxContent").css({'height':'370px'})
-    $("#TB_ajaxContent").load('https://blog.lifezq.com/login.html?height=370;width=400')
+    $("#TB_ajaxContent").load('<?php echo BLOG_URL; ?>/login.php?height=370;width=400')
     }
     </script>
     <script>
@@ -260,7 +257,6 @@
     }else{
     $('#auto-show').css('width','120px');
     }
-
     }
     //define args
     //常用邮件列表数组
@@ -278,7 +274,6 @@
     })
     $(document).ready(function () {
     var emailInput = $("#email");
-
     var emailListDiv = $("#auto-show");
     //bind focus event(获得焦点)
     emailInput.focus(autoShow);
@@ -354,6 +349,6 @@
     }
     });
     });
-
     </script>
 </html>
+<?php echo ob_get_clean();?>
