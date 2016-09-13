@@ -4,7 +4,7 @@
  * @copyright (c) Emlog All Rights Reserved
  */
 
-error_reporting(E_ALL);
+error_reporting(E_PARSE | E_CORE_ERROR | E_CORE_WARNING | E_COMPILE_ERROR | E_DEPRECATED | E_USER_DEPRECATED);
 //error_reporting(E_ALL);
 
 // ob_gzip 压缩页面用，压缩机函数
