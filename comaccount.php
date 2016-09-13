@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<?php require_once "./init.php"; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <title>完善帐户信息  - 之晴博客 - php建站知识分享</title>
+        <title>完善帐户信息  - <?php echo SITE_TITLE; ?> </title>
     </head>
     <style type="text/css">
         *{margin:0px;border:0px;padding:0px;}
@@ -52,15 +53,15 @@
             overflow: hidden;
         }
     </style>
-<script type="text/javascript" src="https://blog.lifezq.com/content/templates/mi2/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo BLOG_URL; ?>/content/templates/mi2/js/jquery.min.js"></script>
   
     <body>
         <div id="login">
-            <div id="title"><a href="https://blog.lifezq.com">之晴博客</a> - 完善帐户信息 </div>
+            <div id="title"><a href="<?php echo BLOG_URL; ?>"><?php echo SITE_TITLE; ?></a> - 完善帐户信息 </div>
             <div style="width:400px;height:auto;overflow: hidden;margin:0px auto;text-align: center;" id="register_box">
 
                 <div style="width:380px;height:auto;overflow: hidden;margin:0px auto;padding-top:10px;line-height:20px;text-align: center;color: #6bb044;font-weight: bold;">完善帐户信息后，您可以在本站用该帐户登录，也可以用腾讯QQ快速登录</div>
-                <form action="https://blog.lifezq.com/admin/user_register.php?action=register&op=comAccount" method="post" target="registeriframe">
+                <form action="<?php echo BLOG_URL; ?>/admin/user_register.php?action=register&op=comAccount" method="post" target="registeriframe">
                     <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
                         <tr style="height:30px">
                             <td class="bfont" align="right">用户名：</td>
@@ -84,11 +85,11 @@
                         </tr>
                         <tr style="height:30px">
                             <td class="bfont" align="right">验证码：</td>
-                            <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="https://blog.lifezq.com/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
+                            <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="<?php echo BLOG_URL; ?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
                             <td><span id="verify_notice" class="notice">&nbsp;</span></td>
                         </tr>
                         <tr style="height:30px">
-                            <td align="left" colspan="3"><input type="hidden" value="writer" name="role"/> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="checkbox" name="agree" value="1"/> 我已同意《<a href="javascript:void(0);" onClick="window.open('https://blog.lifezq.com/treaty.html', 'treaty', 'width=470,height=550')">之晴使用协议</a>》 <span id="agree_notice" class="notice">&nbsp;</span></td>
+                            <td align="left" colspan="3"><input type="hidden" value="writer" name="role"/> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="checkbox" name="agree" value="1"/> 我已同意《<a href="javascript:void(0);" onClick="window.open('<?php echo BLOG_URL; ?>/treaty.html', 'treaty', 'width=470,height=550')"><?php echo SITE_TITLE; ?>使用协议</a>》 <span id="agree_notice" class="notice">&nbsp;</span></td>
                         </tr>
 
                         <tr style="height:30px">
@@ -190,13 +191,13 @@
    
         function checkReg(types,val){
             type=types;
-            var url='https://blog.lifezq.com/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
+            var url='<?php echo BLOG_URL; ?>/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
             startRequest(url)
         }
         function login(){
             $("#TB_window").css({'height':'280px'})
             $("#TB_ajaxContent").css({'height':'280px'})
-            $("#TB_ajaxContent").load('https://blog.lifezq.com/login.html?height=160;width=400')
+            $("#TB_ajaxContent").load('<?php echo BLOG_URL; ?>/login.php?height=160;width=400')
         }  
     </script>
 <script>
@@ -355,3 +356,4 @@ $(document).ready(function () {
   
 </script>
 </html>
+<?php echo  ob_get_clean(); ?>

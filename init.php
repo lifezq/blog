@@ -4,7 +4,7 @@
  * @copyright (c) Emlog All Rights Reserved
  */
 
-error_reporting(0);
+error_reporting(E_ALL);
 //error_reporting(E_ALL);
 
 // ob_gzip 压缩页面用，压缩机函数
@@ -52,6 +52,8 @@ define('ROLE', ISLOGIN === true ? $userData['role'] : 'visitor');
 define('UID', ISLOGIN === true ? $userData['uid'] : '');
 //站点固定地址
 define('BLOG_URL', Option::get('blogurl'));
+//站点标题
+define('SITE_TITLE', Option::get('site_title'));
 //模板库地址
 define('TPLS_URL', BLOG_URL . 'content/templates/');
 //模板库路径

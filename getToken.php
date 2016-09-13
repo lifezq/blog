@@ -57,7 +57,7 @@ require_once EMLOG_ROOT.'/include/lib/function.base.php';
         
         if (isset($msg->error))
         {
-            emMsg($msg->error_description, WEB_ROOT,1);
+            emMsg($msg->error_description, BLOG_URL,1);
         }
      }
 
@@ -81,7 +81,7 @@ require_once EMLOG_ROOT.'/include/lib/function.base.php';
      
      if (isset($user->error))
      {
-         emMsg($user->error_description, WEB_ROOT,1);
+         emMsg($user->error_description, BLOG_URL,1);
      }
      setcookie('ZQ_BIND_OPENID',$user->openid,time()+3600*12,'/',WEB_COOKIE_DOMAIN);
      
@@ -89,7 +89,7 @@ require_once EMLOG_ROOT.'/include/lib/function.base.php';
   }
   else 
   {
-      emMsg("The state does not match. You may be a victim of CSRF.", WEB_ROOT,1);
+      emMsg("The state does not match. You may be a victim of CSRF.", BLOG_URL,1);
   }
 
 function get_user_info() {
@@ -117,7 +117,7 @@ $username=$User_Model->zqAppLogin($_SESSION["openid"],'qq');
         setcookie('qq-username',addslashes(trim($userinfo['nickname'])),time()+3600*24*30,'/', WEB_COOKIE_DOMAIN);  
     }
 
- emMsg('登录成功，正在为您跳转...', WEB_ROOT,1,1);
+ emMsg('登录成功，正在为您跳转...', BLOG_URL,1,1);
 //setcookie('qq-avatar',addslashes(trim($userinfo['figureurl_qq_2'])));
 
 //$userinfo['nickname']= iconv('utf-8','gb2312',$userinfo['nickname']);

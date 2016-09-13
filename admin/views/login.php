@@ -11,7 +11,7 @@
 <form name="f" method="post" action="./index.php?action=login">
 <div class="login-main">
 	<div class="login-top"></div>
-	<div class="login-logo"><a href="<?php echo WEB_ROOT; ?>" target="_blank" style="margin-left:3px;"><img src="./views/images/login_logo.png" alt=之晴博小说" width="288" height="68" /></a></div>
+	<div class="login-logo"><a href="<?php echo BLOG_URL; ?>" target="_blank" style="margin-left:3px;"><img src="./views/images/login_logo.png" alt=之晴博小说" width="288" height="68" /></a></div>
 	<small>&nbsp;</small>
 	<div class="login-input">
 		<span>用户名</span>

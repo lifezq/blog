@@ -14,14 +14,14 @@ define('TEMPLATE_PATH', TPLS_PATH . Option::get('nonce_templet') . '/');
 /*
 if (!isset($_COOKIE['isMobile'])) {
 $is_mobile = isMobile() ? 1 : 0;
-setcookie('isMobile', $is_mobile, time() + 3600, '/',  str_replace('http://', '', WEB_ROOT));
+setcookie('isMobile', $is_mobile, time() + 3600, '/',  str_replace('http://', '', BLOG_URL));
 if ($is_mobile) {
-header("location:" . WEB_ROOT . "/m");
+header("location:" . BLOG_URL . "/m");
 exit;
 }
 }
 if ($_COOKIE['isMobile']) {
-header("location:" . WEB_ROOT . "/m");
+header("location:" . BLOG_URL . "/m");
 exit;
 }
  */
@@ -30,9 +30,9 @@ exit;
 if (!isset($_COOKIE['isLifezq'])) {
 $preg = '/^(www|lifezq.com)/';
 $isLifezq = preg_match($preg, $_SERVER['HTTP_HOST']) ? 1 : 0;
-setcookie('isLifezq', $isLifezq, time() + 600, '/',str_replace('http://', '', WEB_ROOT));
+setcookie('isLifezq', $isLifezq, time() + 600, '/',str_replace('http://', '', BLOG_URL));
 if ($isLifezq) {
-header("location:" . WEB_ROOT . "");
+header("location:" . BLOG_URL . "");
 exit;
 }
 }
@@ -53,13 +53,13 @@ if (isset($_GET['emailcheck'])) {
 			$msg = '恭喜您，您的帐号已经成功激活，系统正在为您跳转...';
 		}
 
-		emMsg($msg, WEB_ROOT, 1);
+		emMsg($msg, BLOG_URL, 1);
 	} elseif ($is_ok == '-1') {
-		emMsg('您的帐号已经激活，亲，如果有什么问题您可以联系管理员，或是重新注册哦', WEB_ROOT, 1);
+		emMsg('您的帐号已经激活，亲，如果有什么问题您可以联系管理员，或是重新注册哦', BLOG_URL, 1);
 	} elseif ($is_ok == '-2') {
-		emMsg('您所要激活的帐号不存在，亲，如果有什么问题您可以联系管理员，或是重新注册哦', WEB_ROOT, 1);
+		emMsg('您所要激活的帐号不存在，亲，如果有什么问题您可以联系管理员，或是重新注册哦', BLOG_URL, 1);
 	} else {
-		emMsg('非常抱歉，您的帐号激活失败，亲，如果有什么问题您可以联系管理员，或是重新注册哦', WEB_ROOT, 1);
+		emMsg('非常抱歉，您的帐号激活失败，亲，如果有什么问题您可以联系管理员，或是重新注册哦', BLOG_URL, 1);
 	}
 	exit;
 }

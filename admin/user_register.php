@@ -22,7 +22,7 @@ if (isset($_GET['reSendMail'])) {
         $_COOKIE['zq_sendmail'] = $_COOKIE['zq_sendmail'] + 1;
     }
     $emailcode=authcode($_GET['reSendMail'], "ENCODE");
-    $webRoot=WEB_ROOT;
+    $webRoot=BLOG_URL;
     $message = <<<str
     欢迎您注册  之晴博客 ， 点击以下链接激活您的帐号：
         $webRoot/?emailcheck=$emailcode
@@ -129,7 +129,7 @@ if ($action == 'register') {
 msg;
 
         echo "<script>var register_box=window.top.document.getElementById('register_box'); _jswrite(register_box,\"&nbsp;&nbsp;" . $message . "\");</script>";
-        echo "<script>setTimeout(window.top.location.href='" . WEB_ROOT . "',8000);</script>";
+        echo "<script>setTimeout(window.top.location.href='" . BLOG_URL . "',8000);</script>";
         exit;
     }
     //如果有注册检测
@@ -324,11 +324,11 @@ msg;
         /*
           LoginAuth::setAuthCookie($login, 1);
           $message=<<<msg
-          <div style='margin:25px;line-height:30px;text-indent:2em;'>您已经成功完善了身份信息，系统3秒后将自动为您跳转...<br/> 如果没有跳转，请点击<a href='javascript:;' onClick='window.top.location.href=\"<?php echo WEB_ROOT; ?>\";'>跳转</a></div>
+          <div style='margin:25px;line-height:30px;text-indent:2em;'>您已经成功完善了身份信息，系统3秒后将自动为您跳转...<br/> 如果没有跳转，请点击<a href='javascript:;' onClick='window.top.location.href=\"<?php echo BLOG_URL; ?>\";'>跳转</a></div>
           msg;
 
           echo "<script>var register_box=window.top.document.getElementById('register_box'); _jswrite(register_box,\"&nbsp;&nbsp;".$message."\");</script>";
-          echo "<script>setTimeout(window.top.location.href='<?php echo WEB_ROOT; ?>',5000);</script>";
+          echo "<script>setTimeout(window.top.location.href='<?php echo BLOG_URL; ?>',5000);</script>";
          */
         $message = <<<str
     恭喜您已经完善 之晴博客 帐户信息， 请点击以下链接激活您的帐号：

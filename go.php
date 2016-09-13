@@ -1,9 +1,9 @@
 <?php
 include_once "./config.php";
 $directGo = false; //是否直接跳转
-$errorPage = WEB_ROOT . '/404.html';
-$home = WEB_ROOT; //这里定义你的博客的访问地址，请注意修改为你自己的
-$refer = empty($_SERVER['HTTP_REFERER']) ? WEB_ROOT : $_SERVER['HTTP_REFERER'];
+$errorPage = BLOG_URL . '/404.html';
+$home = BLOG_URL; //这里定义你的博客的访问地址，请注意修改为你自己的
+$refer = empty($_SERVER['HTTP_REFERER']) ? BLOG_URL : $_SERVER['HTTP_REFERER'];
 function printPic($pic) {
 	header('Content-Type: image/gif');
 	switch ($pic) {

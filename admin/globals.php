@@ -24,7 +24,7 @@ if ($action == 'login') {
 	if ($loginAuthRet === true) {
 		LoginAuth::setAuthCookie($username, $ispersis);
 
-        echo "<script>window.top.location.href='".WEB_ROOT."/admin';</script>";
+        echo "<script>window.top.location.href='".BLOG_URL."/admin';</script>";
         exit();
 //		emDirect("./");
 	}else{

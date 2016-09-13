@@ -14,7 +14,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 </div><!--end #wrap-->
 <script>prettyPrint();</script>
 
-<!-- <?php echo WEB_ROOT; ?> Baidu tongji analytics -->
+<!-- <?php echo BLOG_URL; ?> Baidu tongji analytics -->
         <script type="text/javascript">
         var _hmt = _hmt || [];
         (function() {

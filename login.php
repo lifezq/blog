@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<?php require_once "./init.php"; ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<title>登录  - 之晴 </title>
+<title>登录  - <?php echo SITE_TITLE; ?> </title>
 </head>
 <style type="text/css">
 	*{margin:0px;border:0px;padding:0px;}
@@ -36,7 +37,7 @@
 </style>
 <body>
 <div id="login">
-	<div id="title"><a href="https://lifezq.com">之晴</a> - 用户登录</div>
+	<div id="title"><a href="https://lifezq.com"><?php echo SITE_TITLE; ?></a> - 用户登录</div>
     <div style="width:320px;height:auto;margin:0px auto;">
         <form action="https://lifezq.com/admin/index.php?action=login&op=floated" method="post" target="registeriframe">
         <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
@@ -83,7 +84,8 @@
       function register(){
           $("#TB_window").css({'height':'370px'})
           $("#TB_ajaxContent").css({'height':'370px'})
-          $("#TB_ajaxContent").load('https://lifezq.com/register.html?height=370;width=400')
+          $("#TB_ajaxContent").load('<?php echo BLOG_URL; ?>/register.php?height=370;width=400')
       }
     </script>
 </html>
+<?php echo  ob_get_clean(); ?>

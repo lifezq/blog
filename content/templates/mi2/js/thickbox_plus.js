@@ -14,16 +14,16 @@ $("a.thickbox").click(function(){
   var bindAccount=/bindAccount/;
   if(pregLogin.test(this.href)){
       //280
-      url=_root+"/login.html?height=370;width=400";
+      url=_root+"/login.php?height=370;width=400";
   }else if(pregReg.test(this.href)){
       //250
-      url=_root+"/register.html?height=370;width=400";
+      url=_root+"/register.php?height=370;width=400";
   }else if(comAccount.test(this.href)){
       //300
-      url=_root+"/comaccount.html?height=370;width=400";
+      url=_root+"/comaccount.php?height=370;width=400";
   }else if(bindAccount.test(this.href)){
       //120
-      url=_root+"/bindAccount.html?height=240;width=400";
+      url=_root+"/bindAccount.php?height=240;width=400";
   }
   this.href='javascript:void(0)';
   TB_show(t,url);
@@ -45,7 +45,7 @@ function TB_show(caption, url) { //function called when the user clicks on a thi
       $(window).resize(TB_position);
       $("body").append("<div id='TB_load'><div id='TB_loadContent'>&nbsp;</div></div>");
       $("#TB_overlay").show();
-      var urlString = /.jpg|.jpeg|.png|.gif|.html|.htm/g;
+      var urlString = /.jpg|.jpeg|.png|.gif|.php|.html|.htm/g;
       var urlType = url.match(urlString);
       
       if(urlType == '.jpg' || urlType == '.jpeg' || urlType == '.png' || urlType == '.gif'){//code to show images
@@ -88,7 +88,7 @@ function TB_show(caption, url) { //function called when the user clicks on a thi
          imgPreloader.src = url;
       }
       
-      if(urlType == '.htm' || urlType == '.html'){//code to show html pages
+      if(urlType == '.php' || urlType == '.htm' || urlType == '.html'){//code to show html pages
          
          var queryString = url.replace(/^[^\?]+\??/,'');
          var params = parseQuery( queryString );

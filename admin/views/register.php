@@ -48,16 +48,16 @@
         }
         .autoDiv div{cursor: default;line-height:14px;}
 </style>
-    <script type="text/javascript" src="<?php echo WEB_ROOT; ?>/content/templates/mi2/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo BLOG_URL; ?>/content/templates/mi2/js/jquery.min.js"></script>
 <body>
 <?php
 
 ?>
 <div id="login">
-    <div id="title"><a href="<?php echo WEB_ROOT; ?>">之晴博客</a> - 用户注册  <span class="registered">已经注册,现在就去<a href="javascript:void(0)" onClick="this.href='<?php echo WEB_ROOT;?>/admin/index.php?action=login';"><strong>登录</strong></a>吧。</span></div>
+    <div id="title"><a href="<?php echo BLOG_URL; ?>">之晴博客</a> - 用户注册  <span class="registered">已经注册,现在就去<a href="javascript:void(0)" onClick="this.href='<?php echo BLOG_URL;?>/admin/index.php?action=login';"><strong>登录</strong></a>吧。</span></div>
     <div style="width:400px;height:auto;overflow: hidden;margin:0px auto;text-align: center;" id="register_box">
         
-            <form action="<?php echo WEB_ROOT;?>/admin/user_register.php?action=register" method="post" target="registeriframe">
+            <form action="<?php echo BLOG_URL;?>/admin/user_register.php?action=register" method="post" target="registeriframe">
         <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
             <tr style="height:30px">
                 <td class="bfont" align="right">用户名：</td>
@@ -81,7 +81,7 @@
             </tr>
             <tr style="height:30px">
                 <td class="bfont" align="right">验证码：</td>
-                <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="<?php echo WEB_ROOT;?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
+                <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="<?php echo BLOG_URL;?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
                 <td><span id="verify_notice" class="notice">&nbsp;</span></td>
             </tr>
             <tr style="height:30px">
@@ -197,7 +197,7 @@
    
         function checkReg(types,val){
             type=types;
-            var url='<?php echo WEB_ROOT; ?>/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
+            var url='<?php echo BLOG_URL; ?>/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
             startRequest(url)
         }
         

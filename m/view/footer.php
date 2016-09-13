@@ -1,4 +1,4 @@
-<div id="footer">Copyright © <a href="<?php echo WEB_ROOT;?>/m">之晴</a>  Powered by emlog
+<div id="footer">Copyright © <a href="<?php echo BLOG_URL;?>/m">之晴</a>  Powered by emlog
 </div>
 
 <!-- blog.lifezq.com Baidu tongji analytics -->

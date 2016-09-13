@@ -24,9 +24,9 @@ if (strlen($site_title) < 42 && strlen($site_title) >= 39) {
         <meta name="keywords" content="<?php echo $site_key; ?>" />
         <meta name="description" content="<?php echo $site_description; ?>" />
         <meta name="generator" content="之晴" />
-        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php echo WEB_ROOT; ?>xmlrpc.php?rsd" />
-        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="<?php echo WEB_ROOT; ?>wlwmanifest.xml" />
-        <link rel="alternate" type="application/rss+xml" title="RSS"  href="<?php echo WEB_ROOT; ?>rss.php" />
+        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="<?php echo BLOG_URL; ?>xmlrpc.php?rsd" />
+        <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="<?php echo BLOG_URL; ?>wlwmanifest.xml" />
+        <link rel="alternate" type="application/rss+xml" title="RSS"  href="<?php echo BLOG_URL; ?>rss.php" />
         <link href="<?php echo TEMPLATE_URL; ?>css/main.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo TEMPLATE_URL; ?>css/style.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="<?php echo TEMPLATE_URL; ?>css/thickbox.css"/>
@@ -109,8 +109,8 @@ if (strlen($site_title) < 42 && strlen($site_title) >= 39) {
             <div class="cl" id="toptb">
                 <div class="wp">
                     <div class="z">
-                        <a href="javascript:void(0);" onClick="SetHome(this,'<?php echo WEB_ROOT; ?>');">设为首页</a>
-                        <a href="javascript:void(0);" onClick="AddFavorite('<?php echo WEB_ROOT; ?>',document.title)">收藏本站</a>
+                        <a href="javascript:void(0);" onClick="SetHome(this,'<?php echo BLOG_URL; ?>');">设为首页</a>
+                        <a href="javascript:void(0);" onClick="AddFavorite('<?php echo BLOG_URL; ?>',document.title)">收藏本站</a>
                         <?php echo $toptb_left_url; ?>
                     </div>
                     <div class="y">
@@ -119,42 +119,42 @@ global $CACHE;
 $user_cache = $CACHE->readCache('user');
 ?>
                         <?php if (!empty($user_cache[UID]['photo']['src'])): ?>
-                        <a href="<?php echo WEB_ROOT; ?>admin">
-                            <img style="vertical-align: top;" src="<?php echo WEB_ROOT . $user_cache[UID]['photo']['src']; ?>" id="login_img" title="<?php echo $user_cache[UID]['name']; ?>" alt="<?php echo $user_cache[UID]['name']; ?>" >
+                        <a href="<?php echo BLOG_URL; ?>admin">
+                            <img style="vertical-align: top;" src="<?php echo BLOG_URL . $user_cache[UID]['photo']['src']; ?>" id="login_img" title="<?php echo $user_cache[UID]['name']; ?>" alt="<?php echo $user_cache[UID]['name']; ?>" >
                         </a>
-                        <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo WEB_ROOT; ?>admin" title="<?php echo $user_cache[UID]['name']; ?>"><?php echo $user_cache[UID]['name']; ?></a>
+                        <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo BLOG_URL; ?>admin" title="<?php echo $user_cache[UID]['name']; ?>"><?php echo $user_cache[UID]['name']; ?></a>
                         <?php elseif (!empty($user_cache[UID]['name'])): ?>
-                        <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo WEB_ROOT; ?>admin" title="<?php echo $user_cache[UID]['name']; ?>"><?php echo $user_cache[UID]['name']; ?></a>
+                        <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo BLOG_URL; ?>admin" title="<?php echo $user_cache[UID]['name']; ?>"><?php echo $user_cache[UID]['name']; ?></a>
                         <?php elseif (isset($_COOKIE['qq-username'])): ?>
-                        <a href="<?php echo WEB_ROOT; ?>admin">
-                            <img style="width:15px;height:16px;vertical-align: top;" src="<?php echo WEB_ROOT . 'content/uploadfile/com/connect_qq.gif'; ?>" id="login_img" title="<?php echo $_COOKIE['qq-username']; ?>" alt="<?php echo $_COOKIE['qq-username']; ?>">
+                        <a href="<?php echo BLOG_URL; ?>admin">
+                            <img style="width:15px;height:16px;vertical-align: top;" src="<?php echo BLOG_URL . 'content/uploadfile/com/connect_qq.gif'; ?>" id="login_img" title="<?php echo $_COOKIE['qq-username']; ?>" alt="<?php echo $_COOKIE['qq-username']; ?>">
                         </a>
-                        <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo WEB_ROOT; ?>admin" title="<?php echo $_COOKIE['qq-username']; ?>"><?php echo $_COOKIE['qq-username']; ?></a>
+                        <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo BLOG_URL; ?>admin" title="<?php echo $_COOKIE['qq-username']; ?>"><?php echo $_COOKIE['qq-username']; ?></a>
                         <a href="javascript:;" title="完善帐户信息"  onClick="this.href='comAccount'" class="thickbox" >完善帐户信息</a>
                         <a href="javascript:;" title="绑定已有帐号" onClick="this.href='bindAccount'" class="thickbox" >绑定已有帐号</a>
-                        <a href="<?php echo WEB_ROOT; ?>admin/?action=logout">退出</a>
+                        <a href="<?php echo BLOG_URL; ?>admin/?action=logout">退出</a>
                         <?php elseif (isset($_COOKIE['sina-username'])): ?>
-                        <a href="<?php echo WEB_ROOT; ?>admin">
-                            <img style="width:22px;height:21px;vertical-align: top;" src="<?php echo WEB_ROOT . 'content/uploadfile/com/connect_sina.png'; ?>" id="login_img" title="<?php echo $_COOKIE['sina-username']; ?>" alt="<?php echo $_COOKIE['sina-username']; ?>">
+                        <a href="<?php echo BLOG_URL; ?>admin">
+                            <img style="width:22px;height:21px;vertical-align: top;" src="<?php echo BLOG_URL . 'content/uploadfile/com/connect_sina.png'; ?>" id="login_img" title="<?php echo $_COOKIE['sina-username']; ?>" alt="<?php echo $_COOKIE['sina-username']; ?>">
                         </a>
-                        <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo WEB_ROOT; ?>admin" title="<?php echo $_COOKIE['sina-username']; ?>"><?php echo $_COOKIE['sina-username']; ?></a>
+                        <a href="javascript:;" style="cursor: none;text-decoration:none;">您好， </a> <a href="<?php echo BLOG_URL; ?>admin" title="<?php echo $_COOKIE['sina-username']; ?>"><?php echo $_COOKIE['sina-username']; ?></a>
                         <a href="javascript:;" title="完善帐号信息"  onClick="this.href='comAccount'" class="thickbox" >完善帐号信息</a>
                         <a href="javascript:;" title="绑定已有帐号" onClick="this.href='bindAccount'" class="thickbox" >绑定已有帐号</a>
-                        <a href="<?php echo WEB_ROOT; ?>admin/?action=logout">退出</a>
+                        <a href="<?php echo BLOG_URL; ?>admin/?action=logout">退出</a>
                         <?php endif;?>
                         <?php if ((ROLE == 'admin' || ROLE == 'writer') && (!isset($_COOKIE['qq-username']) && !isset($_COOKIE['sina-username']))): ?>
-                        <a href="<?php echo WEB_ROOT; ?>admin/write_log.php">写日志</a>
-                        <a href="<?php echo WEB_ROOT; ?>admin/">管理中心</a>
-                        <a href="<?php echo WEB_ROOT; ?>admin/?action=logout">退出</a>
+                        <a href="<?php echo BLOG_URL; ?>admin/write_log.php">写日志</a>
+                        <a href="<?php echo BLOG_URL; ?>admin/">管理中心</a>
+                        <a href="<?php echo BLOG_URL; ?>admin/?action=logout">退出</a>
                         <?php elseif (!isset($_COOKIE['qq-username']) && !isset($_COOKIE['sina-username'])): ?>
-                        <a href="javascript:;"  onClick="this.href='<?php echo WEB_ROOT; ?>/QQLogin/oauth/qq_login.php';" title="使用腾讯QQ登录"><img src="<?php echo WEB_ROOT; ?>/QQLogin/img/qq_login.png" alt="使用腾讯QQ登录" width="120" height="24"/></a>
-                        <!--                                        <a href="javascript:void(0);" onClick="this.href='<?php echo WEB_ROOT; ?>weiboSina/';"><img src="<?php echo WEB_ROOT; ?>weiboSina/loginButton_24.png" width="102" height="24" alt="用新浪微博登录" title="用新浪微博登录"/></a>-->
+                        <a href="javascript:;"  onClick="this.href='<?php echo BLOG_URL; ?>/QQLogin/oauth/qq_login.php';" title="使用腾讯QQ登录"><img src="<?php echo BLOG_URL; ?>/QQLogin/img/qq_login.png" alt="使用腾讯QQ登录" width="120" height="24"/></a>
+                        <!--                                        <a href="javascript:void(0);" onClick="this.href='<?php echo BLOG_URL; ?>weiboSina/';"><img src="<?php echo BLOG_URL; ?>weiboSina/loginButton_24.png" width="102" height="24" alt="用新浪微博登录" title="用新浪微博登录"/></a>-->
                         <a href="javascript:void(0);" onClick="this.href='login'" class="thickbox">登录</a>
                         <a href="javascript:void(0);" onClick="this.href='register'" class="thickbox" id="register_button">注册</a>
                         <?php endif;?>
-                        <a title="碎碎念" href="<?php echo WEB_ROOT; ?>self-talking">碎碎念</a>
+                        <a title="碎碎念" href="<?php echo BLOG_URL; ?>self-talking">碎碎念</a>
                         <?php echo $toptb_right_url; ?>
-                        <a title="RSS订阅" href="<?php echo WEB_ROOT; ?>rss.php">订阅本站</a>
+                        <a title="RSS订阅" href="<?php echo BLOG_URL; ?>rss.php">订阅本站</a>
                     </div>
                 </div>
             </div>
@@ -162,12 +162,12 @@ $user_cache = $CACHE->readCache('user');
             <div id="hd">
                 <div class="wp">
                     <div class="hdc cl">
-                        <h1 class="logo"><a id="zq_logo" href="<?php echo WEB_ROOT; ?>" class="zq_logo"></a></h1>
+                        <h1 class="logo"><a id="zq_logo" href="<?php echo BLOG_URL; ?>" class="zq_logo"></a></h1>
                         <div id="weather">&nbsp;</div>
                         <div class="login">
                             <div id="serch" class="serch">
                                 <div style="height:auto;overflow: hidden;">
-                                    <form name="keyform" id="searchform" method="get" action="<?php echo WEB_ROOT; ?>index.php">
+                                    <form name="keyform" id="searchform" method="get" action="<?php echo BLOG_URL; ?>index.php">
                                         <input name="keyword" id="s" class="text" type="text" value="输入关键词" onfocus="if(this.value=='输入关键词') this.value=''" onblur="if(this.value=='') this.value='输入关键词'">
                                         <input name="keyword" class="submit" type="submit" value="&nbsp;">
                                     </form>
@@ -187,7 +187,7 @@ endforeach;
                     <div class="nv"><?php blog_navi();?></div>
                     <!--        <div id="banner">
                         <a href="<?php echo $bannerUrl; ?>" target="_blank">
-                            <img src="<?php echo WEB_ROOT . Option::get('topimg'); ?>"width="960px" border="0"/>
+                            <img src="<?php echo BLOG_URL . Option::get('topimg'); ?>"width="960px" border="0"/>
                         </a>
                     </div>end banner-->
                     </div><!--end wp-->
