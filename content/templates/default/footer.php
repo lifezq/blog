@@ -12,7 +12,7 @@ if(!defined('EMLOG_ROOT')) {exit('error!');}
 	<?php doAction('index_footer'); ?>
 </div><!--end #footerbar-->
 </div><!--end #wrap-->
-<script>//prettyPrint();</script>
+<script>prettyPrint();</script>
 
 <!-- <?php echo WEB_ROOT; ?> Baidu tongji analytics -->
         <script type="text/javascript">
