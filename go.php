@@ -26,7 +26,7 @@ if (empty($_GET['url']) && empty($_GET['pic'])) {
 } else {
 	$url = $_GET['url'];
 	$url = htmlspecialchars($url);
-	$url = (!preg_match("/^https\:\/\//i", $url)) ? "https://" . $url : $url;
+	$url = (!preg_match("/^https?\:\/\//i", $url)) ? "https://" . $url : $url;
 	if ($directGo) //若設定了直接跳转
 	{
 		header('Location:' . $url); //直接跳转

@@ -14,8 +14,8 @@ if (!defined('EMLOG_ROOT')) {
 <!--footer-->
 <div class="footer">
 <div class="copyright">
-    陕ICP备16000429号 Copyright ©  <a href="<?php echo WEB_ROOT; ?>" title="之晴博客" target="_blank">之晴</a>
-    2012-<?php echo date('Y'); ?>  .  Powered by Emlog. Theme by <a href="<?php echo WEB_ROOT; ?>" title="之晴博客" target="_blank">之晴</a>.
+    陕ICP备16000429号 Copyright ©  <a href="<?php echo WEB_ROOT; ?>" title="之晴" target="_blank">之晴</a>
+    2012-<?php echo date('Y'); ?>  .  Powered by Emlog. Theme by <a href="<?php echo WEB_ROOT; ?>" title="之晴" target="_blank">之晴</a>.
 </div>
 <div class="right">
     <span class="navr">
@@ -38,7 +38,7 @@ if (!defined('EMLOG_ROOT')) {
     </div><!--right-->
     <div class="clear"></div>
     <div class="footerRelief">
-        <p>声明：之晴博客为个人站，此站主要为技术分享，资料共享，下载等，如果站内资源有侵犯您的利益，请及时联系我们会尽快处理。</p>
+        <p>声明：之晴网为个人站，此站主要为生活健康，个人主页，技术分享，资料共享，下载等，如果站内资源有侵犯您的利益，请及时联系我们会尽快处理。</p>
         <!-- <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> -->
     </div>
     <div class="clear"></div>

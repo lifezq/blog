@@ -3,7 +3,7 @@
 	$bannerUrl = WEB_ROOT;//banner的链接
 	$guestBook = WEB_ROOT;//首页图片 “留言”的链接
 	$toptb_left_url = "
-	<a href='".WEB_ROOT."' target='_blank'>之晴博客</a>
+	<a href='".WEB_ROOT."' target='_blank'>之晴网</a>
 	";//设置顶部左侧菜单
 	$toptb_right_url = "
 	<a href='".WEB_ROOT."/messages.html' target='_blank'>给我留言</a>
