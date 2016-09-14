@@ -47,6 +47,8 @@ echo <<< END
 </rss>
 END;
 
+echo ob_get_clean();
+
 /**
  * 获取文章信息
  *

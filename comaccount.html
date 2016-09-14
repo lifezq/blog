@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>完善帐户信息  -  </title>
+    </head>
+    <link href="/content/templates/mi2/css/auth.css" rel="stylesheet" type="text/css" />
+    <body>
+        <div id="login">
+            <div id="title"> - 完善帐户信息 </div>
+            <div style="width:400px;height:auto;overflow: hidden;margin:0px auto;text-align: center;" id="register_box">
+
+                <div style="width:380px;height:auto;overflow: hidden;margin:0px auto;padding-top:10px;line-height:20px;text-align: center;color: #6bb044;font-weight: bold;">完善帐户信息后，您可以在本站用该帐户登录，也可以用腾讯QQ快速登录</div>
+                <form action="/admin/user_register.php?action=register&op=comAccount" method="post" target="registeriframe">
+                    <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
+                        <tr style="height:30px">
+                            <td class="bfont" align="right">用户名：</td>
+                            <td><input class="txtbox" type="text" name="login" onblur="checkReg(1,this.value)"/> <font color="#f00">*</font></td>
+                            <td width="190"><span id="login_notice" class="notice">&nbsp;</span></td>
+                        </tr>
+                        <tr style="height:30px">
+                            <td class="bfont" align="right">密&nbsp;&nbsp;码：</td>
+                            <td><input class="txtbox" type="password" name="password"  onblur="checkReg(4,this.value)" id="password"/> <font color="#f00">*</font></td>
+                            <td><span id="password_notice" class="notice">&nbsp;</span></td>
+                        </tr>
+                        <tr style="height:30px">
+                            <td class="bfont" align="right">确认密码：</td>
+                            <td><input class="txtbox" type="password" name="password2"  onblur="checkReg(5,this.value+'-'+document.getElementById('password').value)"/> <font color="#f00">*</font></td>
+                            <td><span id="password2_notice" class="notice">&nbsp;</span></td>
+                        </tr>
+                        <tr style="height:30px">
+                            <td class="bfont" align="right">邮&nbsp;&nbsp;箱：</td>
+                            <td><div class="clear_box"><input class="txtbox" type="text" name="email"  onblur="checkReg(2,this.value)" id="email"/><a class="clear_email" href="javascript:;" node-type="clear" id="clear_email" title="email">×</a> <font color="#f00">*</font><div id="auto-show"></div> </div></td>
+                            <td><span id="email_notice" class="notice">&nbsp;请认真填写一个常用的邮箱</span></td>
+                        </tr>
+                        <tr style="height:30px">
+                            <td class="bfont" align="right">验证码：</td>
+                            <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
+                            <td><span id="verify_notice" class="notice">&nbsp;</span></td>
+                        </tr>
+                        <tr style="height:30px">
+                            <td align="left" colspan="3"><input type="hidden" value="writer" name="role"/> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="checkbox" name="agree" value="1"/> 我已同意《<a href="javascript:void(0);" onClick="window.open('/treaty.html', 'treaty', 'width=470,height=550')">使用协议</a>》 <span id="agree_notice" class="notice">&nbsp;</span></td>
+                        </tr>
+
+                        <tr style="height:30px">
+                            <td align="center" colspan="3"><input type="hidden" id="isSubmitOk" name="isSubmitOk" value="1"/> <input  type="submit" value="提 交" class="submit" onClick="if(document.getElementById('isSubmitOk').value=='-1'){ return false; }"/> </td>
+                        </tr>
+                    </table>
+                </form>
+                <div id="btnlogin">
+                </div>
+            </div>
+            <div><iframe  src="" name="registeriframe" id="registeriframe" frameborder="0" height="1"></iframe></div>
+        </div>
+    </body>
+    <script type="text/javascript" src="/content/templates/mi2/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/content/templates/mi2/js/blog.js"></script>
+</html>

@@ -1,5 +1,5 @@
 <?php
-include_once "./config.php";
+include_once "./init.php";
 $directGo = false; //是否直接跳转
 $errorPage = BLOG_URL . '/404.html';
 $home = BLOG_URL; //这里定义你的博客的访问地址，请注意修改为你自己的
@@ -21,7 +21,6 @@ if (!empty($_GET['pic'])) {
 	printPic($_GET['pic']);
 }
 if (empty($_GET['url']) && empty($_GET['pic'])) {
-	require_once 'init.php';
 	show_404_page();
 } else {
 	$url = $_GET['url'];
@@ -34,7 +33,6 @@ if (empty($_GET['url']) && empty($_GET['pic'])) {
 	}
 	if (strpos($_SERVER['HTTP_REFERER'], $home) === false) //非本站引用
 	{
-		require_once 'init.php';
 		show_404_page();
 	}
 }
@@ -115,3 +113,4 @@ if (empty($_GET['url']) && empty($_GET['pic'])) {
         </table>
     </body>
 </html>
+<?php echo ob_get_clean(); ?>

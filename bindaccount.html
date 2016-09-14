@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>绑定帐号  -  </title>
+    </head>
+    <link href="/content/templates/mi2/css/auth.css" rel="stylesheet" type="text/css" />
+    <body>
+        <div id="login">
+            <div id="title"> - 绑定已有帐号  </div>
+            <div style="width:400px;height:210px;overflow: hidden;margin:0px auto;text-align: center;" id="register_box">
+                <form action="/admin/user_register.php?action=register&op=bindAccount" method="post" target="registeriframe">
+                    <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
+                        <tr style="height:30px">
+                            <td class="bfont" align="right"><select name="bindType" onchange="showBind(this.value);" class="bind_select">
+                                <option value="1" selected="selected">用户名</option>
+                                <option value="2">UID</option>
+                                <option value="3">Email</option>
+                            </select> &nbsp;</td>
+                            <td><div class="clear_box"><input class="txtbox login_bind bind" type="text" name="login" onblur="checkReg(7,this.value)"/> <input class="txtbox email_bind bind" type="text" name="email"  onblur="checkReg(2,this.value)" style="display:none;" id="email"/><a class="clear_email" href="javascript:;" node-type="clear" id="clear_email" title="email">×</a><div id="auto-show"></div> <input class="txtbox uid_bind bind" type="text" name="uid"  onblur="checkReg(6,this.value)" style="display:none;"/></div></td>
+                            <td width="190"><span id="login_notice" class="notice login_bind bind">&nbsp;请输入您要绑定的用户名</span><span id="email_notice" class="notice email_bind bind" style="display:none;">&nbsp;请认真填写一个常用的邮箱</span><span id="uid_bind_notice" class="notice uid_bind bind" style="display:none;">&nbsp;如果您知道用户ID，可以填写UID</span></td>
+                        </tr>
+
+                        <tr style="height:30px">
+                            <td align="center" colspan="3"><input type="hidden" id="isSubmitOk" name="isSubmitOk" value="1"/> <input  type="submit" value="绑 定" class="submit" onClick="if(document.getElementById('isSubmitOk').value=='-1'){ return false; }"/> </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div><iframe  src="" name="registeriframe" id="registeriframe" frameborder="0" height="1"></iframe></div>
+        </div>
+    </body>
+    <script type="text/javascript" src="/content/templates/mi2/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/content/templates/mi2/js/blog.js"></script>
+</html>
