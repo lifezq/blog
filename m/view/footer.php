@@ -1,11 +1,16 @@
-<div id="footer">Copyright © <a href="<?php echo BLOG_URL;?>/m">之晴</a>  Powered by emlog
+<div id="footer">Copyright © <a href="<?php echo BLOG_URL; ?>/m">之晴</a>  Powered by emlog
 </div>
 
-<!-- blog.lifezq.com Baidu tongji analytics -->
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fcbd656b3f0593714fc390aba8f59c3e1' type='text/javascript'%3E%3C/script%3E"));
-</script>
+<!-- <?php echo BLOG_URL; ?> Baidu tongji analytics -->
+        <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?0810a99adf306aca33f7df1d93290857";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
 
 </body>
 </html>
