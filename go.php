@@ -41,9 +41,9 @@ if (empty($_GET['url']) && empty($_GET['pic'])) {
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>之晴博客 - php建站知识分享</title>
-        <meta name="keywords" content="之晴博客,之晴的博客,之晴,php建站知识分享,php,mysql,linux">
-        <meta name="description" content="之晴博客,提供个人参考学习的资料文档，php建站经验交流，在这里与大家分享WEB互联网PHP建站技术与经验，WEB开发中所需要的资料及技术知识分享平台。可以相互学习和分享php应用,Apache,Linux服务器管理等WEB开发知识与经验。">
+        <title>之晴网 - </title>
+        <meta name="keywords" content="之晴网,之晴的博客,之晴,php,mysql,linux">
+        <meta name="description" content="之晴网,提供个人参考学习的资料文档，php建站经验交流，在这里与大家分享WEB互联网PHP建站技术与经验，WEB开发中所需要的资料及技术知识分享平台。可以相互学习和分享php应用,Apache,Linux服务器管理等WEB开发知识与经验。">
         <script language="javascript" type="text/javascript" >
         var userAgent = navigator.userAgent.toLowerCase();
         var is_opera = userAgent.indexOf('opera') != -1 && opera.version();

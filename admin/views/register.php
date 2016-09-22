@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>注册  - 之晴博客 - php建站知识分享</title>
+<title>注册  - 之晴网 - </title>
 </head>
 <style type="text/css">
 	*{margin:0px;border:0px;padding:0px;}
@@ -34,7 +34,7 @@
         .autoDiv
         {
             visibility: hidden;
-            
+
             position: absolute;
             +left:1px;
             +top:20px;
@@ -54,10 +54,10 @@
 
 ?>
 <div id="login">
-    <div id="title"><a href="<?php echo BLOG_URL; ?>">之晴博客</a> - 用户注册  <span class="registered">已经注册,现在就去<a href="javascript:void(0)" onClick="this.href='<?php echo BLOG_URL;?>/admin/index.php?action=login';"><strong>登录</strong></a>吧。</span></div>
+    <div id="title"><a href="<?php echo BLOG_URL; ?>">之晴网</a> - 用户注册  <span class="registered">已经注册,现在就去<a href="javascript:void(0)" onClick="this.href='<?php echo BLOG_URL; ?>/admin/index.php?action=login';"><strong>登录</strong></a>吧。</span></div>
     <div style="width:400px;height:auto;overflow: hidden;margin:0px auto;text-align: center;" id="register_box">
-        
-            <form action="<?php echo BLOG_URL;?>/admin/user_register.php?action=register" method="post" target="registeriframe">
+
+            <form action="<?php echo BLOG_URL; ?>/admin/user_register.php?action=register" method="post" target="registeriframe">
         <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
             <tr style="height:30px">
                 <td class="bfont" align="right">用户名：</td>
@@ -81,23 +81,23 @@
             </tr>
             <tr style="height:30px">
                 <td class="bfont" align="right">验证码：</td>
-                <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="<?php echo BLOG_URL;?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
+                <td><input class="verbox" type="text" name="verifycode" size="5" maxlength="5" onblur="checkReg(3,this.value)"/> <img align="absmiddle" src="<?php echo BLOG_URL; ?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()"></td>
                 <td><span id="verify_notice" class="notice">&nbsp;</span></td>
             </tr>
             <tr style="height:30px">
                 <td align="left" colspan="3"><input type="hidden" value="writer" name="role"/> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  type="checkbox" name="agree" value="1"/> 我已同意《<a href="javascript:void(0);" onClick="window.open('../../treaty.html', 'treaty', 'width=470,height=550')">之晴使用协议</a>》 <span id="agree_notice" class="notice">&nbsp;</span></td>
             </tr>
-           
+
             <tr style="height:30px">
                 <td align="center" colspan="3"><input type="hidden" id="isSubmitOk" name="isSubmitOk" value="1"/><input  type="submit" value="提 交" class="submit" id="submit"  onClick="if(document.getElementById('isSubmitOk').value=='-1'){ return false; }"/> </td>
             </tr>
         </table>
             </form>
         <div id="btnlogin">
-            
+
         </div>
-        
-       
+
+
     </div>
         <div><iframe  src="" name="registeriframe" id="registeriframe"></iframe></div>
 </div>
@@ -112,9 +112,9 @@
             this.style.color='#FF0000';
             this.style.background='#FDEBD9';
         }
-        
+
         function _jswrite(obj,str){ if(obj.innerHTML){ obj.innerHTML=str;}else{obj.innerTEXT=str;}}
-    
+
         var xmlHttp;
         var type=0;
         function createXMLHttpRequest () {
@@ -145,30 +145,30 @@
                 // alert("xmlHttp.status="+xmlHttp.status);
                 if ( xmlHttp.status == 200 ) {
                     var msg=xmlHttp.responseText;
-               
+
                     document.getElementById("isSubmitOk").value='1';
                     if(msg<0){
                         document.getElementById("isSubmitOk").value='-1';
                         if(msg=='-1'){
                             _jswrite(document.getElementById("login_notice"),'用户名已经注册');
-                         
+
                         }else if(msg=='-2'){
                             _jswrite(document.getElementById("email_notice"),'邮箱格式不正确');
-                        
+
                         }else if(msg=='-3'){
                             _jswrite(document.getElementById("verify_notice"),'验证码不正确');
-                          
+
                         }else if(msg=='-4'){
-                            _jswrite(document.getElementById("login_notice"),'用户名至少为两个字符');   
+                            _jswrite(document.getElementById("login_notice"),'用户名至少为两个字符');
                         }else if(msg=='-5'){
-                            _jswrite(document.getElementById("password_notice"),'密码至少为6个字符');   
+                            _jswrite(document.getElementById("password_notice"),'密码至少为6个字符');
                         }else if(msg=='-6'){
-                            _jswrite(document.getElementById("password2_notice"),'密码至少为6个字符');   
+                            _jswrite(document.getElementById("password2_notice"),'密码至少为6个字符');
                         }else if(msg=='-7'){
-                            _jswrite(document.getElementById("password2_notice"),'再次密码不一致');   
+                            _jswrite(document.getElementById("password2_notice"),'再次密码不一致');
                         }else if(msg=='-8'){
                             _jswrite(document.getElementById("email_notice"),'邮箱已经存在');
-                        } 
+                        }
                     }
                     else{
                         switch(type){
@@ -177,31 +177,31 @@
                             break;
                             case 2:
                                 _jswrite(document.getElementById("email_notice"),'&nbsp;');
-                             break;  
+                             break;
                             case 3:
                                 _jswrite(document.getElementById("verify_notice"),'&nbsp;');
-                             break;  
+                             break;
                             case 4:
-                                _jswrite(document.getElementById("password_notice"),'&nbsp;');   
-                             break; 
+                                _jswrite(document.getElementById("password_notice"),'&nbsp;');
+                             break;
                             case 5:
-                                _jswrite(document.getElementById("password2_notice"),'&nbsp;');   
-                             break;  
-                                
+                                _jswrite(document.getElementById("password2_notice"),'&nbsp;');
+                             break;
+
                         }
                     }
                 } else {
                     //alert("获取资料出错!");
                 }
             }}
-   
+
         function checkReg(types,val){
             type=types;
             var url='<?php echo BLOG_URL; ?>/admin/user_register.php?action=register&op=check&type='+types+'&data='+val
             startRequest(url)
         }
-        
-        
+
+
      //自动显示
 function autoShow() {
     var obj = document.getElementById("email");
@@ -256,11 +256,11 @@ function setStyleForChange() {
 function autoWidthDiv(val){
     if(val){
        var now_W=$('#auto-show').width();
-       $('#auto-show').css('width',now_W+8+'px'); 
+       $('#auto-show').css('width',now_W+8+'px');
     }else{
-       $('#auto-show').css('width','120px');  
+       $('#auto-show').css('width','120px');
     }
-    
+
 }
 //define args
 //常用邮件列表数组
@@ -278,7 +278,7 @@ $('#clear_email').click(function(){
 })
 $(document).ready(function () {
             var emailInput = $("#email");
-            
+
             var emailListDiv = $("#auto-show");
             //bind focus event(获得焦点)
             emailInput.focus(autoShow);
@@ -340,7 +340,7 @@ $(document).ready(function () {
                         $("div #" + i).text("").text(currentVal + emailList[i - 1]);
                          $('#clear_email').attr('title',currentVal);
                     }
-                    $('#clear_email').show();    
+                    $('#clear_email').show();
                 }
                 //如果按下退格键或删除键
                 if (keyCode == 8 || keyCode == 46) {
@@ -354,6 +354,6 @@ $(document).ready(function () {
                 }
             });
         });
-  
+
 </script>
 </html>

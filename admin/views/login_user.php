@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>登录  - 之晴博客 - php建站知识分享</title>
+<title>登录  - 之晴网 - </title>
 </head>
 <style type="text/css">
 	*{margin:0px;border:0px;padding:0px;}
@@ -30,32 +30,34 @@
         .submit{width:50px;height:25px;border-radius: 4px;border:1px solid lightpink;color: #FF0000;background: #FDEBD9;}
         .submit:hover{color: #CC0000;background: #D9D9D9;}
 </style>
-<?php 
+<?php
 
-if(!function_exists('getBlogUrl')){
-function getBlogUrl() {
-    
-	$phpself = isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '';
-	if (preg_match("/^.*\//", $phpself, $matches)) {
-		return 'https://' . $_SERVER['HTTP_HOST'] . $matches[0];
-	} else {
-		return $_SERVER['SCRIPT_NAME'];
+if (!function_exists('getBlogUrl')) {
+	function getBlogUrl() {
+
+		$phpself = isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : '';
+		if (preg_match("/^.*\//", $phpself, $matches)) {
+			return 'https://' . $_SERVER['HTTP_HOST'] . $matches[0];
+		} else {
+			return $_SERVER['SCRIPT_NAME'];
+		}
 	}
 }
-}
-$scriptUrl=  getBlogUrl();
+$scriptUrl = getBlogUrl();
 
-$preg="/views/";
-if(preg_match($preg,$scriptUrl))
-   echo "<script>window.location.href='".BLOG_URL."/admin/index.php?action=login';</script>";
+$preg = "/views/";
+if (preg_match($preg, $scriptUrl)) {
+	echo "<script>window.location.href='" . BLOG_URL . "/admin/index.php?action=login';</script>";
+}
+
 ?>
-<script type="text/javascript" src="<?php echo BLOG_URL;?>/admin/views/js/common.js"></script>
+<script type="text/javascript" src="<?php echo BLOG_URL; ?>/admin/views/js/common.js"></script>
 <body>
 
 <div id="login">
-	<div id="title"><a href="<?php echo BLOG_URL; ?>">之晴博客</a> - 用户登录</div>
+	<div id="title"><a href="<?php echo BLOG_URL; ?>">之晴网</a> - 用户登录</div>
     <div style="width:320px;height:auto;margin:0px auto;">
-        <form action="<?php echo BLOG_URL;?>/admin/index.php?action=login" method="post">
+        <form action="<?php echo BLOG_URL; ?>/admin/index.php?action=login" method="post">
         <table id="loginbox" border="0" cellpadding="0" cellspacing="0">
             <tr style="height:30px">
                 <td class="bfont">用户名：</td>
@@ -67,7 +69,7 @@ if(preg_match($preg,$scriptUrl))
             </tr>
             <tr style="height:30px">
                 <td class="bfont">验证码：</td>
-                <td><input class="verbox" type="text" name="imgcode"  size="5" maxlength="5"/> <img align="left" src="<?php echo BLOG_URL;?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()" class="toright"></td>
+                <td><input class="verbox" type="text" name="imgcode"  size="5" maxlength="5"/> <img align="left" src="<?php echo BLOG_URL; ?>/include/lib/checkcode.php" onclick="this.src=this.src+'?'+Math.random()" class="toright"></td>
             </tr>
             <tr style="height:30px">
                 <td  colspan="2" align="center"><input id="ispersis" type="checkbox" value="1" name="ispersis"/> <label for="ispersis">记住密码</label></td>
@@ -77,16 +79,16 @@ if(preg_match($preg,$scriptUrl))
         </form>
     </div>
         <div style=" clear:both;"></div>
-        <div class="login-ext"><?php doAction('login_ext'); ?></div>
+        <div class="login-ext"><?php doAction('login_ext');?></div>
         <div style=" clear:both;"></div>
         <?php if ($error_msg): ?>
 <div class="login-error"><?php echo $error_msg; ?></div>
 <?php endif;?>
     <div id="forget">
     	<span style="float:left;"><a href="#">忘记密码？</a></span>
-        <span style="float:right;"><a  href="javascript:void(0)" onclick="this.href='<?php echo BLOG_URL;?>/admin/index.php?action=register';">没有注册？</a></span>
+        <span style="float:right;"><a  href="javascript:void(0)" onclick="this.href='<?php echo BLOG_URL; ?>/admin/index.php?action=register';">没有注册？</a></span>
     </div>
-        <div class="box_3">注册会员后,评论留言更方便喔。<a class="a_1" href="javascript:void(0)" onclick="this.href='<?php echo BLOG_URL;?>/admin/index.php?action=register';">点击注册</a></div>
+        <div class="box_3">注册会员后,评论留言更方便喔。<a class="a_1" href="javascript:void(0)" onclick="this.href='<?php echo BLOG_URL; ?>/admin/index.php?action=register';">点击注册</a></div>
 </div>
 </body>
 <script>

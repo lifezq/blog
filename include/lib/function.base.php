@@ -1,24 +1,24 @@
 <?php
 //判断用户是否为手机登录
-function isMobile() {     
-$user_agent = $_SERVER['HTTP_USER_AGENT'];     
-$mobile_agents = Array("240x320","acer","acoon","acs-","abacho","ahong","airness","alcatel","amoi","android","anywhereyougo.com","applewebkit/525","applewebkit/532","asus","audio","au-mic","avantogo","becker","benq","bilbo","bird","blackberry","blazer","bleu","cdm-","compal","coolpad","danger","dbtel","dopod","elaine","eric","etouch","fly ","fly_","fly-","go.web","goodaccess","gradiente","grundig","haier","hedy","hitachi","htc","huawei","hutchison","inno","ipad","ipaq","ipod","jbrowser","kddi","kgt","kwc","lenovo","lg ","lg2","lg3","lg4","lg5","lg7","lg8","lg9","lg-","lge-","lge9","longcos","maemo","mercator","meridian","micromax","midp","mini","mitsu","mmm","mmp","mobi","mot-","moto","nec-","netfront","newgen","nexian","nf-browser","nintendo","nitro","nokia","nook","novarra","obigo","palm","panasonic","pantech","philips","phone","pg-","playstation","pocket","pt-","qc-","qtek","rover","sagem","sama","samu","sanyo","samsung","sch-","scooter","sec-","sendo","sgh-","sharp","siemens","sie-","softbank","sony","spice","sprint","spv","symbian","tablet","talkabout","tcl-","teleca","telit","tianyu","tim-","toshiba","tsm","up.browser","utec","utstar","verykool","virgin","vk-","voda","voxtel","vx","wap","wellco","wig browser","wii","windows ce","wireless","xda","xde","zte");     
-$is_mobile = false;     
-foreach ($mobile_agents as $device) {       
-if (stristr($user_agent, $device)) {         
-$is_mobile = true;         
-break;       
-}     
-}     
-return $is_mobile;   
+function isMobile() {
+	$user_agent = $_SERVER['HTTP_USER_AGENT'];
+	$mobile_agents = Array("240x320", "acer", "acoon", "acs-", "abacho", "ahong", "airness", "alcatel", "amoi", "android", "anywhereyougo.com", "applewebkit/525", "applewebkit/532", "asus", "audio", "au-mic", "avantogo", "becker", "benq", "bilbo", "bird", "blackberry", "blazer", "bleu", "cdm-", "compal", "coolpad", "danger", "dbtel", "dopod", "elaine", "eric", "etouch", "fly ", "fly_", "fly-", "go.web", "goodaccess", "gradiente", "grundig", "haier", "hedy", "hitachi", "htc", "huawei", "hutchison", "inno", "ipad", "ipaq", "ipod", "jbrowser", "kddi", "kgt", "kwc", "lenovo", "lg ", "lg2", "lg3", "lg4", "lg5", "lg7", "lg8", "lg9", "lg-", "lge-", "lge9", "longcos", "maemo", "mercator", "meridian", "micromax", "midp", "mini", "mitsu", "mmm", "mmp", "mobi", "mot-", "moto", "nec-", "netfront", "newgen", "nexian", "nf-browser", "nintendo", "nitro", "nokia", "nook", "novarra", "obigo", "palm", "panasonic", "pantech", "philips", "phone", "pg-", "playstation", "pocket", "pt-", "qc-", "qtek", "rover", "sagem", "sama", "samu", "sanyo", "samsung", "sch-", "scooter", "sec-", "sendo", "sgh-", "sharp", "siemens", "sie-", "softbank", "sony", "spice", "sprint", "spv", "symbian", "tablet", "talkabout", "tcl-", "teleca", "telit", "tianyu", "tim-", "toshiba", "tsm", "up.browser", "utec", "utstar", "verykool", "virgin", "vk-", "voda", "voxtel", "vx", "wap", "wellco", "wig browser", "wii", "windows ce", "wireless", "xda", "xde", "zte");
+	$is_mobile = false;
+	foreach ($mobile_agents as $device) {
+		if (stristr($user_agent, $device)) {
+			$is_mobile = true;
+			break;
+		}
+	}
+	return $is_mobile;
 }
 //发送邮件函数
-function sendmail($toemail, $subject, $message, $from='',$webTitle='',$webUrl='') {
+function sendmail($toemail, $subject, $message, $from = '', $webTitle = '', $webUrl = '') {
 
-        $date=date('Y-m-d H:i',time());
-        $webTitle = $webTitle?$webTitle:'之晴博客';
-        $webUrl = $webUrl?$webUrl: BLOG_URL;
-$message=<<<str
+	$date = date('Y-m-d H:i', time());
+	$webTitle = $webTitle ? $webTitle : '之晴网';
+	$webUrl = $webUrl ? $webUrl : BLOG_URL;
+	$message = <<<str
         <table cellspacing="0" cellpadding="20">
 	<tr><td>
 	<table width="500" cellspacing="0" cellpadding="1">
@@ -40,9 +40,9 @@ $message=<<<str
 	</td></tr>
 </table>
 str;
-                                        
-	include_once(EMLOG_ROOT . '/phpmailer/data_mail.php');
-	
+
+	include_once EMLOG_ROOT . '/phpmailer/data_mail.php';
+
 	//邮件头的分隔符
 	$maildelimiter = $mail['maildelimiter'] == 1 ? "\r\n" : ($mail['maildelimiter'] == 2 ? "\r" : "\n");
 	//收件人地址中包含用户名
@@ -50,98 +50,96 @@ str;
 	//端口
 	$mail['port'] = $mail['port'] ? $mail['port'] : 25;
 	$mail['mailsend'] = $mail['mailsend'] ? $mail['mailsend'] : 1;
-	
+
 	//发信者
 	$email_from = empty($from) ? $mail['adminemail'] : $from;
-        
+
 	$email_to = $toemail;
-	
-	$email_subject = '=?utf-8?B?'.base64_encode(preg_replace("/[\r|\n]/", '', $subject)).'?=';
+
+	$email_subject = '=?utf-8?B?' . base64_encode(preg_replace("/[\r|\n]/", '', $subject)) . '?=';
 	$email_message = chunk_split(base64_encode(str_replace("\n", "\r\n", str_replace("\r", "\n", str_replace("\r\n", "\n", str_replace("\n\r", "\r", $message))))));
-	
-	$headers = "From: $email_from{$maildelimiter}X-Priority: 3{$maildelimiter}X-Mailer: UCENTER_HOME ".X_VER."{$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=utf-8{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
-		
-	if($mail['mailsend'] == 1) {
-		if(function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
+
+	$headers = "From: $email_from{$maildelimiter}X-Priority: 3{$maildelimiter}X-Mailer: UCENTER_HOME " . X_VER . "{$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=utf-8{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
+
+	if ($mail['mailsend'] == 1) {
+		if (function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
 			return true;
 		}
 		return false;
-		
-	} elseif($mail['mailsend'] == 2) {
-           
-		require_once(EMLOG_ROOT . "/phpmailer/class.phpmailer.php"); 
-		$mail2 	= new PHPMailer();
-		$mail2->CharSet 	= "utf-8"; 
+
+	} elseif ($mail['mailsend'] == 2) {
+
+		require_once EMLOG_ROOT . "/phpmailer/class.phpmailer.php";
+		$mail2 = new PHPMailer();
+		$mail2->CharSet = "utf-8";
 		$mail2->FromName = $email_from;
-		$address 		= $toemail;
+		$address = $toemail;
 		$mail2->IsSMTP();
-		$mail2->Host 	= $mail['server'];
-		$mail2->Port 	= $mail['port'];
+		$mail2->Host = $mail['server'];
+		$mail2->Port = $mail['port'];
 		$mail2->SMTPAuth = true;
-		$mail2->Username = $mail['auth_username'];	
-		$mail2->Password = $mail['auth_password'];		
-		$mail2->From 	 = $mail['auth_username'];			
+		$mail2->Username = $mail['auth_username'];
+		$mail2->Password = $mail['auth_password'];
+		$mail2->From = $mail['auth_username'];
 		$mail2->AddAddress("$toemail", "");
-		$mail2->Subject 	= $email_subject;
+		$mail2->Subject = $email_subject;
 		$mail2->MsgHTML($message);
 		$mail2->IsHTML(true);
-		if($mail2->Send()) {
+		if ($mail2->Send()) {
 			return true;
-		}
-		else{
+		} else {
 			return false;
 		}
 
-            return false;
-	} elseif($mail['mailsend'] == 3) {
+		return false;
+	} elseif ($mail['mailsend'] == 3) {
 
 		ini_set('SMTP', $mail['server']);
 		ini_set('smtp_port', $mail['port']);
 		ini_set('sendmail_from', $email_from);
-	
-		if(function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
+
+		if (function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
 			return true;
 		}
 		return false;
 	}
-       
-    
+
 }
 //字符串解密加密
 function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 
-	$ckey_length = 4;	// 随机密钥长度 取值 0-32;
-				// 加入随机密钥，可以令密文无任何规律，即便是原文和密钥完全相同，加密结果也会每次不同，增大破解难度。
-				// 取值越大，密文变动规律越大，密文变化 = 16 的 $ckey_length 次方
-				// 当此值为 0 时，则不产生随机密钥
+	$ckey_length = 4; // 随机密钥长度 取值 0-32;
+	// 加入随机密钥，可以令密文无任何规律，即便是原文和密钥完全相同，加密结果也会每次不同，增大破解难度。
+	// 取值越大，密文变动规律越大，密文变化 = 16 的 $ckey_length 次方
+	// 当此值为 0 时，则不产生随机密钥
 
-	$key = md5($key ? $key :"c3f0P9ejuLaCD2IEVOvfi99/+DBPLUO32l5lhcyq9pSW4m+QuLiwdV8lhUtFicglYakTiYiqSgx7qIp58zKdd0iyjqMQDjdv/C8kNq7rCjo9DIXjepEzfsua60kz");
+	$key = md5($key ? $key : "c3f0P9ejuLaCD2IEVOvfi99/+DBPLUO32l5lhcyq9pSW4m+QuLiwdV8lhUtFicglYakTiYiqSgx7qIp58zKdd0iyjqMQDjdv/C8kNq7rCjo9DIXjepEzfsua60kz");
 	$keya = md5(substr($key, 0, 16));
 	$keyb = md5(substr($key, 16, 16));
-	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length): substr(md5(microtime()), -$ckey_length)) : '';
+	$keyc = $ckey_length ? ($operation == 'DECODE' ? substr($string, 0, $ckey_length) : substr(md5(microtime()), -$ckey_length)) : '';
 
-	$cryptkey = $keya.md5($keya.$keyc);
+	$cryptkey = $keya . md5($keya . $keyc);
 	$key_length = strlen($cryptkey);
 
-	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0).substr(md5($string.$keyb), 0, 16).$string;
+	$string = $operation == 'DECODE' ? base64_decode(substr($string, $ckey_length)) : sprintf('%010d', $expiry ? $expiry + time() : 0) . substr(md5($string . $keyb), 0, 16) . $string;
 	$string_length = strlen($string);
 
 	$result = '';
 	$box = range(0, 255);
 
 	$rndkey = array();
-	for($i = 0; $i <= 255; $i++) {
+	for ($i = 0; $i <= 255; $i++) {
 		$rndkey[$i] = ord($cryptkey[$i % $key_length]);
 	}
 
-	for($j = $i = 0; $i < 256; $i++) {
+	for ($j = $i = 0; $i < 256; $i++) {
 		$j = ($j + $box[$i] + $rndkey[$i]) % 256;
 		$tmp = $box[$i];
 		$box[$i] = $box[$j];
 		$box[$j] = $tmp;
 	}
 
-	for($a = $j = $i = 0; $i < $string_length; $i++) {
+	for ($a = $j = $i = 0; $i < $string_length; $i++) {
 		$a = ($a + 1) % 256;
 		$j = ($j + $box[$a]) % 256;
 		$tmp = $box[$a];
@@ -150,14 +148,14 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 		$result .= chr(ord($string[$i]) ^ ($box[($box[$a] + $box[$j]) % 256]));
 	}
 
-	if($operation == 'DECODE') {
-		if((substr($result, 0, 10) == 0 || substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) == substr(md5(substr($result, 26).$keyb), 0, 16)) {
+	if ($operation == 'DECODE') {
+		if ((substr($result, 0, 10) == 0 || substr($result, 0, 10) - time() > 0) && substr($result, 10, 16) == substr(md5(substr($result, 26) . $keyb), 0, 16)) {
 			return substr($result, 26);
 		} else {
 			return '';
 		}
 	} else {
-		return $keyc.str_replace('=', '', base64_encode($result));
+		return $keyc . str_replace('=', '', base64_encode($result));
 	}
 }
 /**
@@ -167,11 +165,11 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 function __autoload($class) {
 	$class = strtolower($class);
 	if (file_exists(EMLOG_ROOT . '/include/model/' . $class . '.php')) {
-		require_once(EMLOG_ROOT . '/include/model/' . $class . '.php');
+		require_once EMLOG_ROOT . '/include/model/' . $class . '.php';
 	} elseif (file_exists(EMLOG_ROOT . '/include/lib/' . $class . '.php')) {
-		require_once(EMLOG_ROOT . '/include/lib/' . $class . '.php');
+		require_once EMLOG_ROOT . '/include/lib/' . $class . '.php';
 	} elseif (file_exists(EMLOG_ROOT . '/include/controller/' . $class . '.php')) {
-		require_once(EMLOG_ROOT . '/include/controller/' . $class . '.php');
+		require_once EMLOG_ROOT . '/include/controller/' . $class . '.php';
 	} else {
 		emMsg($class . '加载失败。');
 	}
@@ -266,9 +264,11 @@ function emLoadJQuery() {
 		if (!isset($emHooks['index_head'])) {
 			$emHooks['index_head'] = array();
 		}
-                //如果该方法不存在再在前面追加该数组无素
-                if(!in_array('loadJQuery',$emHooks['index_head']))
-		array_unshift($emHooks['index_head'], 'loadJQuery');
+		//如果该方法不存在再在前面追加该数组无素
+		if (!in_array('loadJQuery', $emHooks['index_head'])) {
+			array_unshift($emHooks['index_head'], 'loadJQuery');
+		}
+
 		$isJQueryLoaded = true;
 
 		function loadJQuery() {
@@ -304,8 +304,10 @@ function subString($strings, $start, $length) {
 	$str = substr($strings, $start, $length);
 	$char = 0;
 	for ($i = 0; $i < strlen($str); $i++) {
-		if (ord($str[$i]) >= 128)
+		if (ord($str[$i]) >= 128) {
 			$char++;
+		}
+
 	}
 	$str2 = substr($strings, $start, $length + 1);
 	$str3 = substr($strings, $start, $length + 2);
@@ -376,7 +378,7 @@ function changeFileSize($fileSize) {
  * 获取文件名后缀
  */
 function getFileSuffix($fileName) {
-	return strtolower(pathinfo($fileName,  PATHINFO_EXTENSION));
+	return strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
 }
 
 /**
@@ -402,12 +404,18 @@ function pagination($count, $perlogs, $page, $url, $anchor = '') {
 			}
 		}
 	}
-	if ($page > 6)
+	if ($page > 6) {
 		$re = "<a href=\"{$urlHome}$anchor\" title=\"首页\">&laquo;</a><em>...</em>$re";
-	if ($page + 5 < $pnums)
+	}
+
+	if ($page + 5 < $pnums) {
 		$re .= "<em>...</em> <a href=\"$url$pnums$anchor\" title=\"尾页\">&raquo;</a>";
-	if ($pnums <= 1)
+	}
+
+	if ($pnums <= 1) {
 		$re = '';
+	}
+
 	return $re;
 }
 
@@ -449,12 +457,12 @@ function doAction($hook) {
  */
 function breakLog($content, $lid) {
 	$a = explode('[break]', $content, 2);
-        
+
 	if (!empty($a[1])) {
-		$a[0] = substring(strip_tags($a[0]),0,300).'&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . Url::log($lid) . '">阅读全文&gt;&gt;</a>';
-	}else{
-            $a[0] = substring(strip_tags($a[0]),0,300).'&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . Url::log($lid) . '">阅读全文&gt;&gt;</a>';
-        }
+		$a[0] = substring(strip_tags($a[0]), 0, 300) . '&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . Url::log($lid) . '">阅读全文&gt;&gt;</a>';
+	} else {
+		$a[0] = substring(strip_tags($a[0]), 0, 300) . '&nbsp;&nbsp;&nbsp;&nbsp;<a href="' . Url::log($lid) . '">阅读全文&gt;&gt;</a>';
+	}
 	return $a[0];
 }
 
@@ -528,28 +536,28 @@ function findArray($array1, $array2) {
 function uploadFile($fileName, $errorNum, $tmpFile, $fileSize, $type, $isIcon = false, $is_thumbnail = true) {
 	$result = upload($fileName, $errorNum, $tmpFile, $fileSize, $type, $isIcon, $is_thumbnail);
 	switch ($result) {
-		case '100':
-			emMsg('文件大小超过系统' . ini_get('upload_max_filesize') . '限制');
-			break;
-		case '101':
-			emMsg('上传文件失败,错误码：' . $errorNum);
-			break;
-		case '102':
-			emMsg('错误的文件类型');
-			break;
-		case '103':
-			$ret = changeFileSize(Option::UPLOADFILE_MAXSIZE);
-			emMsg("文件大小超出{$ret}的限制");
-			break;
-		case '104':
-			emMsg('创建文件上传目录失败');
-			break;
-		case '105':
-			emMsg('上传失败。文件上传目录(content/uploadfile)不可写');
-			break;
-		default:
-			return $result;
-			break;
+	case '100':
+		emMsg('文件大小超过系统' . ini_get('upload_max_filesize') . '限制');
+		break;
+	case '101':
+		emMsg('上传文件失败,错误码：' . $errorNum);
+		break;
+	case '102':
+		emMsg('错误的文件类型');
+		break;
+	case '103':
+		$ret = changeFileSize(Option::UPLOADFILE_MAXSIZE);
+		emMsg("文件大小超出{$ret}的限制");
+		break;
+	case '104':
+		emMsg('创建文件上传目录失败');
+		break;
+	case '105':
+		emMsg('上传失败。文件上传目录(content/uploadfile)不可写');
+		break;
+	default:
+		return $result;
+		break;
 	}
 }
 
@@ -557,18 +565,18 @@ function uploadFile($fileName, $errorNum, $tmpFile, $fileSize, $type, $isIcon = 
 function uploadFileBySwf($fileName, $errorNum, $tmpFile, $fileSize, $type, $isIcon = false, $is_thumbnail = true) {
 	$result = upload($fileName, $errorNum, $tmpFile, $fileSize, $type, $isIcon, $is_thumbnail);
 	switch ($result) {
-		case '100':
-		case '101':
-		case '102':
-		case '103':
-		case '104':
-		case '105':
-			header("HTTP/1.1 404 Not Found");
-			exit;
-			break;
-		default:
-			return $result;
-			break;
+	case '100':
+	case '101':
+	case '102':
+	case '103':
+	case '104':
+	case '105':
+		header("HTTP/1.1 404 Not Found");
+		exit;
+		break;
+	default:
+		return $result;
+		break;
 	}
 }
 
@@ -594,8 +602,8 @@ function uploadFileBySwf($fileName, $errorNum, $tmpFile, $fileSize, $type, $isIc
  * @param array $type 允许上传的文件类型
  * @param boolean $isIcon 是否为上传头像
  * @param boolean $is_thumbnail 是否生成缩略图
- * @return array 文件数据 索引 
- * 
+ * @return array 文件数据 索引
+ *
  */
 function upload($fileName, $errorNum, $tmpFile, $fileSize, $type, $isIcon = false, $is_thumbnail = true) {
 	if ($errorNum == 1) {
@@ -666,7 +674,7 @@ function upload($fileName, $errorNum, $tmpFile, $fileSize, $type, $isIcon = fals
 		}
 		@chmod($attachpath, 0777);
 	}
-	
+
 	// 如果附件是图片需要提取宽高
 	if (in_array($file_info['mime_type'], array('image/jpeg', 'image/png', 'image/gif', 'image/bmp'))) {
 		$size = getimagesize($file_info['file_path']);
@@ -677,24 +685,29 @@ function upload($fileName, $errorNum, $tmpFile, $fileSize, $type, $isIcon = fals
 	}
 	return $file_info;
 }
-function GrabImage($url,$filename="") { 
-if($url=="") return false; 
+function GrabImage($url, $filename = "") {
+	if ($url == "") {
+		return false;
+	}
 
-if($filename=="") { 
-$ext=strrchr($url,"."); 
-if($ext!=".gif" && $ext!=".jpg" && $ext!=".png") return false; 
-$filename=date("YmdHis").$ext; 
-} 
+	if ($filename == "") {
+		$ext = strrchr($url, ".");
+		if ($ext != ".gif" && $ext != ".jpg" && $ext != ".png") {
+			return false;
+		}
 
-$img = @file_get_contents($url);
-$size = strlen($img); 
+		$filename = date("YmdHis") . $ext;
+	}
 
-$fp2=@fopen($filename, "a"); 
-fwrite($fp2,$img); 
-fclose($fp2); 
+	$img = @file_get_contents($url);
+	$size = strlen($img);
 
-return $filename; 
-} 
+	$fp2 = @fopen($filename, "a");
+	fwrite($fp2, $img);
+	fclose($fp2);
+
+	return $filename;
+}
 /**
  * 图片生成缩略图
  *
@@ -755,31 +768,31 @@ function imageCropAndResize($src_image, $dst_path, $dst_x, $dst_y, $src_x, $src_
 	}
 
 	switch (getFileSuffix($dst_path)) {
-		case 'png':
-			if (function_exists('imagepng') && imagepng($new_img, $dst_path)) {
-				ImageDestroy($new_img);
-				return true;
-			} else {
-				return false;
-			}
-			break;
-		case 'jpg':
-		default:
-			if (function_exists('imagejpeg') && imagejpeg($new_img, $dst_path)) {
-				ImageDestroy($new_img);
-				return true;
-			} else {
-				return false;
-			}
-			break;
-		case 'gif':
-			if (function_exists('imagegif') && imagegif($new_img, $dst_path)) {
-				ImageDestroy($new_img);
-				return true;
-			} else {
-				return false;
-			}
-			break;
+	case 'png':
+		if (function_exists('imagepng') && imagepng($new_img, $dst_path)) {
+			ImageDestroy($new_img);
+			return true;
+		} else {
+			return false;
+		}
+		break;
+	case 'jpg':
+	default:
+		if (function_exists('imagejpeg') && imagejpeg($new_img, $dst_path)) {
+			ImageDestroy($new_img);
+			return true;
+		} else {
+			return false;
+		}
+		break;
+	case 'gif':
+		if (function_exists('imagegif') && imagegif($new_img, $dst_path)) {
+			ImageDestroy($new_img);
+			return true;
+		} else {
+			return false;
+		}
+		break;
 	}
 }
 
@@ -864,10 +877,10 @@ function emStrtotime($timeStr) {
 			} else {
 				if (phpversion() > '5.2' && $serverTimeZone = date_default_timezone_get()) {
 					/*
-					 * 如果服务器配置默认了时区，那么PHP将会把传入的时间识别为时区当地时间
-					 * 但是我们传入的时间实际是blog配置的时区的当地时间，并不是服务器时区的当地时间
-					 * 因此，我们需要将strtotime得到的时间去掉/加上两个时区的时差，得到utc时间
-					 */
+						 * 如果服务器配置默认了时区，那么PHP将会把传入的时间识别为时区当地时间
+						 * 但是我们传入的时间实际是blog配置的时区的当地时间，并不是服务器时区的当地时间
+						 * 因此，我们需要将strtotime得到的时间去掉/加上两个时区的时差，得到utc时间
+					*/
 					$offset = getTimeZoneOffset($serverTimeZone);
 					// 首先减去/加上本地时区配置的时差
 					$unixPostDate -= $timezone * 3600;
@@ -886,10 +899,10 @@ function emStrtotime($timeStr) {
  * 获取指定月份的天数
  */
 function getMonthDayNum($month, $year) {
-	$months_map = array(1=>31, 3=>31, 4=>30, 5=>31, 6=>30, 7=>31, 8=>31, 9=>30, 10=>31, 11=>30, 12=>31);
-	if(array_key_exists($month, $months_map)) {
+	$months_map = array(1 => 31, 3 => 31, 4 => 30, 5 => 31, 6 => 30, 7 => 31, 8 => 31, 9 => 30, 10 => 31, 11 => 30, 12 => 31);
+	if (array_key_exists($month, $months_map)) {
 		return $months_map[$month];
-	} else{
+	} else {
 		if ($year % 4 == 0) {
 			return 29;
 		} else {
@@ -916,22 +929,28 @@ function emUnZip($zipfile, $path, $type = 'tpl') {
 	$r = explode('/', $zip->getNameIndex(0), 2);
 	$dir = isset($r[0]) ? $r[0] . '/' : '';
 	switch ($type) {
-		case 'tpl':
-			$re = $zip->getFromName($dir . 'header.php');
-			if (false === $re)
-				return -2;
-			break;
-		case 'plugin':
-			$plugin_name = substr($dir, 0, -1);
-			$re = $zip->getFromName($dir . $plugin_name . '.php');
-			if (false === $re)
-				return -1;
-			break;
-		case 'backup':
-			$sql_name = substr($dir, 0, -1);
-			if (getFileSuffix($sql_name) != 'sql')
-				return -3;
-			break;
+	case 'tpl':
+		$re = $zip->getFromName($dir . 'header.php');
+		if (false === $re) {
+			return -2;
+		}
+
+		break;
+	case 'plugin':
+		$plugin_name = substr($dir, 0, -1);
+		$re = $zip->getFromName($dir . $plugin_name . '.php');
+		if (false === $re) {
+			return -1;
+		}
+
+		break;
+	case 'backup':
+		$sql_name = substr($dir, 0, -1);
+		if (getFileSuffix($sql_name) != 'sql') {
+			return -3;
+		}
+
+		break;
 	}
 	if (true === @$zip->extractTo($path)) {
 		$zip->close();
@@ -966,17 +985,25 @@ function emZip($orig_fname, $content) {
  * 删除文件或目录
  */
 function emDeleteFile($file) {
-	if (empty($file))
+	if (empty($file)) {
 		return false;
-	if (@is_file($file))
+	}
+
+	if (@is_file($file)) {
 		return @unlink($file);
+	}
+
 	$ret = true;
 	if ($handle = @opendir($file)) {
 		while ($filename = @readdir($handle)) {
-			if ($filename == '.' || $filename == '..')
+			if ($filename == '.' || $filename == '..') {
 				continue;
-			if (!emDeleteFile($file . '/' . $filename))
+			}
+
+			if (!emDeleteFile($file . '/' . $filename)) {
 				$ret = false;
+			}
+
 		}
 	} else {
 		$ret = false;
@@ -1003,8 +1030,8 @@ function emDirect($directUrl) {
  * @param string $url 返回地址
  * @param boolean $isAutoGo 是否自动返回 true false
  */
-function emMsg($msg, $url = 'javascript:history.back(-1);', $isAutoGo = false,$time=0) {
-    $time=$time?$time:2;
+function emMsg($msg, $url = 'javascript:history.back(-1);', $isAutoGo = false, $time = 0) {
+	$time = $time ? $time : 2;
 	if ($msg == '404') {
 		header("HTTP/1.1 404 Not Found");
 		$msg = '抱歉，你所请求的页面不存在！';
@@ -1014,7 +1041,7 @@ function emMsg($msg, $url = 'javascript:history.back(-1);', $isAutoGo = false,$t
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
 EOT;
-        $isAutoGo = true;//临时将本站所有跳转改为自动返回
+	$isAutoGo = true; //临时将本站所有跳转改为自动返回
 	if ($isAutoGo) {
 		echo "<meta http-equiv=\"refresh\" content=\"$time;url=$url\" />";
 	}
@@ -1064,13 +1091,13 @@ EOT;
 
 /**
  * 显示404错误页面
- * 
+ *
  */
 function show_404_page() {
-                $Log_Model = new Log_Model();
-                //热门搜索关键字
-                $keyhot=$Log_Model->keyword('',1);
-                
+	$Log_Model = new Log_Model();
+	//热门搜索关键字
+	$keyhot = $Log_Model->keyword('', 1);
+
 	if (is_file(TEMPLATE_PATH . '404.php')) {
 		header("HTTP/1.1 404 Not Found");
 		include View::getView('404');
@@ -1085,13 +1112,15 @@ function show_404_page() {
  *
  * @param $t
  */
-function emoFormat($t){
-	$emos = array('[耶]'=>'0.gif', '[呵呵]'=>'1.gif', '[悲伤]'=>'2.gif', '[抓狂]'=>'3.gif', '[衰]'=>'4.gif', '[花心]'=>'5.gif', '[哼]'=>'6.gif', '[泪]'=>'7.gif', '[害羞]'=>'8.gif', '[酷]'=>'9.gif', '[晕]'=>'10.gif', '[挤眼]'=>'11.gif', '[鬼脸]'=>'12.gif', '[汗]'=>'13.gif', '[吃惊]'=>'14.gif', '[发呆]'=>'15.gif', '[闭嘴]'=>'16.gif', '[撇嘴]'=>'17.gif', '[疑问]'=>'18.gif', '[睡觉]'=>'19.gif', '[NO]'=>'20.gif', '[大哭]'=>'21.gif', '[爱你]'=>'22.gif', '[嘻嘻]'=>'23.gif', '[生病]'=>'24.gif', '[偷笑]'=>'25.gif', '[思考]'=>'26.gif', '[玫瑰]'=>'27.gif', '[心]'=>'28.gif', '[伤心]'=>'29.gif', '[咖啡]'=>'30.gif', '[音乐]'=>'31.gif', '[下雨]'=>'32.gif', '[晴天]'=>'33.gif', '[星星]'=>'34.gif', '[月亮]'=>'35.gif');
-	if(!empty($t) && preg_match_all('/\[.+?\]/',$t,$matches)){
+function emoFormat($t) {
+	$emos = array('[耶]' => '0.gif', '[呵呵]' => '1.gif', '[悲伤]' => '2.gif', '[抓狂]' => '3.gif', '[衰]' => '4.gif', '[花心]' => '5.gif', '[哼]' => '6.gif', '[泪]' => '7.gif', '[害羞]' => '8.gif', '[酷]' => '9.gif', '[晕]' => '10.gif', '[挤眼]' => '11.gif', '[鬼脸]' => '12.gif', '[汗]' => '13.gif', '[吃惊]' => '14.gif', '[发呆]' => '15.gif', '[闭嘴]' => '16.gif', '[撇嘴]' => '17.gif', '[疑问]' => '18.gif', '[睡觉]' => '19.gif', '[NO]' => '20.gif', '[大哭]' => '21.gif', '[爱你]' => '22.gif', '[嘻嘻]' => '23.gif', '[生病]' => '24.gif', '[偷笑]' => '25.gif', '[思考]' => '26.gif', '[玫瑰]' => '27.gif', '[心]' => '28.gif', '[伤心]' => '29.gif', '[咖啡]' => '30.gif', '[音乐]' => '31.gif', '[下雨]' => '32.gif', '[晴天]' => '33.gif', '[星星]' => '34.gif', '[月亮]' => '35.gif');
+	if (!empty($t) && preg_match_all('/\[.+?\]/', $t, $matches)) {
 		$matches = array_unique($matches[0]);
 		foreach ($matches as $data) {
-			if(isset($emos[$data]))
-				$t = str_replace($data,'<img title="'.$data.'" src="'.BLOG_URL.'admin/editor/plugins/emoticons/images/'.$emos[$data].'"/>',$t);
+			if (isset($emos[$data])) {
+				$t = str_replace($data, '<img title="' . $data . '" src="' . BLOG_URL . 'admin/editor/plugins/emoticons/images/' . $emos[$data] . '"/>', $t);
+			}
+
 		}
 	}
 	return $t;
@@ -1105,7 +1134,7 @@ function emoFormat($t){
  * @param unknown_type $key
  * @return unknown
  */
-if(!function_exists('hash_hmac')) {
+if (!function_exists('hash_hmac')) {
 	function hash_hmac($algo, $data, $key) {
 		$packs = array('md5' => 'H32', 'sha1' => 'H40');
 
@@ -1133,7 +1162,7 @@ if(!function_exists('hash_hmac')) {
  * @param string $extension
  * @return string
  */
- function get_mimetype($extension) {
+function get_mimetype($extension) {
 	$ct['htm'] = 'text/html';
 	$ct['html'] = 'text/html';
 	$ct['txt'] = 'text/plain';
@@ -1192,6 +1221,6 @@ if(!function_exists('hash_hmac')) {
 	$ct['wmls'] = 'text/vnd.wap.wmlscript';
 	$ct['xsl'] = 'text/xml';
 	$ct['xml'] = 'text/xml';
-	
+
 	return isset($ct[strtolower($extension)]) ? $ct[strtolower($extension)] : 'text/html';
 }

@@ -6,20 +6,20 @@
  * @author 杨乾磊
  * @email yangqianleizq@gmail.com
  * @link http://blog.lifezq.com
- * @copyright (c) 2012-2013  
+ * @copyright (c) 2012-2013
  * @license http://www.gnu.org/licenses/
  * @datetime 2013-6-26  9:54:55
  * @version 1.0
  */
 if (!defined('EMLOG_ROOT')) {
-    exit('error!');
+	exit('error!');
 }
 function plugin_setting_view() {
-    global $user_cache;
-    $avatar = empty($user_cache[UID]['avatar']) ? './views/images/avatar.jpg' : '../' . $user_cache[UID]['avatar'];
-    $User_Model=new User_Model();
-    $email=$User_Model->getUserEmail();
-    ?>
+	global $user_cache;
+	$avatar = empty($user_cache[UID]['avatar']) ? './views/images/avatar.jpg' : '../' . $user_cache[UID]['avatar'];
+	$User_Model = new User_Model();
+	$email = $User_Model->getUserEmail();
+	?>
     <script>
         $("#zq_invite").addClass('sidebarsubmenu1');
         function zq_user(type){
@@ -31,11 +31,11 @@ function plugin_setting_view() {
             }
         }
     </script>
-    <style type="text/css" mce_bogus="1">     
+    <style type="text/css" mce_bogus="1">
         #sinat_form input{
             width: 150px;
             border:1px solid #aaa;
-            border-radius: 2px;  
+            border-radius: 2px;
         }
         #sinat_form ._input_user input{
             width:15px;
@@ -50,13 +50,13 @@ function plugin_setting_view() {
             border:1px solid #aaa;
             border-radius: 2px;
             background-color: White;
-      
+
         }
         ._input{margin:5px 0;}
     </style>
     <div class=containertitle> <b>激活邮件发送</b>
-        <?php if (isset($_GET['setting'])): ?><span class="actived">邮件已经成功发送到</span><?php endif; ?>
-        <?php if (isset($_GET['error'])): ?><span class="error">您发送到的邮件发送失败，请稍候再试...</span><?php endif; ?>
+        <?php if (isset($_GET['setting'])): ?><span class="actived">邮件已经成功发送到</span><?php endif;?>
+        <?php if (isset($_GET['error'])): ?><span class="error">您发送到的邮件发送失败，请稍候再试...</span><?php endif;?>
     </div>
     <div class=line></div>
     <div class="des">激活邮件发送，可以测试邮件是否能及时并正确的发送的用户
@@ -71,8 +71,8 @@ function plugin_setting_view() {
     <div id="auto-show">
     </div>
                     </div>
-                    <div class="_input">主 题： <input type="text" name="subject" value="你好，很高兴认识你 - 之晴博客 - php建站知识分享"/></div>
-                    请输入邮件内容:    
+                    <div class="_input">主 题： <input type="text" name="subject" value="你好，很高兴认识你 - 之晴网 - "/></div>
+                    请输入邮件内容:
                     <div class="msg">你还可以输入140字</div>
                     <div class="box_1"><textarea class="box" name="zq_email">你好，很高兴认识你,很高兴认识你。</textarea></div>
                     <div class="tbutton"><input type="submit" value="发 送" onclick="return checkt();"/> </div>
@@ -85,13 +85,13 @@ function plugin_setting_view() {
 }
 
 function plugin_setting() {
- 
-    //发送邮件函数
-function sendmail_t($toemail, $subject, $message, $from='',$webTitle='',$webUrl='') {
 
-        $date=date('Y-m-d H:i',time());
-        
-$message=<<<str
+	//发送邮件函数
+	function sendmail_t($toemail, $subject, $message, $from = '', $webTitle = '', $webUrl = '') {
+
+		$date = date('Y-m-d H:i', time());
+
+		$message = <<<str
         <table cellspacing="0" cellpadding="20">
 	<tr><td>
 	<table width="500" cellspacing="0" cellpadding="1">
@@ -113,89 +113,99 @@ $message=<<<str
 	</td></tr>
 </table>
 str;
-                                        
-	include_once('../phpmailer/data_mail.php');
-	//邮件头的分隔符
-	$maildelimiter = $mail['maildelimiter'] == 1 ? "\r\n" : ($mail['maildelimiter'] == 2 ? "\r" : "\n");
-	//收件人地址中包含用户名
-	$mailusername = isset($mail['mailusername']) ? $mail['mailusername'] : 1;
-	//端口
-	$mail['port'] = $mail['port'] ? $mail['port'] : 25;
-	$mail['mailsend'] = $mail['mailsend'] ? $mail['mailsend'] : 1;
-	
-	//发信者
-	$email_from = empty($from) ? $mail['adminemail'] : $from;
-        
-	$email_to = $toemail;
-	
-	$email_subject = '=?utf-8?B?'.base64_encode(preg_replace("/[\r|\n]/", '', $subject)).'?=';
-	$email_message = chunk_split(base64_encode(str_replace("\n", "\r\n", str_replace("\r", "\n", str_replace("\r\n", "\n", str_replace("\n\r", "\r", $message))))));
-	
-	$headers = "From: $email_from{$maildelimiter}X-Priority: 3{$maildelimiter}X-Mailer: UCENTER_HOME ".X_VER."{$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=utf-8{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
-		
-	if($mail['mailsend'] == 1) {
-		if(function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
-			return true;
-		}
-		return false;
-		
-	} elseif($mail['mailsend'] == 2) {
-           
-		require_once( "../phpmailer/class.phpmailer.php"); 
-		$mail2 	= new PHPMailer();
-		$mail2->CharSet 	= "utf-8"; 
-		$mail2->FromName = $email_from;
-		$address 		= $toemail;
-		$mail2->IsSMTP();
-		$mail2->Host 	= $mail['server'];
-		$mail2->Port 	= $mail['port'];
-		$mail2->SMTPAuth = true;
-		$mail2->Username = $mail['auth_username'];	
-		$mail2->Password = $mail['auth_password'];		
-		$mail2->From 	 = $mail['auth_username'];			
-		$mail2->AddAddress("$toemail", "");
-		$mail2->Subject 	= $email_subject;
-		$mail2->MsgHTML($message);
-		$mail2->IsHTML(true);
-		if($mail2->Send()) {
-			return true;
-		}
-		else{
+
+		include_once '../phpmailer/data_mail.php';
+		//邮件头的分隔符
+		$maildelimiter = $mail['maildelimiter'] == 1 ? "\r\n" : ($mail['maildelimiter'] == 2 ? "\r" : "\n");
+		//收件人地址中包含用户名
+		$mailusername = isset($mail['mailusername']) ? $mail['mailusername'] : 1;
+		//端口
+		$mail['port'] = $mail['port'] ? $mail['port'] : 25;
+		$mail['mailsend'] = $mail['mailsend'] ? $mail['mailsend'] : 1;
+
+		//发信者
+		$email_from = empty($from) ? $mail['adminemail'] : $from;
+
+		$email_to = $toemail;
+
+		$email_subject = '=?utf-8?B?' . base64_encode(preg_replace("/[\r|\n]/", '', $subject)) . '?=';
+		$email_message = chunk_split(base64_encode(str_replace("\n", "\r\n", str_replace("\r", "\n", str_replace("\r\n", "\n", str_replace("\n\r", "\r", $message))))));
+
+		$headers = "From: $email_from{$maildelimiter}X-Priority: 3{$maildelimiter}X-Mailer: UCENTER_HOME " . X_VER . "{$maildelimiter}MIME-Version: 1.0{$maildelimiter}Content-type: text/html; charset=utf-8{$maildelimiter}Content-Transfer-Encoding: base64{$maildelimiter}";
+
+		if ($mail['mailsend'] == 1) {
+			if (function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
+				return true;
+			}
+			return false;
+
+		} elseif ($mail['mailsend'] == 2) {
+
+			require_once "../phpmailer/class.phpmailer.php";
+			$mail2 = new PHPMailer();
+			$mail2->CharSet = "utf-8";
+			$mail2->FromName = $email_from;
+			$address = $toemail;
+			$mail2->IsSMTP();
+			$mail2->Host = $mail['server'];
+			$mail2->Port = $mail['port'];
+			$mail2->SMTPAuth = true;
+			$mail2->Username = $mail['auth_username'];
+			$mail2->Password = $mail['auth_password'];
+			$mail2->From = $mail['auth_username'];
+			$mail2->AddAddress("$toemail", "");
+			$mail2->Subject = $email_subject;
+			$mail2->MsgHTML($message);
+			$mail2->IsHTML(true);
+			if ($mail2->Send()) {
+				return true;
+			} else {
+				return false;
+			}
+
+			return false;
+		} elseif ($mail['mailsend'] == 3) {
+
+			ini_set('SMTP', $mail['server']);
+			ini_set('smtp_port', $mail['port']);
+			ini_set('sendmail_from', $email_from);
+
+			if (function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
+				return true;
+			}
 			return false;
 		}
 
-            return false;
-	} elseif($mail['mailsend'] == 3) {
-
-		ini_set('SMTP', $mail['server']);
-		ini_set('smtp_port', $mail['port']);
-		ini_set('sendmail_from', $email_from);
-	
-		if(function_exists('mail') && @mail($email_to, $email_subject, $email_message, $headers)) {
-			return true;
-		}
+	}
+	$email = isset($_POST['email']) ? htmlspecialchars(addslashes($_POST['email'])) : false;
+	if (!$email) {
 		return false;
 	}
-       
-    
-}
-    $email=isset($_POST['email'])?htmlspecialchars(addslashes($_POST['email'])):false;
-    if(!$email) return false;
-    $message=isset($_POST['zq_email'])?htmlspecialchars(addslashes($_POST['zq_email'])):false;
-    if(!$message) return false;
-    $subject=isset($_POST['subject'])?htmlspecialchars(addslashes($_POST['subject'])):false;
-    if(!$subject) return false;
-    $final_email=  explode(';', $email);
-    foreach($final_email as $v){
-        if(empty($v))            continue;
-    if(checkMail($v)){
-     if(sendmail_t($v,$subject,$message,'','之晴博客 - php建站知识分享',BLOG_URL)){
-        return true; 
-     }
-       
-       exit;
-    }
-    }
+
+	$message = isset($_POST['zq_email']) ? htmlspecialchars(addslashes($_POST['zq_email'])) : false;
+	if (!$message) {
+		return false;
+	}
+
+	$subject = isset($_POST['subject']) ? htmlspecialchars(addslashes($_POST['subject'])) : false;
+	if (!$subject) {
+		return false;
+	}
+
+	$final_email = explode(';', $email);
+	foreach ($final_email as $v) {
+		if (empty($v)) {
+			continue;
+		}
+
+		if (checkMail($v)) {
+			if (sendmail_t($v, $subject, $message, '', '之晴网 - ', BLOG_URL)) {
+				return true;
+			}
+
+			exit;
+		}
+	}
 
 }
 ?>
@@ -249,11 +259,11 @@ function setStyleForChange() {
 function autoWidthDiv(val){
     if(val){
        var now_W=$('#auto-show').width();
-       $('#auto-show').css('width',now_W+6+'px'); 
+       $('#auto-show').css('width',now_W+6+'px');
     }else{
-       $('#auto-show').css('width','150px');  
+       $('#auto-show').css('width','150px');
     }
-    
+
 }
 //define args
 //常用邮件列表数组
@@ -338,9 +348,9 @@ $(document).ready(function () {
                 }
             });
         });
-        
-        
-        
+
+
+
     $(document).ready(function(){
         $(".box").keyup(function(){
             var t=$(this).val();
@@ -356,6 +366,6 @@ $(document).ready(function () {
         var t=$(".box").val();
         if (t.length > 140){return false;}
     }
-    
+
 setTimeout(hideActived,2600);
 </script>
