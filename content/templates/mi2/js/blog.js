@@ -73,7 +73,7 @@ function register() {
     $("#TB_ajaxContent").css({
         'height': '370px'
     });
-    $("#TB_ajaxContent").load('<?php echo BLOG_URL; ?>/register.html?height=370;width=400');
+    $("#TB_ajaxContent").load('/register.html?height=370;width=400');
 }
 
 function _jswrite(obj, str) {
